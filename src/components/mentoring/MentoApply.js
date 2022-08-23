@@ -48,20 +48,20 @@ function MentoApply({ togglePopup, current}) {
   const onClick = () => {
     alert(`지원이 완료되었습니다.`);
     togglePopup(false);
-    try {
-      axios.post(`${url}/mentoring/${m_no}/apply`, {
-        m_no: m_no
-      }).then(function (response) {
-        if(response){
-           console.log('전송 완료');
-        }
-        else
-          console.log('정보 없음');
-      });
-    }
-    catch(err) {
-      console.log('err : ', err);
-    }
+    // try {
+    //   axios.post(`${url}/mentoring/${m_no}/apply`, {
+    //     m_no: m_no
+    //   }).then(function (response) {
+    //     if(response){
+    //        console.log('전송 완료');
+    //     }
+    //     else
+    //       console.log('정보 없음');
+    //   });
+    // }
+    // catch(err) {
+    //   console.log('err : ', err);
+    // }
   }
 
 
