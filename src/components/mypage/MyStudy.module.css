@@ -1,0 +1,124 @@
+.wrap {
+  width: 1300px;
+  height: 1000px;
+  margin: 0 auto;
+}
+
+.head {
+  height: 90px;
+  padding-top: 20px;
+  font-weight: 600;
+  font-size: 36px;
+}
+
+.nav {
+
+  text-align: center;
+  width: 1300px;
+  height: 50px;
+  line-height: 44px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-top: 2px solid #eee;
+  border-bottom: 2px solid #eee;
+}
+
+.nav li>* {
+  width: 180px;
+  font-size: 24px;
+
+}
+
+.top{
+    margin-top: 47px;
+    font-size: 22px;
+    font-weight: 500;
+}
+.body{
+    padding: 0 10%;
+}
+.topbox{
+    margin-top: 42px;
+    margin-bottom: 28px;
+    padding: 30px;
+    border: 2px solid #c4c4c4;
+    border-radius: 10px;
+
+    display: flex;
+}
+.title{
+    font-size: 24px;
+    font-weight: 600;
+}
+.boxtag{
+    display: flex;
+}
+.btn_edit{
+    color: white;
+    background-color: #4673EA;
+    width: 170px;
+    height: 50px;
+    border: none;
+    border-radius: 30px;
+
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 47%;
+    margin-top: 100px;
+}
+
+.toplist{
+    display: flex;
+    padding: 18px 30px 18px 18px;
+}
+.detail{
+    margin-left: 22px;
+
+    font-size: 16px;
+    font-weight: 500;
+    color: #4673EA;
+}
+.acceptbtn{
+    background-color: white;
+    border: none;
+    font-size: 26px;
+
+    margin-left: 45%;
+}
+.refusebtn{
+    background-color: white;
+    border: none;
+    font-size: 26px;
+    color: #FF0000;
+
+    margin-left: 35px;
+}
+.bottom{
+    margin-top: 73px;
+    font-size: 22px;
+}
+.line{
+    margin-top: 42px;
+    border: 1px solid #c4c4c4;
+}
+.bottombox{
+    margin-bottom: 28px;
+    padding: 20px 28px;
+    border-bottom: 1px solid #c4c4c4;
+
+    display: flex;
+}
+.btn_detail{
+    color: white;
+    background-color: #4673EA;
+    width: 160px;
+    height: 45px;
+    border: none;
+    border-radius: 30px;
+
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 60%;
+}

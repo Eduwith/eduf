@@ -1,0 +1,76 @@
+.top{
+    /* width: 100%;
+    margin-left: 100px; */
+    /* width: 1440px;
+    margin: 0 auto; */
+    padding: 0 10%;
+}
+.title{
+    font-weight: 600;
+    font-size: 28px;
+}
+.middle{
+    display: flex;
+    /* width: 1440px;
+    margin: 0 auto; */
+    padding: 0 10% 50px 10%;
+}
+.btndetail{
+    width: 200px;
+    height: 50px;
+    margin-top: 320px;
+
+    background-color: white;
+    border: 3px solid #4673EA;
+    border-radius: 30px;
+    
+    text-align: center;
+    line-height: 45px;
+    font-weight: 600;
+    font-size: 22px;
+    color: #4673EA;
+}
+.studylist{
+    /* margin-left: 220px; */
+    margin-left: 15%;
+    display: flex;
+}
+.studybox{
+    width: 267px;
+    height: 370px;
+    margin-left: 50px;
+    padding: 30px 15px;
+
+    border: 2px solid #4673EA;
+    border-radius: 10px;
+    font-size: 18px;
+}
+.stitle{
+    font-weight: 600;
+    font-size: 20px;
+}
+.stag{
+    padding: 8px;
+    margin-top: 10px;
+    color: #4673EA;
+    background-color: white;
+    border: 2px solid #4673EA;
+    border-radius: 30px;
+}
+.srecruitperiod{
+    margin-top: 30px;
+}
+.sbtn{
+    position: relative;
+    width: 136px;
+    height: 38px;
+    color: white;
+    background-color: #4673EA;
+    border: none;
+    border-radius: 30px;
+    margin-left: 20%;
+
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+}

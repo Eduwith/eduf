@@ -1,0 +1,155 @@
+
+.Title {
+  font-size: 36px;
+  padding-top: 40px;
+  margin-left: 10%;
+  font-weight: 600;
+}
+
+.big_box {
+  margin: 0 auto;
+  width: 1250px;
+  height: 1400px;
+}
+
+.apply_btn {
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #FFF;
+  color: #4673EA;
+  padding: 7px 20px;
+  border: #4673EA 2px solid;
+  border-radius: 20px;
+  text-decoration: none;
+  margin-left: 30px;
+}
+
+.nav_form {
+  float: right;
+  margin-right: 280px;
+  
+  position: relative;
+}
+
+.total_search {
+  position: relative;
+  width: 300px;
+  height: 40px;
+  margin-left: 44%;
+  border: none;
+  box-shadow: 1px 1px 1px 1px #ddd;
+  font-size: 14px;
+  padding-left: 10px;
+}
+
+
+.search_img {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 395px;
+  top: 20px;
+}
+
+/*검색창*/
+.search {
+  position: relative;
+  width: 1250px;
+  height: 250px;
+  margin-top: 30px;
+  border-radius: 10px;
+  border: 2px solid #A0CBFF;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+}
+
+.hiddenblock {
+  width: 190px;
+  height: 30px;
+  
+}
+
+.hiddenblock2 {
+  width: 130px;
+  height: 30px;
+  
+}
+.cn1 div h2 {
+  margin-right: 30px;
+}
+.cn1::after{
+  clear:both;
+  content:"";
+  display: block;
+
+}
+
+.cn1 {
+  margin-bottom: 45px;
+
+}
+
+.subject > * {
+  float: left;
+}
+
+.subject > label {
+  line-height: 35px;
+  font-size: 22px;
+  margin-right: 8px;
+  
+}
+
+.date > input {
+  width: 200px;
+  height: 33px;
+}
+
+.selectbox1 {
+  width: 100px;
+  height: 33px;
+ }
+
+ .region {
+    width: 200px;
+    height: 33px;
+ }
+
+.region_sub {
+ width: 200px;
+ height: 33px;
+}
+
+span {
+  line-height: 37px;
+  font-size: 14pt;
+}
+
+.scBtn {
+  position: absolute;
+  cursor: pointer;
+  right: 20px;
+  bottom: 20px;
+  width: 80px;
+  height: 40px;
+  border: none;
+  background-color: #4673EA;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+  float: right;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+}
+/*멘토 창*/
+
+.middle_title {
+  font-style: 24px;
+  font-size: 26px;
+  margin-top: 20px;
+}

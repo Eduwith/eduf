@@ -1,0 +1,127 @@
+.loginbox{
+  position: absolute;
+width: 677px;
+height: 749px;
+left: 445px;
+top: 105px;
+z-index: 999;
+
+border-radius: 10px;
+background-color: rgb(188, 203, 236);
+}
+.logo{
+position: absolute;
+width: 300px;
+height: 47px;
+left: 280px;
+top: 95px;
+
+font-family: Recipekorea;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 47px;
+
+color: #5D6466;
+}
+
+.text{
+  position: absolute;
+  width: 150px;
+  height: 89px;
+  left: 289px;
+  top: 173px;
+  
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 49px;
+  
+  color: #000000;
+}
+.id{
+  position: absolute;
+  width: 547px;
+  height: 93px;
+  left: 65px;
+  top: 263px;
+  border: 1px solid #333;
+  border-radius: 10px;
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 41px;
+  padding: 10px;
+}
+.pw{
+  position: absolute;
+  width: 547px;
+  height: 93px;
+  left: 65px;
+  top: 373px;
+  border: 1px solid #333;
+  border-radius: 10px;
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 41px;
+  padding: 10px;
+  
+}
+.findpw{
+  position: absolute;
+  width: 282px;
+  height: 33px;
+  left: 65px;
+  top: 483px;
+  
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 33px;
+  
+  color: rgba(93, 100, 102, 0.7);
+}
+.sign{
+  position: absolute;
+  width: 100px;
+  height: 33px;
+  left: 515px;
+  top: 483px;
+  
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 33px;    
+  
+  color: rgba(93, 100, 102, 0.7);
+}
+.lbtn{
+  position: absolute;
+  width: 547px;
+  height: 93px;
+  left: 65px;
+  top: 546px;
+  
+  background: #4673EA;
+  border-radius: 10px;
+  border: none;
+  color: white;
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 41px;
+}
+.icon{
+  margin-top: 30px;
+  margin-left: 580px;
+}

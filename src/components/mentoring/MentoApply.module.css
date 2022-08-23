@@ -1,0 +1,124 @@
+/*멘토 창*/
+.pic {
+  width: 200px;
+  height: 200px;
+  margin-top: 5vh;
+  margin-left: 3.5vw;
+  border-radius: 5px;
+}
+
+.bin {
+  position: relative;
+  width: 100%;
+  background-color: #F1F5FA;
+  height: 70px;
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.x {
+  position: absolute;
+  right: 40px;
+  top: 25px;
+  cursor: pointer;
+  color: grey;
+}
+
+.book {
+  position: absolute;
+  right: 80px;
+  top: 21px;
+  color: #4673EA;
+}
+
+.title {
+  
+  font-size: 24px;
+  padding-left: 76px;
+  padding-top: 17px;
+  font-weight: 600;
+}
+
+.content {
+  width: 42vw;
+  height: 40vh;
+  padding-top: 35px;
+  font-weight: 550;
+}
+
+.content > p {
+  margin-bottom: 20px;
+}
+
+.content_span {
+  font-size: 17px;
+  color: #999;
+  display:inline-block;  
+  width: 80px;
+}
+
+.content_span2 {
+  font-size: 16px;
+  width: 180px;
+  display:inline-block;  
+  color: #333;
+}
+
+.content_span3 {
+  font-size: 17px;
+  color: #999;
+  display:inline-block;
+  width: 140px;
+}
+
+.content_keyword {
+  font-size: 16px;
+  width: 100px;
+  height: 30px;
+  line-height: 25px;
+  text-align: center;
+  display:inline-block;
+  border: 2px solid #4673EA;
+  border-radius: 20px;  
+  color: #333;
+}
+
+.content_region {
+  
+  font-size: 16px;  
+  color: #333;
+  width: 200px;
+  display:inline-block;
+}
+
+
+.content_info {
+  
+  font-size: 16px;  
+  width: 450px;
+  color: #333;
+  display:inline-block;  
+  vertical-align: top;
+}
+
+.sub_box {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn {
+  width: 180px;
+  height: 50px;
+  margin-top: 70px;
+  margin-left: 400px;
+  background-color: #4673EA;
+  box-shadow: none;
+  border: none;
+  border-radius: 30px;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}

@@ -1,0 +1,190 @@
+.title {
+  
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-left: 15px;
+
+  
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pencil {
+  position: absolute;
+  right: 80px;
+  bottom: 20px;
+}
+
+.trash {
+  position: absolute;
+  right: 40px;
+  bottom: 20px;
+}
+
+.content {
+  margin: 0 auto;
+  width: 1000px;
+  height: 300px;
+  font-weight: 550;
+  background-color: #F1F5FA;
+  border-radius: 30px;
+  padding: 20px;
+  padding-left: 30px;
+  position: relative;
+  
+}
+.content > p {
+  margin-bottom: 1px;
+  height: 40px;
+}
+
+.content_span {
+
+  padding-left: 50px;
+  font-size: 24px;
+  color: #999;
+  display:inline-block;  
+  width: 150px;
+  height: 40px;
+}
+
+.content_span2 {
+  font-size: 20px;
+  width: 250px;
+  display:inline-block;  
+  color: #333;
+  font-family: "GangwonEduBold";
+  
+  margin-bottom: 30px;
+}
+
+.content_span3 {
+  font-size: 24px;
+  padding-left: 50px;
+  color: #999;
+  height: 40px;
+  display:inline-block;
+  width: 210px;
+}
+
+.content_keyword {
+  font-size: 20px;
+  width: 100px;
+  height: 30px;
+  line-height: 25px;
+  margin-left: 40px;
+  text-align: center;
+  display:inline-block;
+  border: 2px solid #4673EA;
+  border-radius: 20px;  
+  color: #333;
+  
+  font-family: "GangwonEduBold";
+}
+
+.content_region {
+  font-size: 20px;  
+  color: #333;
+  width: 251px;
+  display:inline-block;
+  height: 40px;
+  
+  font-family: "GangwonEduBold";
+}
+
+
+.content_info {
+  
+  font-size: 20px;  
+  width: 720px;
+  color: #333;
+  display:inline-block;  
+  vertical-align: top;
+  overflow: hidden;
+  height: 40px;
+  
+  margin-top: 5px;
+  font-family: "GangwonEduBold";
+}
+
+.sub_box {
+  display: flex;
+  justify-content: flex-start;
+  height: 40px;
+}
+
+.btn {
+  width: 180px;
+  height: 50px;
+  margin-top: 70px;
+  margin-left: 400px;
+  background-color: #4673EA;
+  box-shadow: none;
+  border: none;
+  border-radius: 30px;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+
+.box2 {
+  padding: 5px;
+  margin: 30px auto;
+  width: 1000px;
+  height: 60px;
+  line-height: 40px;
+  font-size: 20px;
+  border: 2px solid #859fe5;
+  border-radius: 20px;
+  
+  position: relative;
+}
+
+.inner_box2 {
+  margin: 0 50px;
+}
+
+.name {
+  font-family: "GangwonEduBold";
+  font-size: 20px;
+}
+
+.detailbtn {
+  color: #4673EA;
+  font-size: 14px;
+  margin-left: 20px;
+  margin-right: 110px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btnbox {
+  position: absolute;
+  right: 30px;
+  top: 5px;
+}
+
+.acceptbtn {
+  width: 50px;
+  height: 35px;
+  border: none;
+  margin-right: 10px;
+  color: #4673EA;
+  background-color: white;
+  font-weight: 600;
+  
+}
+
+.rejectbtn {
+  width: 50px;
+  height: 35px;
+  border: none;
+  color: #E45B5B;
+  font-weight: 600;
+  background-color: white;
+}

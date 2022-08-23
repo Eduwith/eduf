@@ -1,0 +1,371 @@
+[
+	 {
+		"id": "INTJ",
+		"nickname": "마이웨이 호랑이",
+		"img": "https://cdn-icons-png.flaticon.com/512/7743/7743225.png",
+		"description": [
+			{
+				"des": "계획적이고 분석력이 대개 분석력이 높은 편이에요"
+			},
+			{
+				"des": "1분 1초까지 철저하게 계획하는 것을 좋아해요"
+			},
+			{
+				"des": "스터디플래너를 사용한다면 공부 효율 UP UP!!"
+			}
+		],
+		"duo": [
+			{
+				"img": "https://cdn-icons-png.flaticon.com/512/616/616685.png",
+				"subhead": "ENTP",
+				"des": "똑똑한 여우"
+			}
+		]
+	},
+	 {
+		"id": "INTP",
+    "nickname": "전략적인 부엉이",
+		"img": "https://cdn-icons-png.flaticon.com/512/1864/1864521.png",
+		"description": [
+			{
+				"des": "집중력이 높은 편이에요"
+			},
+			{
+				"des": "많은 것을 배우고 싶어 해요"
+			},
+			{
+				"des": "조용한 곳에서 혼자 공부하는 것이 효과적이에요"
+			}
+		],
+		"duo": [
+			{
+				"img": "https://cdn-icons-png.flaticon.com/512/616/616578.png",
+				"subhead": "ENTJ",
+				"des": "지도자 사자"
+			}
+		]
+	},
+	 {
+		"id": "INFJ",
+		"nickname": "인자한 판다",
+		"img": "https://cdn-icons-png.flaticon.com/512/6486/6486150.png",
+		"description": [
+			{
+				"des": "조용한 분위기를 좋아해요"
+			},
+			{
+				"des": "혼자 공부할 때 집중이 더 잘되는 편이에요"
+			},
+			{
+				"des": "단순 암기를 할 때는 시각적인 자료를 활용해보아요"
+			}
+		],
+		"duo": [
+			{
+				"img": "https://cdn-icons-png.flaticon.com/512/616/616589.png",
+				"subhead": "ENFP",
+				"des": "자유분방 원숭이"
+			}
+		]
+	},
+	 {
+		"id": "INFP",
+		"nickname": "변화무쌍 앵무새",
+		"img": "https://cdn-icons-png.flaticon.com/512/2016/2016512.png",
+		"description": [
+			{
+				"des": "좋아하는 것에 몰두하여 공부하는 편이에요"
+			},
+			{
+				"des": "벼락치기보다는 꾸준히 공부하는 습관을 기르는게 좋아요"
+			},
+			{
+				"des": "귀차니즘은 이제 그만! 스터디를 참여해보아요"
+			}
+		],
+		"duo": [
+			{
+				"img": "https://cdn-icons-png.flaticon.com/512/3069/3069224.png",
+				"subhead": "ENFJ",
+				"des": "언변능숙한 코끼리"
+			}
+		]
+	},
+	{
+		"id": "ISTJ",
+		"nickname": "신중한 코뿔소",
+		"img": "https://cdn-icons-png.flaticon.com/512/3787/3787905.png",
+		"description": [
+			{
+				"des": "공부는 철저히 계획해서 해야 하는 성향이에요"
+			},
+			{
+				"des": "구체적인 사례를 통해 개념을 익혀보아요"
+			},
+			{
+				"des": "단계별 목표를 세워 꾸준히 노력한다면 전교 1등은 식은 죽 먹기!"
+			}
+		],
+		"duo": [
+			{
+				"img": "https://cdn-icons-png.flaticon.com/512/1998/1998745.png",
+				"subhead": "ESTP",
+				"des": "사교적인 공작새"
+			}
+		]
+	},
+	 {
+		"id": "ISFJ",
+		"nickname": "온화한 사슴",
+		"img": "https://cdn-icons-png.flaticon.com/512/3507/3507017.png",
+		"description": [
+			{
+				"des": "꼼꼼하게 필기하는 것을 좋아해요"
+			},
+			{
+				"des": "계획을 세워 공부하는 것이 좋아요"
+			},
+			{
+				"des": "시끄러운 공간보다는 조용한 공간에서 더 집중이 잘 돼요"
+			}
+		],
+		"duo": [
+			{
+				"img": "https://cdn-icons-png.flaticon.com/512/427/427463.png",
+				"subhead": "ESFP",
+				"des": " 활발한 돌고래"
+			}
+		]
+	},
+	 {
+		"id": "ISTP",
+    "nickname": "호기심 많은 곰",
+		"img": "https://cdn-icons-png.flaticon.com/512/1998/1998571.png",
+		"description": [
+			{
+				"des": "무언가를 탐구하는 활동을 좋아해요"
+			},
+			{
+				"des": "세부적인 내용까지 암기하는 것을 잘해요"
+			},
+			{
+				"des": "큰 틀 대신 구체적인 학습 계획을 세워보세요"
+			}
+		],
+		"duo": [
+			{
+				"img": "https://cdn-icons-png.flaticon.com/512/4843/4843783.png",
+				"subhead": "ESTJ",
+				"des": "체계적인 보더콜리"
+			}
+		]
+	},
+	 {
+		"id": "ISFP",
+    "nickname": "유유자적 고양이",
+		"img": "https://cdn-icons-png.flaticon.com/512/2325/2325844.png",
+		"description": [
+			{
+				"des": "본인이 좋아하는 분야는 열정이 넘쳐요"
+			},
+			{
+				"des": "벼락치기에 강한 스타일이에요"
+			},
+			{
+				"des": "개념 노트를 만들어 공부하는 것이 좋아요"
+			}
+		],
+		"duo": [
+			{
+				"img": "https://cdn-icons-png.flaticon.com/512/2751/2751847.png",
+				"subhead": "ESFJ",
+				"des": "인기쟁이 말"
+			}
+		]
+	},
+	 {
+		"id": "ESTP",
+		"nickname": "사교적인 공작새",
+		"img": "https://cdn-icons-png.flaticon.com/512/1998/1998745.png",
+		"description": [
+			{
+				"des": "문제해결 능력이 남들보다 높아요"
+			},
+			{
+				"des": "여럿이서 공부하는 것이 많은 도움이 돼요"
+			},
+			{
+				"des": "구체적인 실생활 예시를 들어 개념을 학습해보아요"
+			}
+		],
+		"duo": [
+			{
+				"img": "https://cdn-icons-png.flaticon.com/512/3787/3787905.png",
+				"subhead": "ISTJ",
+				"des": "신중한 코뿔소"
+			}
+		]
+	},
+	 {
+		"id": "ESFP",
+		"nickname": "활발한 돌고래",
+		"img": "https://cdn-icons-png.flaticon.com/512/427/427463.png",
+		"description": [
+			{
+				"des": "다른 사람과 문제를 함께 해결하는 것을 좋아해요"
+			},
+			{
+				"des": "구체적 사례를 들어 공부하는 것이 좋아요"
+			},
+			{
+				"des": "시청각 자료를 활용하여 공부해보아요"
+			}
+		],
+		"duo": [
+			{
+				"img": "https://cdn-icons-png.flaticon.com/512/3507/3507017.png",
+				"subhead": "ISFJ",
+				"des": "온화한 사슴"
+			}
+		]
+	},
+
+	 {
+		"id": "ENTJ",
+		"nickname": "지도자 사자",
+		"img": "https://cdn-icons-png.flaticon.com/512/616/616578.png",
+		"description": [
+			{
+				"des": "혼자 공부하기 보다는 친구들과 함께 공부하는 편이에요"
+			},
+			{
+				"des": "효율성을 추구하는 타입이라 허투로 쓰는 시간이 없어요"
+			},
+			{
+				"des": "스터디플래너를 통해 구체적인 계획을 세워보아요"
+			}
+		],
+		"duo": [
+			{
+				"img": "https://cdn-icons-png.flaticon.com/512/1864/1864521.png",
+				"subhead": "INTP",
+				"des": "전략적인 부엉이"
+			}
+		]
+	},
+	 {
+		"id": "ENTP",
+		"nickname": "똑똑한 여우",
+		"img": "https://cdn-icons-png.flaticon.com/512/616/616685.png",
+		"description": [
+			{
+				"des": "백과사전같이 아는 것이 정말 많아요"
+			},
+			{
+				"des": "관심 없는 분야라도 열심히 공부하는 것이 좋아요"
+			},
+			{
+				"des": "벼락치기에 강하지만 꾸준히 공부하는 습관을 길러보아요"
+			}
+		],
+		"duo": [
+			{
+				"img": "https://cdn-icons-png.flaticon.com/512/7743/7743225.png",
+				"subhead": "INTJ",
+				"des": "마이웨이 호랑이"
+			}
+		]
+	},
+	 {
+		"id": "ENFJ",
+		"nickname": "언변능숙한 코끼리",
+		"img": "https://cdn-icons-png.flaticon.com/512/3069/3069224.png",
+		"description": [
+			{
+				"des": "친화력이 좋아 인싸일 확률이 높아요!"
+			},
+			{
+				"des": "정기적인 피드백을 받을 수 있는 스터디를 참여하는 것이 좋아요"
+			},
+			{
+				"des": "다양한 시각 자료를 활용하여 공부해보아요"
+			}
+		],
+		"duo": [
+			{
+				"img": "https://cdn-icons-png.flaticon.com/512/2016/2016512.png",
+				"subhead": "INFP",
+				"des": "변화무쌍 앵무새"
+			}
+		]
+	},
+	 {
+		"id": "ENFP",
+		"nickname": "자유분방 원숭이",
+		"img": "https://cdn-icons-png.flaticon.com/512/616/616589.png",
+		"description": [
+			{
+				"des": "새로운 사람을 만나기 좋아해서 어디에서나 친구를 만들어요 "
+			},
+			{
+				"des": "좋아하는 과목 위주로 공부하기 보다는 모두 챙기는 습관을 들이세요"
+			},
+			{
+				"des": "스터디를 통해 마감일을 정해 가며 공부하는 것이 좋아요"
+			}
+		],
+		"duo": [
+			{
+				"img": "https://cdn-icons-png.flaticon.com/512/6486/6486150.png",
+				"subhead": "INFJ",
+				"des": "인자한 판다"
+			}
+		]
+	},
+	 {
+		"id": "ESTJ",
+		"nickname": "체계적인 보더콜리",
+		"img": "https://cdn-icons-png.flaticon.com/512/4843/4843783.png",
+		"description": [
+			{
+				"des": "계획이 틀어지는 일이 발생하면 매우 싫어해요!"
+			},
+			{
+				"des": "단계별로 계획을 세워 꾸준히 공부하는 것이 좋아요"
+			},
+			{
+				"des": "다양한 사례를 통해 개념을 학습해보아요"
+			}
+		],
+		"duo": [
+			{
+				"img": "https://cdn-icons-png.flaticon.com/512/1998/1998571.png",
+				"subhead": "ISTP",
+				"des": "호기심 많은 곰"
+			}
+		]
+	},
+	 {
+		"id": "ESFJ",
+		"nickname": "인기쟁이 말",
+		"img": "https://cdn-icons-png.flaticon.com/512/2751/2751847.png",
+		"description": [
+			{
+				"des": "긍정적이고 낙천적인 성격을 가지고 있어요"
+			},
+			{
+				"des": "한번에 많은 양을 공부하는 것은 집중력을 떨어뜨려요"
+			},
+			{
+				"des": "미리 계획을 세워 공부할 양을 정해두고 시작하세요"
+			}
+		],
+		"duo": [
+			{
+				"img": "https://cdn-icons-png.flaticon.com/512/2325/2325844.png",
+				"subhead": "ISFP",
+				"des": "유유자적 고양이"
+			}
+		]
+	}
+]

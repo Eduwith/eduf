@@ -1,0 +1,55 @@
+.bdbox {
+  width: 100%;
+  background-color: #F1F5FA;
+  height: 670px;
+}
+
+.box {
+  width: 1000px;
+  height: 600px;
+  margin: 0 auto;
+  padding-top: 42px;
+  padding-bottom: 30px;
+  text-align: center;
+  
+  color: #333;
+}
+
+.title {
+  display: inline-block;
+  border-radius: 30px;
+  font-size: 36px;
+  width: 500px;
+  height: 70px;
+  line-height: 70px;
+  margin-bottom: 30px;
+  background-color: #4673EA;
+  color: white;
+}
+
+.info {
+  font-size: 24px;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.info2 {
+  font-size: 20px;
+}
+
+.fox {
+  width: 350px;
+  height: 260px;
+}
+
+.home_button {
+  margin-top: 30px;
+  display: inline-block;
+  width: 250px;
+  height: 70px;
+  border: none;
+  font-size: 24px;
+  background-color: #333;
+  color: #FFF;
+  border-radius: 30px;
+}

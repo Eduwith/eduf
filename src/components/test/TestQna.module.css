@@ -1,0 +1,64 @@
+.bdbox {
+  width: 100%;
+  background-color: #F1F5FA;
+  height: 670px;
+}
+
+.qbox {
+  width: 1000px;
+  height: 600px;
+  margin: 0 auto;
+  padding: 40px 0;
+  text-align: center;
+  
+  color: #333;
+}
+
+.qnum {
+  font-size: 32px;
+  margin-top: 40px;
+
+}
+
+.question {
+  font-size: 28px;
+  margin-bottom: 50px;
+
+}
+
+.pic {
+  margin-top: 55px;
+  width: 120px;
+}
+
+.btn {
+  display: inline-block;
+  width: 500px;
+  padding: 5px;
+  height: 70px;
+  font-size: 18px;
+  background-color: #ffffff;
+  border: none;
+  color: #333;
+  border-radius: 30px;
+  margin: 10px 0;
+}
+
+.bar {
+  border-radius: 20px;
+  width: 560px;
+  height: 20px;
+  background-color: #eee;
+  margin: 0 auto;
+}
+
+.btn:hover {
+  background-color: #7594e8;
+  color: white;
+}
+
+.copyright {
+  padding-top: 10px;
+  color:#ccc;
+  font-size: 14px;
+}
