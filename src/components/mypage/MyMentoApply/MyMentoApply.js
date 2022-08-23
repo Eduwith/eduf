@@ -23,8 +23,8 @@ function MyMentoApply() {
 
   const getList = () => {
     try {
-       axios.get(url + '/mentoring/mypage/mentoring')
-      //axios.get('/dummyMtData.json')
+       //axios.get(url + '/mentoring/mypage/mentoring')
+      axios.get('/dummyMtData.json')
         .then((res) => {
           //역할에 맞는 글 가져오기
           role === "O" ? setMyList(res.data.mentor) : setMyList(res.data.mentee)
