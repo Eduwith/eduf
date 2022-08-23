@@ -45,7 +45,7 @@ function MyWroteGeul({ item }) {
   }
 
   const deleteGeul = () => {
-    axios.delete(`${url}/mentoring/${m_no}`);
+    axios.delete(`${url}/mypage/apply/${m_no}`);
     alert('삭제되었습니다.');
   }
 
