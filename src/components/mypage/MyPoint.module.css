@@ -1,0 +1,157 @@
+.wrap {
+  width: 1300px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.head {
+  height: 90px;
+  padding-top: 20px;
+  font-weight: 600;
+  font-size: 36px;
+}
+
+.nav {
+
+  text-align: center;
+  width: 1300px;
+  height: 50px;
+  line-height: 44px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-top: 2px solid #eee;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 53px;
+}
+
+.nav li>* {
+  width: 180px;
+  font-size: 24px;
+
+}
+
+.menu {
+  text-align: right;
+  margin-right: 50px;
+}
+
+.submenu {
+  display: inline-block;
+  width: 50px;
+  line-height: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.submenu:hover {
+  color: #4673EA;
+}
+
+.bar {
+
+  border-left: 2px solid #333;
+  margin: 0 5px;
+}
+
+
+.mymenu {
+
+  font-size: 30px;
+  font-family: "GangwonEduBold";
+  margin-left: 60px;
+  margin-bottom: 30px;
+}
+
+.stampBtn {
+  margin-right: 60px;
+  margin-bottom: 30px;
+  border: none;
+  background-color: #4673EA;
+  border-radius: 10px;
+  width: 100px;
+
+  font-weight: 600;
+  color: white;
+  
+}
+
+.right {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.stampBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stampCnt {
+  margin-right: 20px;
+  font-size: 24px;
+}
+
+.stampTitle {
+  margin-left: 20px;
+  font-size: 24px;
+}
+
+.stampBd {
+  width: 90px;
+  height: 90px;
+  background-color: #F1F5FA;
+  border-radius: 60px;
+}
+
+.stampSubBox {
+  width: 1100px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stampBorder {
+  border-top: 2px solid #ddd;
+  border-bottom: 2px solid #ddd;
+  width: 1200px;
+  margin: 0 auto;
+  height: 165px;
+  margin-bottom: 30px;
+}
+
+.totalPoint {
+  font-size: 24px;
+  font-weight: 600;
+  margin-right: 75px;
+}
+
+.pointBorder {
+  margin-bottom: 70px;
+}
+
+.pointBox {
+  width: 1180px;
+  height: 70px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  border: 2px solid #4673EA;
+  position: relative;
+}
+
+.pointTitle {
+  font-size: 24px;
+  line-height: 62px;
+  padding-left: 50px;
+}
+
+.pointNum {
+  position: absolute;
+  font-size: 24px;
+  top: 15px;
+  right: 50px;
+  border: none;
+  background-color: white;
+}

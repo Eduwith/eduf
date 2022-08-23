@@ -1,0 +1,58 @@
+.bdbox {
+  width: 100%;
+  background-color: #F1F5FA;
+  height: 670px;
+}
+
+.qbox {
+  width: 1000px;
+  height: 600px;
+  margin: 0 auto;
+  padding: 40px 0;
+  text-align: center;
+  
+}
+
+.subtitle{
+  font-size: 24px;
+}
+
+.title{
+  font-size: 30px;
+  width: 280px;
+  height: 70px;
+  line-height: 70px;
+  margin: 40px auto 55px;
+  border-radius: 30px;
+  background-color: #7594e8;
+  color: white;
+  font-weight: 600;
+}
+
+.titlebt {
+  font-size: 20px;
+  font-style: italic;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  
+}
+
+.desc {
+  width: 600px;
+  margin: 40px auto;
+}
+
+.desc > li {
+  color: #333;
+  font-size: 20px;
+  margin: 5px;
+  text-align: left;
+  padding-left: 30px;
+}
+
+.homebtn {
+  text-decoration: none;
+  color: #4673EA;
+  font-weight: 700;
+  
+}

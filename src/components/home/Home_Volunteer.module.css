@@ -1,0 +1,66 @@
+.wrap{
+    width: 100%;
+    height: 100%;
+}
+.vbox{
+    width: 1400px;
+    height: 400px;
+    margin: 0 auto;
+    padding: 55px 0;
+}
+.vtitle{
+    font-family: Noto Sans;
+    font-weight: 600;
+    font-size: 28px;
+}
+.vbtn{
+    width: 202px;
+    height: 50px;
+    margin-top: 310px;
+
+    background-color: white;
+    border: 3px solid #4673EA;
+    border-radius: 30px;
+    
+    font-family: Noto Sans;
+    font-weight: 600;
+    font-size: 22px;
+    color: #4673EA;
+}
+.vexbox{
+    position: absolute;
+    top: 515px;
+    height: 400px;
+    margin-left: 460px;
+    display: flex;
+    background-color: #F1F5FA;
+    
+}
+.vex{
+    width: 310px;
+   /* border: 1px solid #222222;*/
+}
+.vex > img{
+    margin-top: 35px;
+    margin-left: 25px;
+}
+.vex > h3{
+    margin-top: 45px;
+    margin-left: 30px;
+    font-size: 24px;
+}
+.vex > p{
+    margin-top: 5px;
+    margin-left: 30px;
+    width: 250px;
+    font-size: 20px;
+}
+.vex > button {
+    margin-top: 25px;
+    margin-left: 23px;
+    border: none;
+    background-color: transparent;
+    color: #4673EA;
+
+    font-size: 25px;
+}

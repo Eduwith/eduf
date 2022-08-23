@@ -1,0 +1,52 @@
+.head{
+    height: 380px;
+    padding-left: 100px;
+    padding-top: 70px;
+    background: #F1F5FA;
+
+    font-weight: 600;
+    font-size: 35px;
+}
+.body{
+    background-color: white;
+    height: auto;
+}
+.box{
+    z-index: 50;
+}
+.mybox {
+    position: relative;
+    z-index: 900;
+    top: -180px;
+    margin: 0 auto;
+    width: 1200px;
+    height: 800px;
+    padding: 60px;
+
+    background-color: white;
+    display: grid;
+    grid-template-columns: minmax(150px, 1fr) 2fr;
+    grid-gap: 100px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+      0 8px 16px -8px rgba(0, 0, 0, 0.178), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+}
+.myimg{
+    position: relative;
+    margin: 0;
+    width: 250px;
+    height: 250px;
+    margin-bottom: 30px;
+}
+.nav{
+    list-style: none;
+}
+.nav li{
+    margin: 15px 0px;
+    font-size: 22px;
+}
+.mymenu{
+    font-size: 30px;
+    margin-bottom: 10px;
+}

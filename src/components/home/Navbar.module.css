@@ -1,0 +1,121 @@
+.navbar {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  font-size: 1.2rem;
+  background-color: white;
+}
+
+.subvar {
+  height: 39px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  font-size: 1rem;  
+  background-color: white;  
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
+}
+
+.logo {
+  width: 30%;
+  height: auto;
+  margin-top: 5px;
+  
+}
+
+.navLogo {
+  text-decoration: none;
+  color: gray;
+}
+.navLinks {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 20px;
+  list-style: none;
+  color: gray;
+}
+
+.subLinks {
+  display: grid;
+  width: 400px;
+  text-align: center;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 15px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  
+  position: relative;
+}
+
+.mlink {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  
+  position: relative;
+}
+
+.subLinks:hover .dropdown_content {
+  display: block;
+}
+
+.navItem {
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: gray;
+}
+
+
+.dropdown {
+
+  position: relative;
+}
+
+.dropdown_content {
+  text-decoration: 'none';
+  padding: 10px 0;
+  z-index: 900;
+  font-weight: 600;
+  color:#4673EA;
+  display: none;
+  background-color: white;
+  position: absolute;
+  min-width: 100px;
+}
+
+.dropdown_content > * {
+  color: black;
+  padding: 5px 10px;
+  text-decoration: none;
+  display: block;
+}   
+
+.dropdown_content > *:hover {
+  color: #4673EA;
+  background-color: #F1F5FA;
+}
+
+
+/*오른쪽 메뉴*/
+.nav_icons_ul {
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.nav_icons {
+  width: 25px;
+  height: 25px;
+}

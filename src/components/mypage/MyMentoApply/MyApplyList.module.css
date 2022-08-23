@@ -1,0 +1,30 @@
+
+.applyBox {
+  width: 1000px;
+  height: 70px;
+  margin: 0 auto;
+  border-radius: 5px;
+  border: 2px solid #4673EA;
+  font-size: 24px;
+  line-height: 62px;
+  padding-left: 60px;
+  position: relative;
+}
+
+.applyCbtn {
+  position: absolute;
+  right: 60px;
+  border: none;
+  font-weight: 600;
+  background-color: white;
+  color: #E45B5B;
+}
+
+
+.mymenu {
+
+  font-size: 30px;
+  font-family: "GangwonEduBold";
+  margin-left: 60px;
+  margin-bottom: 30px;
+}

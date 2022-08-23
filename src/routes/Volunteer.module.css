@@ -1,0 +1,95 @@
+/* .wrap{
+    width: 100%;
+    height: 100%;
+    min-width: 1300px;
+} */
+.vhead{
+    height: 395px;
+    padding: 20px auto;
+    
+    background: #F1F5FA;
+    box-shadow: inset 0px 3px 10px rgba(0, 0, 0, 0.25);
+}
+.vhead > div{
+    width: 1400px;
+    height: 395px;
+    margin: 0 auto;
+    position: relative;
+}
+.vtitle {
+    position: absolute;
+    top: 41px;
+
+    font-family: Noto Sans;
+    font-weight: 600;
+    font-size: 48px;
+}
+.vtext{
+    position: absolute;
+    top: 200px;
+    
+    font-weight: 500;
+    font-size: 26px;
+}
+ .vimg{
+    position: absolute;
+    top: 100px;
+    right: 0px;
+}
+.vlist{
+    height: auto;
+}
+.vlist> div{
+    /* margin: 0 auto;
+    width: 1400px; */
+    /* height: 1200px;
+    position: relative;*/
+    padding: 30px 15% 0 15%;
+}
+.text{
+    font-size: 26px;
+}
+
+.listbox{
+    /* margin: 25px auto;
+    width: 1400px; */
+    display: flex;
+    margin: 25px auto;
+    padding: 20px 20px;
+    height: 200px;
+    border-bottom: solid 1px #c4c4c4;
+
+    font-size: 24px;
+    /*align-items: center;*/
+}
+.boxleft{
+    margin-right: 80px;
+}
+.recruitbtn{
+    width: 88px;
+    height: 88px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    
+    background: #4673EA;
+    border: none;
+    border-radius: 30px;
+
+    text-align: center;
+    font-size: 26px;
+    font-weight: 600;
+    color: white;
+}
+.boxdetail > h4{
+    font-size: 26px;
+    font-weight: 600;
+}
+.boxaddress{
+    margin-bottom: 27px;
+}
+.vbottom{
+    margin-left: 45%;
+    margin-top: 80px;
+    font-size: 30px;
+    
+}

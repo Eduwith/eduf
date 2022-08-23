@@ -1,0 +1,152 @@
+.wrap {
+  width: 1300px;
+  height: 1000px;
+  margin: 0 auto;
+}
+
+.head {
+  height: 90px;
+  padding-top: 20px;
+  font-weight: 600;
+  font-size: 36px;
+}
+
+.nav {
+
+  text-align: center;
+  width: 1300px;
+  height: 50px;
+  line-height: 44px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-top: 2px solid #eee;
+  border-bottom: 2px solid #eee;
+}
+
+.nav li>* {
+  width: 180px;
+  font-size: 24px;
+
+}
+
+.menu {
+  text-align: right;
+  margin-right: 50px;
+}
+
+.submenu {
+  display: inline-block;
+  width: 50px;
+  line-height: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.submenu:hover {
+  color: #4673EA;
+}
+
+.bar {
+
+  border-left: 2px solid #333;
+  margin: 0 5px;
+}
+
+.mymenu {
+
+  font-size: 30px;
+  font-family: "GangwonEduBold";
+
+  margin-bottom: 30px;
+}
+
+.bigBox {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.profileBox {
+  border: 2px solid #859fe5;
+  border-radius: 20px;
+  width: 500px;
+  height: 150px;
+  padding: 10px 20px;
+  margin-bottom: 30px;
+}
+
+.ptitle {
+  font-size: 20px;
+  color: #4673EA;
+  font-family: "GangwonEduBold";
+}
+
+.pinBox {
+  width: 450px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  font-weight: 600;
+}
+
+.desc {
+  font-size: 20px;
+  width: 200px;
+  padding-left: 10px;
+}
+
+.desc2 {
+  font-size: 20px;
+  width: 200px;
+  margin-top: 5px;
+  padding-left: 10px;
+  padding-top: 10px;
+  border-top: 2px solid #eee;
+}
+
+.MemoBox {
+  width: 100%;
+  height: 500px;
+  border: 2px solid #859fe5;
+  border-radius: 20px;
+  padding: 15px 20px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.mtitle {
+  font-size: 20px;
+  color: #4673EA;
+  margin-bottom: 5px;
+  font-family: "GangwonEduBold";
+}
+
+.btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.subBox {
+  border-radius: 20px;
+  padding: 15px;
+  width: 500px;
+  height: 180px;
+  border: 2px solid #F1F5FA;
+  float: left;
+  margin-bottom: 30px;
+  margin-right: 25px;
+}
+
+.minBox {
+  width: 1050px;
+  margin: 20px auto;
+  font-weight: 600;
+}
+
+.img {
+  width: 100px;
+  height: 100px;
+}
