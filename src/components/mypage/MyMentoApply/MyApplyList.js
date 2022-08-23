@@ -10,10 +10,10 @@ function MyApplyList() {
   const getApplyList = () => {
     try {
         //axios.get('http://localhost:8080/mypage/apply')
-        axios.get('/dummyMtData.json')
+        axios.get('/dummyMData.json')
         .then((res) => {
           //역할에 맞는 글 가져오기
-          setMyAList(res.data.mentor);
+          setMyAList(res.data.lists);
 
           console.log('myAList', myAList);
         })
