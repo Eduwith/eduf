@@ -21,13 +21,12 @@ function Mentoring() {
     try {
       setGeul(null);
 
-      axios.get(url + '/mentoring/mentor')
-      //axios.get('/dummyMData.json')
+      //axios.get(url + '/mentoring/mentor')
+      axios.get('/dummyMData.json')
         .then(function (response) {
           if (response) {
             console.log('멘토링 조회 성공!');
-            setGeul(response.data); // 연결하면서 수정하기
-
+            setGeul(response.data.lists); // 연결하면서 수정하기
           }
         })
     } catch (err) {
@@ -53,7 +52,7 @@ function Mentoring() {
   const [showApplyPopup, setShowApplyPopup] = useState(false);
 
   const onView = (id) => {
-    setCurrent(geul && geul.find(item => item.id === id))
+    setCurrent(geul && geul.find(item => item.m_no === id))
     
   }
 
