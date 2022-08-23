@@ -3,27 +3,27 @@
     {
       "m_no": 1,
       "role": "O",
-      "title": "중 1 수학 멘티 모집",
-      "name": "최연준",
+      "title": "중등 수학 멘토 모집",
+      "name": "최수정",
       "field": "교육",
       "region": "서울특별시광진구",
       "r_period": "7",
       "m_period": 3,
       "way": "OFF",
       "keyword": "친절해요",
-      "info": "안녕하세요! 기러기 토마토 스위스 별똥별 인도인 우영우 역삼역 기러기 토마토 스위스 별똥별 인도인 우영우 역삼역",
+      "info": "2학기동안 수학 공부할 멘토 구해요",
       "email": "12233@naver.com",
       "mentoringApply": [
         {
           "apply_no": 1,
-          "email": "goeun@naver.com",
-          "name": "박고은",
+          "email": "sujeong@naver.com",
+          "name": "김수정",
           "age": 22,
           "m_no": 1
         },
         {
           "apply_no": 2,
-          "email": "goeun123@naver.com",
+          "email": "gorani123@naver.com",
           "name": "고라니",
           "age": 14,
           "m_no": 1
@@ -33,7 +33,7 @@
     {
       "m_no": 2,
       "role": "O",
-      "title": "중 1 수학 멘티 모집",
+      "title": "중 1 수학 멘토 모집",
       "name": "최연준",
       "field": "교육",
       "region": "서울특별시광진구",
@@ -41,13 +41,13 @@
       "m_period": 3,
       "way": "OFF",
       "keyword": "친절해요",
-      "info": "안녕하세요! 기러기 토마토 스위스 별똥별 인도인 우영우 역삼역 기러기 토마토 스위스 별똥별 인도인 우영우 역삼역",
+      "info": "안녕하세요! 함께 수학 공부할 멘토를 구합니다.",
       "email": "12233@naver.com",
       "mentoringApply": [
         {
           "apply_no": 1,
           "email": "goeun@naver.com",
-          "name": "박고은",
+          "name": "이우연",
           "age": 22,
           "m_no": 1
         },
@@ -67,28 +67,28 @@
     {
       "m_no": 3,
       "role": "E",
-      "title": "중등 수학 멘티 모집",
-      "name": "한이음",
+      "title": "중등 과학 멘티 모집",
+      "name": "한수정",
       "field": "교육",
       "region": "서울특별시광진구",
       "r_period": "7",
       "m_period": 6,
       "way": "OFF",
       "keyword": "성실해요",
-      "info": "멘티구해요!",
+      "info": "재밌게 과학 공부할 멘티구해요!",
       "email": "12233@naver.com",
       "mentoringApply": [
         {
           "apply_no": 4,
-          "email": "goeun@naver.com",
-          "name": "박고은",
+          "email": "gorani@naver.com",
+          "name": "김고은",
           "age": 22,
           "m_no": 1
         },
         {
           "apply_no": 9,
-          "email": "goeun123@naver.com",
-          "name": "고라니",
+          "email": "susu123@naver.com",
+          "name": "정수정",
           "age": 14,
           "m_no": 1
         }
