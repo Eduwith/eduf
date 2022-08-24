@@ -43,8 +43,8 @@ function MyApplyList() {
   return(
     <div>
        <h2 className={styles.mymenu}>나의 신청 내역 </h2>
-            <div>
-            {
+            <div className={styles.mymenu2}>
+            {/* {
                 myAList && myAList.map((item) => (
                   <div key={item.m_no} className={styles.applyBox} onMouseEnter={() => {setApplyMno(item.m_no)}}>
                     [{item.field}] {item.title}
@@ -53,7 +53,8 @@ function MyApplyList() {
                   </div>
                 
                 ))
-            }
+            } */}
+            멘토링 신청 내역이 없습니다.
             </div>
     </div>
   )
