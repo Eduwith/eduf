@@ -67,28 +67,22 @@
     {
       "m_no": 3,
       "role": "E",
-      "title": "중등 과학 멘티 모집",
-      "name": "한수정",
+      "title": "영어 멘티 모집",
+      "name": "김수정",
       "field": "교육",
-      "region": "서울특별시광진구",
+      "region": "강원도양구군",
       "r_period": "7",
-      "m_period": 6,
-      "way": "OFF",
-      "keyword": "성실해요",
-      "info": "재밌게 과학 공부할 멘티구해요!",
-      "email": "12233@naver.com",
+      "m_period": 3,
+      "way": "ON",
+      "keyword": "재밌어요",
+      "info": "영어 멘티 모집합니다.",
+      "email": "kim@gmail.com",
       "mentoringApply": [
+       
         {
-          "apply_no": 4,
-          "email": "gorani@naver.com",
-          "name": "김고은",
-          "age": 22,
-          "m_no": 1
-        },
-        {
-          "apply_no": 9,
-          "email": "susu123@naver.com",
-          "name": "정수정",
+          "apply_no": 1,
+          "email": "sungkim@naver.com",
+          "name": "김성신",
           "age": 14,
           "m_no": 1
         }

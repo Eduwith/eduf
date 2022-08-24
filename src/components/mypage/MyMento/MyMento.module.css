@@ -91,6 +91,15 @@
 }
 
 .desc {
+  margin-top: 5px;
+  font-size: 20px;
+  width: 200px;
+  padding-left: 10px;
+}
+
+.desc1 {
+  color: #666;
+  margin-top: 30px;
   font-size: 20px;
   width: 200px;
   padding-left: 10px;
