@@ -23,27 +23,29 @@ function MyPoint() {
   const url = "http://localhost:8080";
 
   const getStampPoint = () => {
-    axios.get(url+ '/user/attendance')
-    .then((res) => {
-      setStamp(res.data.stamp);
-      setPoint(res.data.point);
-         setStampDay(res.data.day);
-         setUserPointList(res.data.useAttendance);
-    })
-    .catch((err) => {
-      console.log('get stamp error :', err);
-    })
+    // axios.get(url+ '/user/attendance')
+    // .then((res) => {
+    //   setStamp(res.data.stamp);
+    //   setPoint(res.data.point);
+    //      setStampDay(res.data.day);
+    //      setUserPointList(res.data.useAttendance);
+    // })
+    // .catch((err) => {
+    //   console.log('get stamp error :', err);
+    // })
   }
 
   const patchStampEvent = () => {
-    axios.patch(url + '/user/attendance')
-    .then((res) => {
-      setStamp(res.data.stamp);
-      setPoint(res.data.point);
-    })
-    .catch((err) => {
-      console.log('patch stamp error :', err);
-    })
+    // axios.patch(url + '/user/attendance')
+    // .then((res) => {
+    //   setStamp(res.data.stamp);
+    //   setPoint(res.data.point);
+    // })
+    // .catch((err) => {
+    //   console.log('patch stamp error :', err);
+    // })
+    setStamp(1);
+    setStampDay(1);
   }
 
   const getPoint = () => {
