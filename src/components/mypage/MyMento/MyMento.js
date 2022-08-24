@@ -30,12 +30,15 @@ function MyMento() {
   }
 
   const url = 'http://localhost:8080';
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({
+    "email": " ",
+    "name": "멘티 정보가 없습니다",
+  });
   const [logList, setLogList] = useState([{
     "mentoring_no": 1,
-    "title": "첫번째 멘토링 일지",
-    "content": "오늘은 직각삼각형에 대해 배웠어요.",
-    "date": "2022-08-16"
+    "title": "멘토링 일지",
+    "content": "멘토링 일지 샘플입니다.",
+    "date": "2022-08-01"
   }]);
   const [mtitle, setMtitle] = useState('');
   const [current, setCurrent] = useState(null);
@@ -116,8 +119,8 @@ function MyMento() {
                 <div className={styles.pinBox}>
                   <img src={animal} className={styles.img} />
                   <div>
-                    <div className={styles.desc}>{user && user.name}</div>
-                    <div className={styles.desc}>{user && user.age} 세</div>
+                    <div className={styles.desc1}>{user && user.name}</div>
+                    {/* <div className={styles.desc}>{user && user.age} 세</div> */}
                     <div className={styles.desc}>{user && user.email}</div> </div>
                 </div>
               </div>
