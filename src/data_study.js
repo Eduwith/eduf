@@ -18,6 +18,7 @@ function data_study() {
         },
         {
             s_no:1,
+            name: "윤성신",
             title:"자료 번역하기",
             contents: "안녕하세요. 스터디 모집글 작성. 스터디 모집글 작성",
             r_start_date: "2022.02.28",
@@ -33,6 +34,7 @@ function data_study() {
         },
         {
             s_no:2,
+            name: "미미",
             title: "디지털 취약계층을 위한 강의",
             contents: "안녕하세요. 스터디 모집글 작성. 스터디 모집글 작성",
             r_start_date: "2022.02.28",

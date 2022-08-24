@@ -62,26 +62,27 @@ function MyStudy() {
                         <div className={styles.topboxleft}>
                             <div className={styles.title}>{slist[0].title}</div>
                             <div>
-                                <img src={peopleicon} className={styles.peopleicon} />
-                                {slist[0].current_people} / {slist[0].total_people}
+                                <img src={peopleicon} className={styles.peopleicon} /> 
+                                 {slist[0].current_people} / {slist[0].total_people}
                             </div>
                             <div>모집마감기한 {slist[0].r_end_date}</div>
-                            <div className={styles.boxtag}>
+                            {/* <div className={styles.boxtag}>
                                 <div className={styles.tag}>#한글</div>
                                 <div className={styles.tag}>#다문화</div>
                                 <div className={styles.tag}>#문법</div>
-                            </div>
-                            {/* {
-                                    tag.map((tag, idex) =>(
+                            </div> */}
+                            <div className={styles.boxtag}>
+                            {
+                                    slist[0].tag.map((tag, idex) =>(
                                         <div className={styles.tag} key={tag}>#{tag}</div>
                                     ))
-                            } */}
+                            }</div>
                         </div>
                         <button className={styles.btn_edit} >수정하기</button>
                     </div>
 
                     <div className={styles.toplist}>
-                        {slist.name}님이 스터디를 신청하였습니다.
+                        {slist[1].name}님이 스터디를 신청하였습니다.
                         <div className={styles.detail}>상세보기 {">"}</div>
                         <button className={styles.acceptbtn}>수락</button>
                         <button className={styles.refusebtn}>거절</button>
@@ -94,7 +95,7 @@ function MyStudy() {
                         <div className={styles.title}>{slist[0].title}</div>
                         <button className={styles.btn_detail} >상세보기</button>
                     </div>
-                    <hr/>
+                    
                 </div>
 
             </div>

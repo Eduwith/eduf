@@ -8,8 +8,8 @@ import axios from "axios";
 function MyPage() {
     const userdata = {
         
-            email: "test@gmail.com",
-            name: "성수정",
+            email: "kim@gmail.com",
+            name: "김수정",
             pwd : "123456",
             age : "23",
             gender : "F",      
