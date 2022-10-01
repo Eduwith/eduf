@@ -48,7 +48,7 @@ function Navbar({isLogin}) {
             로그아웃
           </li> : 
           <li className={styles.navItem} style={{textDecoration: 'none', color: 'gray'}} onClick={openLogin} >
-          로그인
+          로그아웃
         </li> }
 
           <li className={styles.navItem}>
@@ -77,7 +77,7 @@ function Navbar({isLogin}) {
       <ul className={styles.nav_icons_ul}>
         <li><Link to="/mypoint"><img alt="point" src={point} className={styles.nav_icons} /></Link></li>
         <li><Link to="/mypoint"><img alt="point" src={msg} className={styles.nav_icons} /></Link></li>
-        <li><Link to="/mypoint"><img alt="point" src={bell} className={styles.nav_icons} /></Link></li>
+        <li><Link to="/notice"><img alt="point" src={bell} className={styles.nav_icons} /></Link></li>
       </ul>
     </nav>
     <Login open={loginOpen} close={closeLogin} />

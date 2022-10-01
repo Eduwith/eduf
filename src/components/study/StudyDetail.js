@@ -80,7 +80,7 @@ function StudyDetail() {
                     { scrap ? <img src={scrappedicon} className={styles.scrap} onClick={onClickScrap}/> : <img src={scrapicon} className={styles.scrap} onClick={onClickScrap} /> } 
                     <img className={styles.close} src={closeicon} onClick={onClickClose}/>
                 </div>
-                <div>
+                <div className={styles.people}>
                     <img src={peopleicon} className={styles.peopleicon} />
                     {slist.current_people} / {slist.total_people}
                 </div>
@@ -94,8 +94,8 @@ function StudyDetail() {
                     {slist.contents} <br /><br />
                     스터디기간 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {slist.s_period}개월<br/>
                     모집마감기한 &nbsp;&nbsp;&nbsp;&nbsp; {slist.r_end_date}
-                    <hr />
                 </div>
+                <hr />
                 <button className={styles.btn_apply} onClick={onClickApply}>신청하기</button>   
             </div>
         </div>

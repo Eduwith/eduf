@@ -5,7 +5,7 @@
     left: 0;
     right: 0;
     z-index: 990;
-    width: 50vw;
+    width: 45vw;
     height: auto;
     /* overflow: hidden; */
     background: white;
@@ -18,15 +18,26 @@
     justify-content: space-between;
 }
 .boxtitle{
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 600;
 }
 .scrap{
-    margin-left: 60%;
+    position: absolute;
+    left: 83%;
     height: 50px;
 }
 .close{
     height: 50px;
+}
+.people{
+    display: flex;
+    margin-top: 10px;
+}
+.peopleicon{
+    margin-right: 10px;
+}
+.boxdetail{
+    padding: 12px 5px;
 }
 .boxtag{
     display: flex;
@@ -47,6 +58,7 @@
     height: 50px;
     border: none;
     border-radius: 30px;
+    margin-top: 10px;
 
     font-weight: 500;
     font-size: 20px;
