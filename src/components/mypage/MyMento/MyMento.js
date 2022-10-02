@@ -30,16 +30,17 @@ function MyMento() {
   }
 
   const url = 'http://localhost:8080';
-  const [user, setUser] = useState({
-    "email": " ",
-    "name": "멘티 정보가 없습니다",
-  });
-  const [logList, setLogList] = useState([{
-    "mentoring_no": 1,
-    "title": "멘토링 일지",
-    "content": "멘토링 일지 샘플입니다.",
-    "date": "2022-08-01"
-  }]);
+  const [geul, setGeul] = useState([]);
+  const [user, setUser] = useState([]);
+  // const [logList, setLogList] = useState([]);  
+  const [menNo, setMenNo] = useState(0);
+
+  // useState([{
+  //   "mentoring_no": 1,
+  //   "title": "멘토링 일지",
+  //   "content": "멘토링 일지 샘플입니다.",
+  //   "date": "2022-08-01"
+  // }]);
   const [mtitle, setMtitle] = useState('');
   const [current, setCurrent] = useState(null);
 
@@ -48,15 +49,20 @@ function MyMento() {
 
   const getList = () => {
     try {
-      axios.get(url + '/mentoring/log/list')
+       axios.get(`${url}/mentoring/log/list`)
+      // axios.get('/dummyMyMento.json')
         .then((res) => {
-          if (res.data) {
-            setUser(res.data.user);
-            setLogList(res.data.logList);
-            setMtitle(res.data.m_title);
+          if (res.data) {           
+            res.data.map((item) => setGeul(item))
+            console.log(geul);
           }
-        }
-        )
+            console.log(res.data.mentoring_no);
+            console.log(res.data.logList);
+            
+            // setUser(res.data.user);
+            // setLogList(res.data.logList);
+            // setMtitle(res.data.m_title);
+          })
     }
     catch (err) {
       console.log("err", err)
@@ -67,9 +73,9 @@ function MyMento() {
     setShowPopup(true);
   }
 
-  // useEffect(() => {
-  //   getList();
-  // }, [])
+  useEffect(() => {
+    getList();
+  }, [])
 
 
   //팝업
@@ -77,7 +83,7 @@ function MyMento() {
   const [showSPopup, setShowSPopup] = useState(false);
 
   const onView = (id) => {
-    setCurrent(logList ? logList.find(item => item.mentoring_no === id) : null);
+    setCurrent(geul && geul.logList.find(item => item.log_no === id));
     console.log(current, 'current');
   }
 
@@ -118,10 +124,14 @@ function MyMento() {
                 <div className={styles.ptitle}>{role === "O" ? '멘티' : '멘토'} 상세 정보</div>
                 <div className={styles.pinBox}>
                   <img src={animal} className={styles.img} />
-                  <div>
-                    <div className={styles.desc1}>{user && user.name}</div>
-                    {/* <div className={styles.desc}>{user && user.age} 세</div> */}
-                    <div className={styles.desc}>{user && user.email}</div> </div>
+                      
+                      { geul.user &&
+                      <div>                        
+                        <div className={styles.desc1}>이름: {geul.user.name}</div>
+                        <div className={styles.desc}>나이: {geul.user.age} 세</div>
+                        <div className={styles.desc}>이메일:{geul.user.email}</div> 
+                      </div>
+} 
                 </div>
               </div>
 
@@ -130,19 +140,21 @@ function MyMento() {
 
                 <div className={styles.minBox}>
 
-                  {logList.map((item) => (
-                    <div className={styles.subBox} key={item.mentoring_no} onClick={toggleSPopup} onMouseOver={() => onView(item.mentoring_no)}>
+                  {
+                    geul.logList && geul.logList.map((item) => (
+                    <div className={styles.subBox} key={item.log_no} onClick={toggleSPopup} onMouseOver={() => {onView(item.log_no);}}>
                       <div className={styles.desc}>{item.date}</div>
                       <div className={styles.desc}>{item.title}</div>
                       <div className={styles.desc2}>{item.content}</div>
                     </div>
+                  ))
 
-                  ))}
+                }
                 </div>
                 <BsPlusCircle size="32" color="#4673EA" onClick={clickBtn} className={styles.btn} />
 
-                {showPopup && <MyMentoJournal togglePopup={togglePopup} />}
-                {showSPopup && <MyMtJournalDetail toggleSPopup={toggleSPopup} logList={logList} current={current} />}
+                {showPopup && <MyMentoJournal togglePopup={togglePopup} menNo={menNo} />}
+                {showSPopup && <MyMtJournalDetail toggleSPopup={toggleSPopup} current={current} />}
               </div>
 
             </div>

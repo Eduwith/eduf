@@ -6,6 +6,13 @@ import { GoPencil, GoTrashcan } from 'react-icons/go';
 
 function MyWroteGeul({ item }) {
   const navigate = useNavigate();
+  // const [delNum, setDelNum] = useState(0);
+
+  // useEffect(() => {
+  //   return () => {
+  //     window.location.reload();
+  //   }
+  // }, [delNum]);
 
   const { m_no, role, title, name, field, info, keyword, m_period, mentoringApply, way, region } = item;
 
@@ -14,39 +21,66 @@ function MyWroteGeul({ item }) {
   const [applyNo, setApplyNo] = useState(0);
   const [userInfo, setUserInfo] = useState({});
   const [idx, setIdx] = useState(0);
+  const [userProfile, setUserProfile] = useState({});
+
 
   const acceptClick = () => {
-
-    axios.post(`${url}/mypage/${m_no}/apply/${applyNo}`, {
+      axios.post(`${url}/mypage/${m_no}/apply/${applyNo}`, {
       m_no: m_no,
       apply_no: applyNo
-    })
-      .then((res) => {
+      }).then((res) => {
         if (res.data.result === "SUCCESS") {
-          alert('멘티 신청을 수락했습니다.');
-          window.scrollTo(0, 0);
-
+        alert('멘티 신청을 수락했습니다.');
+        //window.location.reload();
+        //window.scrollTo(0, 0);
         }
-      })
-      .catch((err) => {
+      }).catch(err => {
         console.log('list get error', err);
       })
   }
 
-  const rejectClick = () => {
+  const rejectClick = async () => {
     console.log('an', userInfo.apply_no);
     console.log(userInfo)
-    axios.delete(`/mypage/${m_no}/apply/${applyNo}`);
-    alert('멘티 신청을 거절했습니다.');
+    try{
+      const response = await axios.delete(`${url}/mypage/${m_no}/apply/${applyNo}`);
+      if(response.data){
+        alert('신청을 거절하였습니다.');
+        console.log(response.data, 'delete');
+        window.location.reload();
+        
+      }
+      
+    }
+    catch (err) {
+      alert(err);
+    }
+    
     window.scrollTo(0, 0);
   }
   const onClickEvent = () => {
-    alert(`email: ${userInfo.email} & 이름: ${userInfo.name} & 나이: ${userInfo.age}`)
+    // alert(`email: ${userInfo.email} & 이름: ${userInfo.name} & 나이: ${userInfo.age}`)
+    axios.get(`${url}/mypage/${applyNo}/profile`)
+      .then((res) => {
+        if(res.data){
+          setUserProfile(res.data);
+          alert(`email: ${userProfile.email} & 이름: ${userProfile.name} & 나이: ${userProfile.age}`)
+        }
+      })
   }
 
   const deleteGeul = () => {
-    axios.delete(`${url}/mypage/apply/${m_no}`);
-    alert('삭제되었습니다.');
+    axios.delete(`${url}/mentoring/${m_no}`)
+    .then((res) => {
+      if(res.data.result) {
+        const value = window.confirm("정말로 삭제하시겠습니까?");
+        if (value) {
+          alert('삭제되었습니다.');
+          window.location.reload();
+        }
+      }
+    })
+    
   }
 
   return (
@@ -73,6 +107,7 @@ function MyWroteGeul({ item }) {
         <span className={styles.pencil} onClick= {() => {navigate(`/myEditRecruit/${m_no}`, {
           state: {
             m_no: m_no,
+            role: role,
             title: title,
             m_period: m_period,
             field: field,
@@ -92,9 +127,9 @@ function MyWroteGeul({ item }) {
       {
         mentoringApply && mentoringApply.map((item, idx) => (
 
-          <div className={styles.box2} key={item.apply_no} onMouseEnter={() => { setIdx(idx); setUserInfo(mentoringApply[Object.keys(mentoringApply)[idx]]); }}>{/* 신청자 조회 map 함수*/}
+          <div className={styles.box2} key={item.apply_no} onMouseEnter={() => { setApplyNo(item.apply_no); setIdx(idx); setUserInfo(mentoringApply[Object.keys(mentoringApply)[idx]]); }}>{/* 신청자 조회 map 함수*/}
             <div className={styles.inner_box2}>
-              <span className={styles.name}>{item.name}</span> 님이 {role === "O" ? '멘토' : '멘티'}를 신청하였습니다.
+              <span className={styles.name}>{item.name}</span> 님이 {role === "O" ? '멘티' : '멘토'}를 신청하였습니다.
               <span className={styles.detailbtn} onClick={onClickEvent}>상세 보기 {'>'}</span>
               <div className={styles.btnbox}>
                 <button onClick={acceptClick} className={styles.acceptbtn} >수락</button>

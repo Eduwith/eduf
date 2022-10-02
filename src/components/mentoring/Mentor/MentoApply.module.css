@@ -36,11 +36,25 @@
 
 .title {
   
-  font-size: 24px;
+  font-size: 28px;
   padding-left: 76px;
-  padding-top: 17px;
+  padding-top: 20px;
   font-weight: 600;
 }
+
+.star {
+  
+  font-size: 28px;
+  font-weight: 600;
+
+  
+  position: absolute;
+  right: 150px;
+  top: 17px;
+  cursor: pointer;
+  color: royalblue;
+}
+
 
 .content {
   width: 42vw;
@@ -50,35 +64,36 @@
 }
 
 .content > p {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .content_span {
-  font-size: 17px;
+  margin: 8px 0px;
+  font-size: 22px;
   color: #999;
   display:inline-block;  
   width: 80px;
 }
 
 .content_span2 {
-  font-size: 16px;
+  font-size: 22px;
   width: 180px;
   display:inline-block;  
   color: #333;
 }
 
 .content_span3 {
-  font-size: 17px;
+  font-size: 22px;
   color: #999;
   display:inline-block;
   width: 140px;
 }
 
 .content_keyword {
-  font-size: 16px;
-  width: 100px;
-  height: 30px;
-  line-height: 25px;
+  font-size: 22px;
+  width: 110px;
+  height: 35px;
+  line-height: 30px;
   text-align: center;
   display:inline-block;
   border: 2px solid #4673EA;
@@ -88,7 +103,7 @@
 
 .content_region {
   
-  font-size: 16px;  
+  font-size: 22px;  
   color: #333;
   width: 200px;
   display:inline-block;
@@ -97,8 +112,10 @@
 
 .content_info {
   
-  font-size: 16px;  
+  font-size: 22px;  
   width: 450px;
+  height: 80px;
+  overflow: auto;
   color: #333;
   display:inline-block;  
   vertical-align: top;
@@ -110,15 +127,16 @@
 }
 
 .btn {
-  width: 180px;
+  width: 200px;
   height: 50px;
+  line-height: 50px;
   margin-top: 70px;
   margin-left: 400px;
   background-color: #4673EA;
   box-shadow: none;
   border: none;
   border-radius: 30px;
-  font-size: 20px;
+  font-size: 24px;
   color: white;
   cursor: pointer;
 }

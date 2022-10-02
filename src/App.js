@@ -24,8 +24,10 @@ import TestMain from './components/test/TestMain';
 import TestQna from './components/test/TestQna';
 import TestResult from './components/test/TestResult';
 import MyEditRecruit from './components/mypage/MyMentoApply/MyEditRecruit';
-import MenteeRecruit from './components/mentoring/MenteeRecruit';
+import MenteeRecruit from './components/mentoring/Mentor/MenteeRecruit';
 import MenteeMentoring from './routes/MenteeMentoring';
+import FindPw from './components/user/FindPw';
+import MentorRecruit from './components/mentoring/Mentee/MentorRecruit';
 
 function App() {
 
@@ -40,6 +42,7 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/main" element={<Home />}></Route>
             <Route path="/join" element={<Join />}></Route>
+            <Route path="/findpw" element={<FindPw />}></Route>
 
             <Route path="/mypage" element={<MyPage/>}></Route>
             <Route path="/mymentoapply" element={<MyMentoApply/>}></Route>
@@ -63,7 +66,7 @@ function App() {
             <Route path="/mentoring/mentor" element={<Mentoring/>}></Route>
             <Route path="/mentoring/mentee" element={<MenteeMentoring/>}></Route>
 
-            <Route path="/mentorRecruit" element={<MenteeRecruit />}></Route>
+            <Route path="/mentorRecruit" element={<MentorRecruit />}></Route>
             <Route path="/menteeRecruit" element={<MenteeRecruit />}></Route>
             <Route path="/myEditRecruit/:m_no" element={<MyEditRecruit />}></Route>
 

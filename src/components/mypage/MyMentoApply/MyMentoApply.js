@@ -3,7 +3,7 @@ import styles from "./MyMentoApply.module.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import MyWroteGeul from "../MyWroteGeul";
+import MyWroteGeul from "./MyWroteGeul";
 import MyApplyList from "./MyApplyList";
 
 function MyMentoApply() {
@@ -23,8 +23,7 @@ function MyMentoApply() {
 
   const getList = () => {
     try {
-       //axios.get(url + '/mentoring/mypage/mentoring')
-      axios.get('/dummyMtData.json')
+       axios.get(url + '/mentoring/mypage/mentoring')
         .then((res) => {
           //역할에 맞는 글 가져오기
           role === "O" ? setMyList(res.data.mentor) : setMyList(res.data.mentee)

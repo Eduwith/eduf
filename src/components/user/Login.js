@@ -83,8 +83,8 @@ const Login = (props) => {
               value={pw}
               onChange={onPwHandler}
             />
-            <div className={styles.findpw}>비밀번호를 잊어버리셨나요?</div>
-            <div className={styles.sign}><Link to="/join">회원가입</Link></div>
+            <div ><Link to="findpw" className={styles.findpw} onClick={close} >ID/PW 찾기</Link></div>
+            <div ><Link to="/join" className={styles.sign} onClick={close}>회원가입</Link></div>
             <button className={styles.lbtn} type="submit">
               LOGIN
             </button>

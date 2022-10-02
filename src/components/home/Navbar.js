@@ -43,20 +43,20 @@ function Navbar({isLogin}) {
           </Link>
         </div>
         <ul className={styles.navLinks}>
-          { token ? 
-          <li className={styles.navItem} style={{textDecoration: 'none', color: 'gray'}} onClick={logoutToken} >
+          { token  ? 
+          <li className={styles.navItem} style={{textDecoration: 'none', color: 'gray', fontSize: "16px"}} onClick={logoutToken} >
             로그아웃
           </li> : 
-          <li className={styles.navItem} style={{textDecoration: 'none', color: 'gray'}} onClick={openLogin} >
+          <li className={styles.navItem} style={{textDecoration: 'none', color: 'gray', fontSize: "16px"}} onClick={openLogin} >
           로그인
         </li> }
 
           <li className={styles.navItem}>
-            <Link to="/join" style={{textDecoration: 'none', color: 'gray'}} >회원가입</Link>
+            <Link to="/join" style={{textDecoration: 'none', color: 'gray', fontSize: "16px"}} >회원가입</Link>
           </li>
 
           <li  className={styles.navItem}>
-            <Link to="/mypage" style={{textDecoration: 'none', color: 'gray'}} >마이페이지</Link>
+            <Link to="/mypage" style={{textDecoration: 'none', color: 'gray', fontSize: "16px"}} >마이페이지</Link>
           </li>
         </ul>
     </nav>

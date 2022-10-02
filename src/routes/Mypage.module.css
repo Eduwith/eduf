@@ -38,6 +38,8 @@
 
 .body{
     display: flex;
+    width: 800px;
+    margin: 0 auto;
 }
 .left{
     margin-right: 200px;
@@ -55,7 +57,7 @@
     color: #333333;
 }
 .tbmenu{
-    margin-bottom: 58px;
+    margin-bottom: 68px;
 }
 .right{
     margin-top: 70px;
@@ -98,6 +100,7 @@
 
 .editbtn {
     color: white;
+    margin-left: 200px;
     background-color: #4673EA;
     width: 130px;
     height: 50px;

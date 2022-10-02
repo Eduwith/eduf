@@ -38,6 +38,8 @@
 
 .title {
   font-size: 22px;
+  font-family: "GangwonEduBold";
+  color: #2753c9;
   padding-top:5px;
   margin: 20px 0
 }
@@ -71,18 +73,20 @@
   height: 50px;
   line-height: 35px;
   text-align: left;
+  font-size: 18px;
+  font-family: "GangwonEduBold";
 }
 
 .box > span {
   display: inline-block;
   width: 60px;
-  font-size: 16px;
+  font-size: 18px;
   margin-right: 40px;
 }
 
 .box2 {
-  width: 280px;
-  height: 75px;
+  width: 300px;
+  height: 30px;
   display: flex;
   justify-content: flex-start;
   overflow: hidden;
@@ -91,14 +95,22 @@
 .box2 > div{
   width: 250px;
   text-align: left;
+  font-size: 18px;
+  font-family: "GangwonEduBold";
 }
 
 .box2 > span {
   display: inline-block;
   width: 60px;
   text-align: left;
-  font-size: 16px;
+  font-size: 18px;
   margin-right: 30px;
+}
+
+.desc_box {
+  padding-top: 10px;;
+  height: 45px;
+  overflow: hidden;
 }
 
 .bin::after {

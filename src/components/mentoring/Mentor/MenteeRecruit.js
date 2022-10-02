@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./MenteeRecruit.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { IdState } from "../../recoil/RecoilId";
+import { IdState } from "../../../recoil/RecoilId";
 import { useRecoilValue } from "recoil";
 
 function MenteeRecruit() {
@@ -86,7 +86,7 @@ function MenteeRecruit() {
 
    const handleSubmit = async () => {
     try {
-      axios.post(url + '/mentoring/recruitment', {
+      const response = await axios.post(url + '/mentoring/recruitment', {
         role: role,
         title: title,
         field: field,
@@ -95,16 +95,15 @@ function MenteeRecruit() {
         m_period: mPeriod,
         keyword: keyword,
         info: info,
-      })
-        .then(function (response) {
-          if (response.data) {
+      });
+        if(response.data){
             alert('멘티 모집글이 등록되었습니다.');
             navigate('/mentoring/mentor') // 멘토 찾기 사이트로 간다.
-          }
-          else {
+        }
+        else{
             alert('멘티 모집글 등록에 실패하였습니다.');
-          }
-        })
+        }
+        
     } catch (err) {
       console.log("Mentoring Recruit Error >>", err);
     }
@@ -174,8 +173,8 @@ function MenteeRecruit() {
           <div className={styles.way}>
             <div className={styles.left}>강의방식</div>
             <div className={styles.checkbox}>
-              <label><input type="checkbox" name="teaching" value="on" onChange={onTeachingHandler} />&nbsp;온라인</label>
-              <label><input type="checkbox" name="teaching" value="off" onChange={onTeachingHandler} />&nbsp;오프라인</label>
+              <label><input type="checkbox" name="teaching" value="ON" onChange={onTeachingHandler} />&nbsp;온라인</label>
+              <label><input type="checkbox" name="teaching" value="OFF" onChange={onTeachingHandler} />&nbsp;오프라인</label>
             </div>
           </div>
           </div>
@@ -191,7 +190,7 @@ function MenteeRecruit() {
 
           <div className={styles.inner_box}>
             <div className={styles.left}>소개글</div>
-            <input type="text" value={info} onChange={onInfoHandler} className={styles.input_desc} placeholder="멘토에게 하고 싶은 말, 자기소개 등을 적어주세요." />
+            <textarea value={info} onChange={onInfoHandler} className={styles.input_desc} placeholder="멘토에게 하고 싶은 말, 자기소개 등을 적어주세요." />
           </div>
 
           <button type="button" onClick={handleSubmit} className={styles.btn} >등록하기</button>

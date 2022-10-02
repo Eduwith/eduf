@@ -1,6 +1,7 @@
 .navbar {
+  width: 1500px;
+  margin: 0 auto;
   height: 60px;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,8 +11,9 @@
 }
 
 .subvar {
+  width: 1500px;
+  margin: 0 auto;
   height: 39px;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -54,7 +56,7 @@
   text-decoration: none;
   color: black;
   font-weight: 600;
-  
+  font-size: 18px;
   position: relative;
 }
 
@@ -62,11 +64,11 @@
   text-decoration: none;
   color: black;
   font-weight: 600;
-  
+  font-size: 18px;
   position: relative;
 }
 
-.subLinks:hover .dropdown_content {
+.dropdown:hover .dropdown_content {
   display: block;
 }
 
