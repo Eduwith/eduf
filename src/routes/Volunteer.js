@@ -38,36 +38,34 @@ function Volunteer() {
     //     setPage(1);
     // }
 
-    const [vlist, setVlist] = useState(vlists);
+    //const [vlist, setVlist] = useState(vlists);
     
-    // const [vlist, setVlist] = useState([]);
-    // const apiVolunteer = "http://localhost:8080/api/volunteers";
-    // const baseUrl =  "http://localhost:8080";
-    // const getVlist = async () => {
-    //     try {
-    //         const response = await axios.get(baseUrl+ "/api/volunteers",
-    //             {params : { page: "0"}
-    //         });
-    //         setVlist(response.data); // 데이터는 response.data 안에
-    //         // const response = await axios.get(apiVolunteer +`?page=${page}&pageSize=10`);
-    //         //setPage(response.data.params);
-    //         console.log(response.data.params);
-    //     } catch (e) {
-    //         console.log(e);
-    //     }
-    // };
-    // useEffect(() => {
-    //     getVlist();
-    // }, []);
+    const [vlist, setVlist] = useState([]);
+    const apiVolunteer = "http://localhost:8080/api/volunteers";
+    const baseUrl =  "http://localhost:8080";
+    const getVlist = async () => {
+        try {
+            const response = await axios.get(baseUrl+ "/api/volunteers",
+                {params : { page: "0"}
+            });
+            setVlist(response.data); // 데이터는 response.data 안에
+            // const response = await axios.get(apiVolunteer +`?page=${page}&pageSize=10`);
+            //setPage(response.data.params);
+            console.log(response.data.params);
+        } catch (e) {
+            console.log(e);
+        }
+    };
+    useEffect(() => {
+        getVlist();
+    }, []);
 
     return (
         <div className={styles.wrap}>
             <div className={styles.vhead}>
-                <div>
                     <div className={styles.vtitle}>Volunteer</div>
                     <div className={styles.vtext}>1년 365일 자원봉사하기 좋은 날</div>
                     <img className={styles.vimg} src={vimg}></img>
-                </div>
             </div>
             
             <div className={styles.vlist}>
@@ -84,7 +82,7 @@ function Volunteer() {
                                 <div><img src={peopleicon}/> {item.current_people}/{item.total_people}</div>
                             </div>
                             <div className={styles.boxdetail}>
-                                <h4>{item.title}</h4>
+                                <div className={styles.title}>{item.title}</div>
                                 <div className={styles.boxaddress}>[지역] {item.address} </div>
                                 [봉사기간] {item.v_start_date} ~ {item.v_end_date} &nbsp; [모집기간] {item.r_start_date} ~ {item.r_end_date}
                             </div>

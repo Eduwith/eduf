@@ -28,6 +28,7 @@ import MenteeRecruit from './components/mentoring/Mentor/MenteeRecruit';
 import MenteeMentoring from './routes/MenteeMentoring';
 import FindPw from './components/user/FindPw';
 import MentorRecruit from './components/mentoring/Mentee/MentorRecruit';
+import Notice from './components/etc/Notice';
 
 function App() {
 
@@ -43,6 +44,8 @@ function App() {
             <Route path="/main" element={<Home />}></Route>
             <Route path="/join" element={<Join />}></Route>
             <Route path="/findpw" element={<FindPw />}></Route>
+
+            <Route path="/notice" element={<Notice/>}></Route>
 
             <Route path="/mypage" element={<MyPage/>}></Route>
             <Route path="/mymentoapply" element={<MyMentoApply/>}></Route>

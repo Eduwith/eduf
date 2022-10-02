@@ -9,21 +9,21 @@
     margin-bottom: 20px;
 }
 .title{
-    margin-left: 50px;
+    margin-left: 40px;
     font-weight: 700;
-    font-size: 25px;
+    font-size: 28px;
 }
 .recruitstate{
     
     color: white;
     background-color: #4673EA;
-    width: 130px;
-    height: 50px;
+    width: 120px;
+    height: 40px;
     border: none;
     border-radius: 30px;
 
     text-align: center;
-    padding-top: 5px;
+    padding-top: 10px;
     align-items: center;
     font-weight: 500;
     font-size: 24px;
@@ -35,6 +35,8 @@
     background-color: #F1F5FA;
     font-weight: 600;
     text-align: center;
+    width: 100px;
+
 }
 .buttonblock{
     display: flex;

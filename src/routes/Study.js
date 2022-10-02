@@ -61,18 +61,17 @@ function Study(){
         if(scrapYn == "Y") return (scrap == true)
         if(scrapYn == "N") return (scrap == false)
     }
-    const [s_no, setSno] = useState("");
-    const postScrap = async () => {
-        axios.post(baseUrl+"/studies/scrap", {
-          s_no: s_no,
-          scrapYN: scrap
-        }).then(function (response) {
+    // const postScrap = async () => {
+    //     axios.post(baseUrl+"/studies/scrap", {
+    //       s_no: s_no,
+    //       scrapYN: scrap
+    //     }).then(function (response) {
           
-        }).catch(function(error) {
-          console.log(error);
-          alert('실패');
-        });
-    };
+    //     }).catch(function(error) {
+    //       console.log(error);
+    //       alert('실패');
+    //     });
+    // };
 
     //검색창
     const [searchTag, setSearchTag] = useState("");
@@ -82,7 +81,7 @@ function Study(){
     const onSearch = async () => {
         try {
             console.log(searchTag + "검색");
-            const response = await axios.get(`http://localhost:8080/mentoring/keyword=${searchTag}`, {
+            const response = await axios.get(`http://localhost:8080/study/keyword=${searchTag}`, {
                 keyword : searchTag
             });
             if (response.data) {
@@ -95,23 +94,23 @@ function Study(){
     };
 
 
-    const [slist, setSlist] = useState(slists);
-    // const apiStudy = "http://localhost:8080/api/studies";
-    // const [slist, setSlist] = useState([]);
-    // const getSlist = async () => {
-    //     try {
-    //         const response = await axios.get(apiStudy,
-    //             {params : { page: page}
-    //         });
-    //         setSlist(response.data); // 데이터는 response.data 안에
-    //         console.log(response.data);
-    //     } catch (e) {
-    //         console.log(e);
-    //     }
-    // };
-    // useEffect(() => {
-    //     getSlist();
-    // }, []);
+    //const [slist, setSlist] = useState(slists);
+    const apiStudy = "http://localhost:8080/api/studies";
+    const [slist, setSlist] = useState([]);
+    const getSlist = async () => {
+        try {
+            const response = await axios.get(apiStudy,
+                {params : { page: page}
+            });
+            setSlist(response.data); // 데이터는 response.data 안에
+            console.log(response.data);
+        } catch (e) {
+            console.log(e);
+        }
+    };
+    useEffect(() => {
+        getSlist();
+    }, []);
 
     return(
         <div className={styles.wrap}>
@@ -139,10 +138,11 @@ function Study(){
                             {scrap ? <img src={scrappedicon} className={styles.scrap} onClick={onClickScrap} /> : <img src={scrapicon} className={styles.scrap} onClick={onClickScrap} />}
                         </div>
                         <Link to={`/studies/${item.s_no}`} state={{ data: item, scrap : scrap, }} style={{textDecoration : "none", color: "#333333"}}>
-                        <div>
+                        <div className={styles.people}>
                             <img src={peopleicon} className={styles.peopleicon} />
-                            {item.current_people} / {item.total_people} <hr /> </div>
-
+                            {item.current_people} / {item.total_people}
+                        </div>
+                        <hr /> 
                         <div className={styles.boxdetail} onClick={toggleStudyDetailPopup}>
                             {item.contents} <br /><br />
                             [모집마감기한] {item.r_end_date}

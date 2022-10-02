@@ -10,6 +10,7 @@ function MyPage() {
         
             email: "kim@gmail.com",
             name: "김수정",
+
             pwd : "123",
             age : "23",
             gender : "여자",      

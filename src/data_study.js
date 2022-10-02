@@ -3,21 +3,26 @@ function data_study() {
     const slists = [
         {
             s_no:0,
-            title:"오디오북 녹음하기", 
-            contents: "안녕하세요. 스터디 모집글 작성. 스터디 모집글 작성",
+            title:"자바스터디 모집", 
+            contents: "자바 스터디 모집합니다.",
             r_start_date: "2022.02.28",
-            r_end_date: "2022.03.06",
+            r_end_date: "2021-09-01",
             s_start_date: "2022.03.07",
             s_end_date: "2023.01.31",
-            current_people: "5",
+            current_people: "0",
             total_people: "10",
             s_period: "5",
-            tag: ["한글", "문법", "맞춤법"],
+            tag: ["", "자바", "스터디"],
             recruitYN: "Y",
             scrapYN: "N",
+            notice_no: 1,
+            date: "2021-09-01",
+            field: "Mentoring",
+            read:"Y"
         },
         {
             s_no:1,
+            name: "윤성신",
             title:"자료 번역하기",
             contents: "안녕하세요. 스터디 모집글 작성. 스터디 모집글 작성",
             r_start_date: "2022.02.28",
@@ -30,9 +35,14 @@ function data_study() {
             tag: ["한글", "문법"],
             recruitYN: "N",
             scrapYN: "N",
+            notice_no: 2,
+            date: "2021-09-01",
+            field: "Mentoring",
+            read:"N"
         },
         {
             s_no:2,
+            name: "미미",
             title: "디지털 취약계층을 위한 강의",
             contents: "안녕하세요. 스터디 모집글 작성. 스터디 모집글 작성",
             r_start_date: "2022.02.28",
@@ -45,6 +55,10 @@ function data_study() {
             tag: [],
             recruitYN: "N",
             scrapYN: "Y",
+            notice_no: 3,
+            date: "2021-09-01",
+            field: "Mentoring",
+            read:"Y"
     
         },
         {
@@ -61,6 +75,10 @@ function data_study() {
             tag: ["한글", "문법", "맞춤법"],
             recruitYN: "Y",
             scrapYN: "N",
+            notice_no: 4,
+            date: "2021-09-01",
+            field: "Volunteer",
+            read:"Y"
         },
         {
             s_no:4,
@@ -76,6 +94,10 @@ function data_study() {
             tag: ["한글"],
             recruitYN: "Y",
             scrapYN: "N",
+            notice_no: 5,
+            date: "2021-09-01",
+            field: "Study",
+            read:"Y"
     
         },
         {
@@ -92,6 +114,10 @@ function data_study() {
             tag: [],
             recruitYN: "Y",
             scrapYN: "Y",
+            notice_no: 6,
+            date: "2021-09-01",
+            field: "Study",
+            read:"N"
         }
     ]
     

@@ -1,23 +1,21 @@
 .navbar {
-  width: 1500px;
-  margin: 0 auto;
   height: 60px;
+  margin-top: 25px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
+  padding: 0 8%;
   font-size: 1.2rem;
   background-color: white;
 }
 
 .subvar {
-  width: 1500px;
-  margin: 0 auto;
   height: 39px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
+  padding: 0 8%;
   font-size: 1rem;  
   background-color: white;  
   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
@@ -26,6 +24,7 @@
 .logo {
   width: 30%;
   height: auto;
+  margin-left: -3px;
   margin-top: 5px;
   
 }
@@ -45,7 +44,7 @@
 .subLinks {
   display: grid;
   width: 400px;
-  text-align: center;
+  text-align: left;
   grid-template-columns: repeat(4, auto);
   grid-gap: 15px;
   list-style: none;
@@ -55,6 +54,7 @@
 .link {
   text-decoration: none;
   color: black;
+  font-size: 20px;
   font-weight: 600;
   font-size: 18px;
   position: relative;
@@ -63,6 +63,7 @@
 .mlink {
   text-decoration: none;
   color: black;
+  font-size: 20px;
   font-weight: 600;
   font-size: 18px;
   position: relative;
@@ -73,7 +74,7 @@
 }
 
 .navItem {
-  font-size: 0.8rem;
+  font-size: 16px;
   cursor: pointer;
   color: gray;
 }

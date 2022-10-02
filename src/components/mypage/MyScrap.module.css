@@ -1,52 +1,84 @@
-.head{
-    height: 380px;
-    padding-left: 100px;
-    padding-top: 70px;
-    background: #F1F5FA;
+.wrap {
+  padding: 0 15%;
+  /* width: 1300px;
+  height: 1000px;
+  margin: 0 auto; */
+}
 
-    font-weight: 600;
-    font-size: 35px;
+.head {
+  height: 90px;
+  padding-top: 20px;
+  font-weight: 600;
+  font-size: 36px;
 }
-.body{
-    background-color: white;
-    height: auto;
+.nav {
+  text-align: center;
+  /* width: 1300px; */
+  /* padding: 0 15%; */
+  height: 50px;
+  line-height: 44px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-top: 2px solid #eee;
+  border-bottom: 2px solid #eee;
 }
-.box{
-    z-index: 50;
-}
-.mybox {
-    position: relative;
-    z-index: 900;
-    top: -180px;
-    margin: 0 auto;
-    width: 1200px;
-    height: 800px;
-    padding: 60px;
 
-    background-color: white;
-    display: grid;
-    grid-template-columns: minmax(150px, 1fr) 2fr;
-    grid-gap: 100px;
-    text-decoration: none;
-    color: inherit;
-    box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
-      0 8px 16px -8px rgba(0, 0, 0, 0.178), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+.nav li>* {
+  width: 180px;
+  font-size: 24px;
 }
-.myimg{
-    position: relative;
-    margin: 0;
-    width: 250px;
-    height: 250px;
-    margin-bottom: 30px;
+
+.body {
+  padding: 0 10%;
+  margin-bottom: 50px;
 }
-.nav{
-    list-style: none;
+
+.top {
+  margin-top: 50px;
+  font-size: 22px;
 }
-.nav li{
-    margin: 15px 0px;
-    font-size: 22px;
+
+.categbox {
+  display: flex;
 }
-.mymenu{
-    font-size: 30px;
-    margin-bottom: 10px;
+
+.categ {
+  width: 90px;
+  height: 40px;
+  margin-right: 20px;
+  margin-top: 10px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #c4c4c4;
+}
+
+.line {
+  margin-top: 22px;
+  border: 1px solid #c4c4c4;
+}
+.boxdetail{
+  display: flex;
+}
+.scrap{
+  padding-top: 10px;
+  padding-left: 18px;
+}
+.title{
+  padding-top: 24px;
+  padding-left: 20px;
+  font-size: 22px;
+}
+.btndetail{
+  position: absolute;
+  left: 70%;
+  padding-top: 24px;
+  font-size: 22px;
+  font-weight: 500;
+  color: #4673EA;
+}
+.listline {
+  margin-top: 22px;
+  border: 0.1px solid #e7e7e7;
 }
