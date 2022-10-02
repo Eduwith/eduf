@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import styles from "./MentoApply.module.css";
-import pin from "../../images/animal.png";
+import styles from "../Mentor/MentoApply.module.css";
+import pin from "../../../images/animal.png";
 import { ImCross } from "react-icons/im";
 import {BsBookmarkStar, BsBookmarkStarFill} from "react-icons/bs";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Background = styled.div`
   position: fixed;
@@ -34,37 +35,68 @@ const Box = styled.div`
 `;
 
 
-function MentoApply({ togglePopup, current}) {
+function MenteeApply({ togglePopup, current}) {
 
   const [bmk, setBmk] = useState(false);
-  const {m_no, title, name, field, m_period, way, region, keyword, info} = current;
-
-  const onClickBMK = () => {
-    setBmk(current => !current);
-    console.log(m_no);
-  }
+  const {m_no, title, name, field, m_period, way, region, keyword, info, star} = current;
   const url = 'http://localhost:8080';
+  const navigate = useNavigate();
+  
+  const PlusBMK = async (e) => {
+    try {
+        const response = await axios.post(url+'/user/scrap/mentoring', {
+          m_no: m_no
+        })
+        if(response.data.result === "SUCCESS"){
+          setBmk(current => !current);
+          alert('스크랩 되었습니다.');
+          e.preventDefault();
+        }
+    }
+    catch (err) {
+      console.log("Bookmark plus error: ",err);
+    }
+    
+  }
+
+  const DeleteBMK = async (e) => {
+    try {
+        const response = await axios.delete(`${url}/user/scrap/mentoring/${m_no}`);
+        if(response.data.result === "SUCCESS"){
+          setBmk(current => !current);
+          alert('스크랩이 취소되었습니다.');
+          e.preventDefault();
+        }
+
+    }
+    catch (err) {
+      console.log("Bookmark delete rror: ",err);
+    }
+    
+  }
+  
 
   const onClick = () => {
-    alert(`지원이 완료되었습니다.`);
-    togglePopup(false);
-    // try {
-    //   axios.post(`${url}/mentoring/${m_no}/apply`, {
-    //     m_no: m_no
-    //   }).then(function (response) {
-    //     if(response){
-    //        console.log('전송 완료');
-    //     }
-    //     else
-    //       console.log('정보 없음');
-    //   });
-    // }
-    // catch(err) {
-    //   console.log('err : ', err);
-    // }
-  }
-
-
+    try {          
+      axios.post(`${url}/mentoring/${m_no}/apply`, {
+        m_no: m_no,
+      })
+      .then(res =>{
+        console.log(res.data.result);
+        if(res.data.result === "FAILURE : Same email as author"){
+          alert('자신의 글에는 멘토링 신청이 불가합니다.');           
+        }
+        else{
+          alert('신청 완료되었습니다.');
+          togglePopup(false);
+          navigate('/mentoring/mentee') // 멘토 찾기 사이트로 간다.
+        }
+        }) 
+    }
+    catch (err) {
+      console.log('mentoring apply error: ', err);
+    }
+}
   return (
     <div >
       <Background  onClick={togglePopup} />
@@ -72,15 +104,16 @@ function MentoApply({ togglePopup, current}) {
             
             <div>
               <div className={styles.bin}>
-               { bmk ? <BsBookmarkStarFill size="30" className={styles.book} onClick={onClickBMK} /> : <BsBookmarkStar size="30" className={styles.book} onClick={onClickBMK} /> }
+               { bmk ? <BsBookmarkStarFill size="30" className={styles.book} onClick={DeleteBMK} /> : <BsBookmarkStar size="30" className={styles.book} onClick={PlusBMK} /> }
                 <div className={styles.title}>{title}</div>
+                <span className={styles.star}>★ {star}</span>
                 <ImCross size="20" className={styles.x} onClick={togglePopup} />
               </div>
               <div className={styles.box}>
                 <img className={styles.pic} src={pin} alt="mentopic" />
                 <div className={styles.content}>
                   <div className={styles.sub_box}>
-                    <p><span className={styles.content_span}>멘토</span> <span className={styles.content_span2}>{name}</span></p>
+                    <p><span className={styles.content_span}>이름</span> <span className={styles.content_span2}>{name}</span></p>
                     <p><span  className={styles.content_span3}>멘토링 기간</span> <span className={styles.content_span2}>{m_period}개월 이상</span></p>
                   </div>
                   <div className={styles.sub_box}>
@@ -92,7 +125,7 @@ function MentoApply({ togglePopup, current}) {
                   <p><span className={styles.content_span}>소개</span> <span className={styles.content_info}>{info}</span></p>
                 </div>
               </div>
-              <button className={styles.btn} onClick={onClick}>멘티 지원하기</button>
+              <button className={styles.btn} onClick={onClick}>신청하기</button>
             </div>
            
       </Box> 
@@ -100,4 +133,4 @@ function MentoApply({ togglePopup, current}) {
   )
 }
 
-export default MentoApply;
+export default MenteeApply;

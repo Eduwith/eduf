@@ -19,8 +19,20 @@
   font-size: 18px;
   border: none;
   font-weight: 600;
+  background-color: white;  
+  color: #333;
+}
+
+.urgeCbtn {
+  position: absolute;
+  right: 140px;
+  top: 20px;
+  font-size: 18px;
+  border: none;
+  font-weight: 600;
   background-color: white;
-  color: #E45B5B;
+  
+  color: #4673EA;
 }
 
 
@@ -28,18 +40,19 @@
 
   font-size: 30px;
   font-family: "GangwonEduBold";
+  margin-top: 30px;
   margin-left: 60px;
-  margin-bottom: 30px;
+  margin-bottom: 30px;  
+  width: 250px;
 }
 
 
 .mymenu2 {
-
+  width: 1000px;
   font-size: 22px;
   font-family: "GangwonEduLight";
   color: #666;
   width: 250px;
   text-align: center;
-  margin: 0 auto;
   margin-bottom: 30px;
 }

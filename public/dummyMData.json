@@ -2,7 +2,7 @@
   "lists": [
     {
       "m_no": 1,
-      "role": "O",
+      "role": "E",
       "title": "중 1 수학 멘티 모집",
       "name": "최수정",
       "field": "교육",
@@ -12,7 +12,8 @@
       "way": "OFF",
       "keyword": "친절해요",
       "info": "안녕하세요! 중1 수학 재밌게 공부할 멘티 구합니다.",
-      "email": "12233@naver.com"
+      "email": "12233@naver.com",
+      "star": 3.5
     },
     {
       "m_no": 2,
@@ -25,8 +26,24 @@
       "m_period": 3,
       "way": "OFF",
       "keyword": "친절해요",
-      "info": "함께 과학 공부할 멘티를 구합니다.",
-      "email": "12233@naver.com"
+      "info": "함께 과학 공부할 멘티를 구합니다.함께 과학 공부할 멘티를 구합니다.",
+      "email": "12233@naver.com",
+      "star": 4.2
+    },
+    {
+      "m_no": 3,
+      "role": "O",
+      "title": "우리 체육 하실분 모집",
+      "name": "최우리",
+      "field": "문화예술스포츠",
+      "region": "경기도용인시",
+      "r_period": "7",
+      "m_period": 6,
+      "way": "ON",
+      "keyword": "재밌어요",
+      "info": "우리 체육 하실분우리 체육 하실분우리 체육 하실분우리 체육 하실분우리 체육 하실분",
+      "email": "12233@naver.com",
+      "star": 4.2
     }
   ]
 }

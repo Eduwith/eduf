@@ -9,7 +9,7 @@ function Join() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [age, setAge] = useState(10);
+  const [age, setAge] = useState(15);
   const [gender, setGender] = useState("M");
   const [address, setAddress] = useState("");
 
@@ -90,7 +90,7 @@ function Join() {
   return (
     <div>
       <div className={styles.background}>
-        &nbsp; <h1>eduwith</h1>
+        &nbsp; <div className={styles.title}>eduwith</div>
         <form onSubmit={handleSubmit2}>
             <div className={styles.box}>
               <h3>이름</h3><input name="name" type="text" placeholder="이름" value={name} onChange={onNameHandler} className={styles.input_join}/>
@@ -113,7 +113,7 @@ function Join() {
             <div className={styles.box}>
               <h3>성별</h3>
               <select onChange={onGenderHandler} value={gender} className={styles.input_join}>
-                    <option value="M" >남자</option>
+                    <option value="M">남자</option>
                     <option value="F">여자</option>
               </select>
             </div>

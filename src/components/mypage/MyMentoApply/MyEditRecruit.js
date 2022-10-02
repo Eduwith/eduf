@@ -9,7 +9,8 @@ function MyEditRecruit() {
   const navigate = useNavigate();
   const location = useLocation();
   
-  const m_no = location.state.title;
+
+  const m_no = location.state.m_no;
   const mtitle = location.state.title;
   const mm_period = location.state.m_period;
   const mregion = location.state.region;
@@ -17,17 +18,14 @@ function MyEditRecruit() {
   const mkeyword = location.state.keyword;
   const minfo = location.state.info;
   const mfield = location.state.field;
+  const role = location.state.role;
 
-  console.log(mtitle);
-
-  const userId = useRecoilValue(IdState);
-  const role = "O";
-  const [title, setTitle] = useState(mtitle ? mtitle : "");
-  const [field, setField] = useState("");
-  const [teaching, setTeaching] = useState("");
-  const [mPeriod, setMPeriod] = useState("1");
-  const [keyword, setKeyword] = useState("재밌어요");
-  const [info, setInfo] = useState("");
+  const [title, setTitle] = useState(mtitle);
+  const [field, setField] = useState(mfield);
+  const [teaching, setTeaching] = useState(mway);
+  const [mPeriod, setMPeriod] = useState(mm_period);
+  const [keyword, setKeyword] = useState(mkeyword);
+  const [info, setInfo] = useState(minfo);
 
 
   const onTitleHandler = (event) => {
@@ -100,7 +98,7 @@ function MyEditRecruit() {
 
    const handleSubmit = async () => {
     try {
-      axios.patch(url + `/mentoring/${m_no}`, {
+      const response = await axios.patch(`${url}/mentoring/${m_no}`, {
         role: role,
         title: title,
         field: field,
@@ -110,19 +108,19 @@ function MyEditRecruit() {
         keyword: keyword,
         info: info,
       })
-        .then(function (response) {
-          if (response.data) {
-            alert('변경이 완료되었습니다.');
-            navigate('/mentoring/mento') // 멘토 찾기 사이트로 간다.
-          }
-        })
+
+      if(response.data.result){
+          alert('변경이 완료되었습니다.');
+          navigate('/mentoring/mentor'); // 멘토 찾기 사이트로 간다.
+      }
+
     } catch (err) {
-      console.log("Mentoring Recruit Error >>", err);
+      console.log("Mentoring Edit Error >>", err);
     }
   };
 
   const handleSubmit2 = () => {
-    navigate('/mentoring/mento');
+    navigate('/mentoring/mentor');
   }
 
   return (
@@ -134,7 +132,7 @@ function MyEditRecruit() {
         <form onSubmit={handleSubmit}>
           <div className={styles.inner_box}>
             <div className={styles.left}>제목</div>
-            <input type="text" className={styles.input_title} value={title} onChange={onTitleHandler} placeholder={mtitle ? `${mtitle}` : "제목을 입력하세요."} />
+            <input type="text" className={styles.input_title} value={title} onChange={onTitleHandler} placeholder={mtitle} />
           </div>
 
           <div className={styles.outside}>
@@ -150,7 +148,7 @@ function MyEditRecruit() {
 
             <div className={styles.period}>
               <div className={styles.left}>멘토링 기간</div>
-              <select name="period" value={mm_period ? mm_period : mPeriod} onChange={onMPeriodHandler}>
+              <select name="period" value={mPeriod} onChange={onMPeriodHandler}>
                 <option value="1">1개월 이상</option>
                 <option value="3">3개월 이상</option>
                 <option value="6">6개월 이상</option>
@@ -185,23 +183,24 @@ function MyEditRecruit() {
           <div className={styles.way}>
             <div className={styles.left}>강의방식</div>
             <div className={styles.checkbox}>
-              <label><input type="checkbox" name="teaching" value="on" onChange={onTeachingHandler} checked={mway === "ON" ? "checked" : ""}/>&nbsp;온라인</label>
-              <label><input type="checkbox" name="teaching" value="off" onChange={onTeachingHandler} checked={mway === "OFF" ? "checked" : ""} />&nbsp;오프라인</label>
+              <label><input type="checkbox" name="teaching" value="ON" onChange={onTeachingHandler} checked={teaching === "ON" ? true : false}/> &nbsp;온라인</label>
+              <label><input type="checkbox" name="teaching" value="OFF" onChange={onTeachingHandler} checked={teaching === "OFF" ? true : false}/> &nbsp;오프라인</label>
             </div>
           </div>
           </div>
           <div className={styles.inner_box}>
             <div className={styles.left}>특징</div>
-            <select name="keyword" onChange={onKeywordHandler} value={mkeyword ? mkeyword : keyword} className={styles.keyword}>
-              <option value="재밌어요" >재밌어요</option>
-              <option value="성실해요" defaultChecked={mkeyword === "성실해요" ? true : false}>성실해요</option>
+            <select name="keyword" onChange={onKeywordHandler} value={keyword} className={styles.keyword}>
+              <option value="재밌어요">재밌어요</option>
+              <option value="성실해요">성실해요</option>
               <option value="친절해요">친절해요</option>
+              <option value="똑똑해요">똑똑해요</option>
             </select>
           </div>
 
           <div className={styles.inner_box}>
             <div className={styles.left}>소개글</div>
-            <input type="text" value={info} onChange={onInfoHandler} className={styles.input_desc} placeholder={minfo ? `${minfo}` : "멘티에게 하고 싶은 말, 자기소개 등을 적어주세요."} />
+            <textarea value={info} onChange={onInfoHandler} className={styles.input_desc} placeholder={info} />
           </div>
 
           <button type="button" onClick={handleSubmit} className={styles.btn} >수정하기</button>
