@@ -15,6 +15,10 @@ function data_study() {
             tag: ["", "자바", "스터디"],
             recruitYN: "Y",
             scrapYN: "N",
+            notice_no: 1,
+            date: "2021-09-01",
+            field: "Mentoring",
+            read:"Y"
         },
         {
             s_no:1,
@@ -31,6 +35,10 @@ function data_study() {
             tag: ["한글", "문법"],
             recruitYN: "N",
             scrapYN: "N",
+            notice_no: 2,
+            date: "2021-09-01",
+            field: "Mentoring",
+            read:"N"
         },
         {
             s_no:2,
@@ -47,6 +55,10 @@ function data_study() {
             tag: [],
             recruitYN: "N",
             scrapYN: "Y",
+            notice_no: 3,
+            date: "2021-09-01",
+            field: "Mentoring",
+            read:"Y"
     
         },
         {
@@ -63,6 +75,10 @@ function data_study() {
             tag: ["한글", "문법", "맞춤법"],
             recruitYN: "Y",
             scrapYN: "N",
+            notice_no: 4,
+            date: "2021-09-01",
+            field: "Volunteer",
+            read:"Y"
         },
         {
             s_no:4,
@@ -78,6 +94,10 @@ function data_study() {
             tag: ["한글"],
             recruitYN: "Y",
             scrapYN: "N",
+            notice_no: 5,
+            date: "2021-09-01",
+            field: "Study",
+            read:"Y"
     
         },
         {
@@ -94,6 +114,10 @@ function data_study() {
             tag: [],
             recruitYN: "Y",
             scrapYN: "Y",
+            notice_no: 6,
+            date: "2021-09-01",
+            field: "Study",
+            read:"N"
         }
     ]
     

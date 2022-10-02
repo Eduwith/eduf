@@ -33,6 +33,7 @@
 .btn_delete{
     position: absolute;
     left: 80%;
+    margin-top: 5px;
 }
 .nbottom{
     margin-left: 45%;

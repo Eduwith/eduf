@@ -38,27 +38,27 @@ function Volunteer() {
     //     setPage(1);
     // }
 
-    const [vlist, setVlist] = useState(vlists);
+    //const [vlist, setVlist] = useState(vlists);
     
-    // const [vlist, setVlist] = useState([]);
-    // const apiVolunteer = "http://localhost:8080/api/volunteers";
-    // const baseUrl =  "http://localhost:8080";
-    // const getVlist = async () => {
-    //     try {
-    //         const response = await axios.get(baseUrl+ "/api/volunteers",
-    //             {params : { page: "0"}
-    //         });
-    //         setVlist(response.data); // 데이터는 response.data 안에
-    //         // const response = await axios.get(apiVolunteer +`?page=${page}&pageSize=10`);
-    //         //setPage(response.data.params);
-    //         console.log(response.data.params);
-    //     } catch (e) {
-    //         console.log(e);
-    //     }
-    // };
-    // useEffect(() => {
-    //     getVlist();
-    // }, []);
+    const [vlist, setVlist] = useState([]);
+    const apiVolunteer = "http://localhost:8080/api/volunteers";
+    const baseUrl =  "http://localhost:8080";
+    const getVlist = async () => {
+        try {
+            const response = await axios.get(baseUrl+ "/api/volunteers",
+                {params : { page: "0"}
+            });
+            setVlist(response.data); // 데이터는 response.data 안에
+            // const response = await axios.get(apiVolunteer +`?page=${page}&pageSize=10`);
+            //setPage(response.data.params);
+            console.log(response.data.params);
+        } catch (e) {
+            console.log(e);
+        }
+    };
+    useEffect(() => {
+        getVlist();
+    }, []);
 
     return (
         <div className={styles.wrap}>

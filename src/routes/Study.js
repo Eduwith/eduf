@@ -94,23 +94,23 @@ function Study(){
     };
 
 
-    const [slist, setSlist] = useState(slists);
-    // const apiStudy = "http://localhost:8080/api/studies";
-    // const [slist, setSlist] = useState([]);
-    // const getSlist = async () => {
-    //     try {
-    //         const response = await axios.get(apiStudy,
-    //             {params : { page: page}
-    //         });
-    //         setSlist(response.data); // 데이터는 response.data 안에
-    //         console.log(response.data);
-    //     } catch (e) {
-    //         console.log(e);
-    //     }
-    // };
-    // useEffect(() => {
-    //     getSlist();
-    // }, []);
+    //const [slist, setSlist] = useState(slists);
+    const apiStudy = "http://localhost:8080/api/studies";
+    const [slist, setSlist] = useState([]);
+    const getSlist = async () => {
+        try {
+            const response = await axios.get(apiStudy,
+                {params : { page: page}
+            });
+            setSlist(response.data); // 데이터는 response.data 안에
+            console.log(response.data);
+        } catch (e) {
+            console.log(e);
+        }
+    };
+    useEffect(() => {
+        getSlist();
+    }, []);
 
     return(
         <div className={styles.wrap}>
