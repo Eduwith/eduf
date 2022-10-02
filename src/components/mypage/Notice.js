@@ -20,7 +20,7 @@ function Notice() {
     `;
 
     const onClickNotice = (field, notice_no) => {
-        putNotice(notice_no);
+        patchNotice(notice_no);
         if(field == "Mentoring"){
             navigate("/mentoring/mentor");
         }
@@ -65,7 +65,7 @@ function Notice() {
     };
 
     //알림 수정
-    const putNotice = async (notice_no) => {
+    const patchNotice = async (notice_no) => {
         try {
             const response = await axios.patch(baseUrl + `/notice/${notice_no}`, {
                 read: "Y"
