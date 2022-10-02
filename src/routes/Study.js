@@ -81,7 +81,7 @@ function Study(){
     const onSearch = async () => {
         try {
             console.log(searchTag + "검색");
-            const response = await axios.get(`http://localhost:8080/mentoring/keyword=${searchTag}`, {
+            const response = await axios.get(`http://localhost:8080/study/keyword=${searchTag}`, {
                 keyword : searchTag
             });
             if (response.data) {
