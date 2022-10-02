@@ -14,7 +14,7 @@ function Notice() {
     
     const Noticebox= styled.div`
     background : ${props => 
-        {if(props.read == "N") { return "#C4C4C4"}
+        {if(props.read == "Y") { return "#C4C4C4"}
     }}
     ;
     `;
