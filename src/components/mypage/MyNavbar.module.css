@@ -1,0 +1,25 @@
+.head {
+    height: 90px;
+    padding-top: 50px;
+    margin-bottom: 50px;
+    font-weight: 600;
+    font-size: 36px;
+  }
+  
+  .nav {
+    text-align: center;
+    height: 50px;
+    line-height: 44px;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-top: 2px solid #eee;
+    border-bottom: 2px solid #eee;
+  }
+  
+  .nav li>* {
+    width: 180px;
+    font-size: 24px;
+  
+  }

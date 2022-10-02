@@ -5,33 +5,8 @@
   margin: 0 auto; */
 }
 
-.head {
-  height: 90px;
-  padding-top: 20px;
-  font-weight: 600;
-  font-size: 36px;
-}
-.nav {
-  text-align: center;
-  /* width: 1300px; */
-  /* padding: 0 15%; */
-  height: 50px;
-  line-height: 44px;
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  border-top: 2px solid #eee;
-  border-bottom: 2px solid #eee;
-}
-
-.nav li>* {
-  width: 180px;
-  font-size: 24px;
-}
-
 .body {
-  padding: 0 10%;
+  padding: 0 2%;
   margin-bottom: 50px;
 }
 
@@ -42,6 +17,7 @@
 
 .categbox {
   display: flex;
+  margin-top: 10px;
 }
 
 .categ {

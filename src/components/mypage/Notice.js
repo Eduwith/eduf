@@ -14,13 +14,13 @@ function Notice() {
     
     const Noticebox= styled.div`
     background : ${props => 
-        {if(props.read == "N") { return "#C4C4C4"}
+        {if(props.read == "Y") { return "#C4C4C4"}
     }}
     ;
     `;
 
     const onClickNotice = (field, notice_no) => {
-        putNotice(notice_no);
+        patchNotice(notice_no);
         if(field == "Mentoring"){
             navigate("/mentoring/mentor");
         }
@@ -65,7 +65,7 @@ function Notice() {
     };
 
     //알림 수정
-    const putNotice = async (notice_no) => {
+    const patchNotice = async (notice_no) => {
         try {
             const response = await axios.patch(baseUrl + `/notice/${notice_no}`, {
                 read: "Y"

@@ -9,7 +9,6 @@ import Home from './routes/Home';
 import Join from './components/user/Join';
 import Volunteer from './routes/Volunteer';
 import VolunteerDetail from './components/volunteer/VolunteerDetail';
-import Mentoring from "./routes/Mentoring";
 import Study from "./routes/Study";
 import StudyDetail from './components/study/StudyDetail';
 import StudyRegister from './components/study/StudyRegister';
@@ -19,16 +18,17 @@ import MyMento from './components/mypage/MyMento/MyMento';
 import MyStudy from './components/mypage/MyStudy';
 import MyScrap from './components/mypage/MyScrap';
 import MyPoint from './components/mypage/MyPoint';
+import Notice from './components/mypage/Notice';
 import Navbar from './components/home/Navbar';
 import TestMain from './components/test/TestMain';
 import TestQna from './components/test/TestQna';
 import TestResult from './components/test/TestResult';
+import Mentoring from "./routes/Mentoring";
 import MyEditRecruit from './components/mypage/MyMentoApply/MyEditRecruit';
 import MenteeRecruit from './components/mentoring/Mentor/MenteeRecruit';
 import MenteeMentoring from './routes/MenteeMentoring';
 import FindPw from './components/user/FindPw';
 import MentorRecruit from './components/mentoring/Mentee/MentorRecruit';
-import Notice from './components/etc/Notice';
 
 function App() {
 

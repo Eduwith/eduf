@@ -2,22 +2,13 @@ import Navbar from "../home/Navbar";
 import styles from "./MyStudy.module.css";
 import myimg from "../../images/myimg.png";
 import peopleicon from "../../images/people.png";
-import { NavLink } from "react-router-dom";
 import { React, useEffect, useState } from "react";
 import axios from "axios";
 import slists from "../../data_study.js";
+import MyNavbar from "./MyNavbar";
 
 
 function MyStudy() {
-    const activeStyle = {
-        color: 'blue',
-        textDecoration: "none"
-    };
-    const unactiveStyle = {
-        color: 'black',
-        textDecoration: "none"
-    };
-
     const [slist, setSlist] = useState(slists);
     // const [slist, setSlist] = useState([]);
     // const baseUrl = "http://localhost:8080";
@@ -63,15 +54,7 @@ function MyStudy() {
 
     return (
         <div className={styles.wrap}>
-            <div className={styles.head}>MY PAGE</div>
-            <ul className={styles.nav}>
-                <li><NavLink to="/MyPage" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>프로필 수정</NavLink></li>
-                <li><NavLink to="/MyMentoApply" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>멘토링 신청</NavLink></li>
-                <li><NavLink to="/MyMento" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>멘토링 내역</NavLink></li>
-                <li><NavLink to="/MyStudy" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>스터디 관리</NavLink></li>
-                <li><NavLink to="/MyScrap" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>스크랩 내역</NavLink></li>
-                <li><NavLink to="/MyPoint" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>포인트 관리</NavLink></li>
-            </ul>
+            <MyNavbar/>
             <div className={styles.body}>
                 <div className={styles.top}>
                     <div>내가 모집한 스터디</div>

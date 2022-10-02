@@ -1,11 +1,12 @@
 import styles from "./Mypage.module.css";
-import myimg from "../images/myimg.png"
 import {NavLink, useNavigate} from "react-router-dom";
 import {useState, useEffect} from "react";
 import axios from "axios";
-//import userdata from "../data_user.js";
+import myimg from "../images/myimg.png"
+import MyNavbar from "../components/mypage/MyNavbar";
 
 function MyPage() {
+
     const userdata = {
         
             email: "kim@gmail.com",
@@ -20,35 +21,40 @@ function MyPage() {
     }
     const navigate = useNavigate();
 
+    const onEdit = () => {
+        patchUser();
+        //getUser();
+    };
+    const onQuit = () => {
+        console.log("탈퇴 버튼 클릭됨");
+        deleteUser();
+    }
+
+    const baseUrl = "http://localhost:8080";
     const [user, setuser] = useState(userdata);
-    const baseurl = "http://localhost:8080";
     // const [user, setUser] = useState([]);
-    // const [error, setError] = useState(null);
-    // const apiMypage = "http://localhost:8080/user/mypage";
     // const getUser = async () => {
     //     try {
-    //         const response = await axios.get(baseurl+ "/user/mypage");
+    //         const response = await axios.get(baseUrl+ "/user/mypage");
     //         setUser(response.data);
+    //         console.log(response.data);
     //     } catch (e) {
-    //         setError(e);
     //         console.log(e);
     //     }
     // };
-
     // useEffect(() => {
     //     getUser();
     // }, []);
 
-    const editUser = async () => {
-        console.log("수정 버튼 클릭됨");
-        axios.post(baseurl + "/user/edit",
-        {
-            headers:{
-              'Content-type': 'application/json',
-              //'Authorization' : `Bearer ${localStorage.getItem(jwtToken)}`
-            }
-        }
-        ).then(function (response) {
+    //회원정보 수정
+    const patchUser = async () => {
+        try {
+            const response = await axios.patch(baseUrl + "/user/edit", {
+                headers:{
+                    'Content-type': 'application/json',
+                    //'Authorization' : `Bearer ${localStorage.getItem(jwtToken)}`
+                  }
+            });
             if (response.data.result == "SUCCESS") {
                 console.log('수정완료');
                 if (window.confirm("프로필 수정을 위해 다시 로그인해주세요")) {
@@ -60,39 +66,22 @@ function MyPage() {
             } else {
                 alert(response.data.result)
             }
-
-        }).catch(function (error) {
-            console.log(error);
-        });
+            console.log(response.data);
+        } catch (e) {
+            console.log(e);
+        }
     };
 
-    const quitUser = async () => {
-        console.log("탈퇴 버튼 클릭됨");
-        axios.post(baseurl + "/user/quit", {
-            
-        }).then(function (response) {
+    //회원탈퇴
+    const deleteUser = async () => {
+        try {
+            const response = await axios.delete(baseUrl + "/user/withdrawal");
+            console.log(response.data);
             alert("탈퇴되었습니다.");
             navigate("/main");
-        }).catch(function (error) {
-            console.log(error);
-        });
-    };
-
-    const onEdit = () => {
-        editUser();
-    }
-
-    const onQuit = () => {
-        quitUser();
-    }
-    
-    const activeStyle={
-        color: 'blue',
-        textDecoration: "none"
-    };
-    const unactiveStyle={
-        color: 'black',
-        textDecoration: "none"
+        } catch (e) {
+            console.log(e);
+        }
     };
 
     const [name, setName] = useState("");
@@ -119,18 +108,10 @@ function MyPage() {
 
     return(
         <div className={styles.wrap}>
-            <div className={styles.head}>MY PAGE</div>
-            <ul className={styles.nav}>
-                <li><NavLink to="/MyPage" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>프로필 수정</NavLink></li>
-                <li><NavLink to="/MyMentoApply" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>멘토링 신청</NavLink></li>
-                <li><NavLink to="/MyMento" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>멘토링 내역</NavLink></li>
-                <li><NavLink to="/MyStudy" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>스터디 관리</NavLink></li>
-                <li><NavLink to="/MyScrap" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>스크랩 내역</NavLink></li>
-                <li><NavLink to="/MyPoint" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>포인트 관리</NavLink></li>
-            </ul>
+            <MyNavbar/>
             <div className={styles.body}>
                 <div className={styles.left}>
-                        <h2 className={styles.name}>{user.name}</h2>
+                        <div className={styles.name}>{user.name}</div>
                         <div className={styles.tbmenu} >이메일</div>
                         <div className={styles.tbmenu} >비밀번호</div>
                         <div className={styles.tbmenu} >비밀번호 변경</div>
@@ -162,3 +143,26 @@ function MyPage() {
 }
 
 export default MyPage;
+
+// axios.post(baseurl + "/user/edit",
+//         {
+//             headers:{
+//               'Content-type': 'application/json',
+//               //'Authorization' : `Bearer ${localStorage.getItem(jwtToken)}`
+//             }
+//         }
+//         ).then(function (response) {
+//             if (response.data.result == "SUCCESS") {
+//                 console.log('수정완료');
+//                 if (window.confirm("프로필 수정을 위해 다시 로그인해주세요")) {
+//                     localStorage.removeItem("user");
+//                     navigate("/login");
+//                 } else {
+//                     alert("프로필 수정을 취소하였습니다.")
+//                 }
+//             } else {
+//                 alert(response.data.result)
+//             }
+//         }).catch(function (error) {
+//             console.log(error);
+//         });
