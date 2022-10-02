@@ -56,6 +56,8 @@
 }
 
 .btn {
+  cursor: pointer;
+  text-decoration: none;
   border-radius: 20px;
   background-color: #4673EA;
   height: 50px;
@@ -105,6 +107,7 @@
 }
 
 .detailBtn {
+  cursor: pointer;
   width: 200px;
   height: 50px;
   margin-top: 270px;

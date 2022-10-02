@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Mentoring.module.css";
-import MentoApply from "../components/mentoring/MentoApply";
-import MentiRecruit from "../components/mentoring/MenteeRecruit";
+import MentoApply from "../components/mentoring/Mentor/MentoApply";
+import MentiRecruit from "../components/mentoring/Mentor/MenteeRecruit";
 import axios from "axios";
 import MentoList from "../components/mentoring/MentoList";
 import { Link } from "react-router-dom";
@@ -13,20 +13,29 @@ function Mentoring() {
   //글 불러오기
   const [geul, setGeul] = useState([]);
   const [current, setCurrent] = useState(0);
+  const [bmk, setBmk] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const [showApplyPopup, setShowApplyPopup] = useState(false);
 
   const url = 'http://localhost:8080';
-  //const url = 'http://34.64.249.190:8080/';
 
   const fetchGeul = async () => {
     try {
       setGeul(null);
 
-      //axios.get(url + '/mentoring/mentor')
-      axios.get('/dummyMData.json')
+      axios.get(url + '/mentoring/mentor')
         .then(function (response) {
           if (response) {
-            console.log('멘토링 조회 성공!');
-            setGeul(response.data.lists); // 연결하면서 수정하기
+            let arr = [];
+            response.data.map((data) => {
+              
+              if(data.role === "O"){
+                console.log('멘토링 조회 성공!');
+                console.log(data.name);
+                console.log(data);
+                arr.push(data); }
+            })
+              setGeul(arr); 
           }
         })
     } catch (err) {
@@ -39,7 +48,7 @@ function Mentoring() {
   }, []);
 
   //검색 - kw / 
-  const [kw, setKw] = useState("");
+  const [kw, setKw] = useState(null);
 
   const handleUserInput = (e) => {
     console.log(e.target.value);
@@ -47,10 +56,6 @@ function Mentoring() {
   }
 
   //팝업
-  const [showPopup, setShowPopup] = useState(false);
-
-  const [showApplyPopup, setShowApplyPopup] = useState(false);
-
   const onView = (id) => {
     setCurrent(geul && geul.find(item => item.m_no === id))
     
@@ -65,6 +70,13 @@ function Mentoring() {
     setShowApplyPopup(current => !current);
   };
 
+
+  //북마크
+  const onClickBmk = () => {
+    setBmk(current => !current);
+    
+  };
+  
   //라디오 버튼 - 분야
   const [fieldSt, setFieldSt] = useState('');
   const handleClickField = (rb) => {
@@ -123,24 +135,34 @@ function Mentoring() {
 
   //키워드 검색
   const filterKW = async () => {
+
     try {
-      const response = await axios.get(`http://localhost:8080/mentoring/search/${kw}`, {
-        keyword: kw
-      });
-      if (response) {
-        console.log('키워드 검색 성공', response.data);
-      }
-      else {
-        console.log('검색 결과 없음');
+      if(kw !== null) {
+        setGeul(null);
+        const response = await axios.get(`http://localhost:8080/mentoring/search/${kw}`, {
+          keyword: kw
+        });
+        if (response) {
+          setGeul(response.data);
+          console.log('키워드 검색 성공', response.data);
+          
+        }
+        else {
+          console.log('검색 결과 없음');
+        }
+      } else {
+        alert('검색어를 입력하세요.');
       }
     } catch (err) {
       console.log("keyword search Error >>", err);
     }
+      
   };
 
   //박스 검색
   const filterBox = async () => {
     try {
+      setGeul(null);
       const response = await axios.get('http://localhost:8080/mentoring/search/filter', 
        { params: {
         field: fieldSt,
@@ -153,7 +175,7 @@ function Mentoring() {
         console.log('조건 검색 성공', response.data);
       }
       else {
-        console.log('검색 결과 없음');
+        alert('일치하는 결과가 없습니다.');
       }
     } catch (err) {
       console.log("Box search Error >>", err);
@@ -169,7 +191,7 @@ function Mentoring() {
           <Link to="/menteeRecruit" className={styles.apply_btn}>멘토 신청</Link>
 
           <form className={styles.nav_form}>
-            <input value={kw} onChange={handleUserInput} type="text" placeholder="멘토 검색" className={styles.total_search} />
+            <input value={kw} onChange={handleUserInput} type="text" placeholder="제목 검색" className={styles.total_search} />
             <img onClick={filterKW} src="https://res.kurly.com/pc/service/common/1908/ico_search_x2.png" className={styles.search_img} />
           </form>
 
@@ -180,18 +202,17 @@ function Mentoring() {
           <form method="post" className={styles.search}>
             <div className={styles.cn1}>
               <div className={styles.subject}>
-                <div style={{ fontSize: "24px", marginRight: "10px" }}><span style={{ color: "#A0CBFF" }}>■</span> 분야</div>
+                <div ><span className={styles.square}>■</span> <span className={styles.boxtitle}>분야</span></div>
 
                 <label><input type="radio" name="category" defaultValue={fieldSt === '진로'} onChange={() => handleClickField('진로')} /> 진로</label>
                 <label><input type="radio" name="category" defaultValue={fieldSt === '교육'} onChange={() => handleClickField('교육')} /> 교육</label>
                 <label><input type="radio" name="category" defaultValue={fieldSt === '문화예술스포츠'} onChange={() => handleClickField('문화예술스포츠')} /> 문화예술스포츠</label>
                 <label><input type="radio" name="category" defaultValue={fieldSt === '기타'} onChange={() => handleClickField('기타')} /> 기타</label>
 
-                <div className={styles.hiddenblock}></div>
               </div>
 
               <div className={styles.subject}>
-                <div style={{ fontSize: "24px", marginRight: "10px" }}><span style={{ color: "#A0CBFF" }}>■</span> 멘토링기간</div>
+              <div ><span className={styles.square}>■</span> <span className={styles.boxtitle}>멘토링 기간</span></div>
 
                 <select name="period" defaultValue={periodSt} onChange={handleClickPeriod} className={styles.selectbox1}>
 
@@ -206,7 +227,7 @@ function Mentoring() {
 
             <div className={styles.cn1}>
               <div className={styles.subject}>
-                <div style={{ fontSize: "24px", marginRight: "10px" }}><span style={{ color: "#A0CBFF" }}>■</span> 지역</div>
+              <div ><span className={styles.square}>■</span> <span className={styles.boxtitle}>지역</span></div>
 
                 <select name="region" defaultValue={regionB} onChange={handleClickBRegion} className={styles.region}>
 
@@ -227,12 +248,11 @@ function Mentoring() {
                           ))}
 
                 </select>
-                <div className={styles.hiddenblock2}></div>
               </div>
 
               <div>
                 <div className={styles.subject}>
-                  <div style={{ fontSize: "24px", marginRight: "10px" }}><span style={{ color: "#A0CBFF" }}>■</span> 강의 방식</div>
+                <div ><span className={styles.square}>■</span> <span className={styles.boxtitle}>강의 방식</span></div>
                   <label><input type="radio" name="how" value={way === 'ON'} onClick={() => handleClickWay('ON')} /> 온라인</label>
                   <label><input type="radio" name="how" value={way === 'OFF'} onClick={() => handleClickWay('OFF')} /> 오프라인</label>
                 </div>
@@ -245,14 +265,9 @@ function Mentoring() {
 
           <div className={styles.group}>
             <div className={styles.middle_title}>🔎 멘티 구해요!</div>
-            {kw !== null ? <MentoList geul={filterTitle} onView={onView} togglePopup={togglePopup} /> : <MentoList geul={geul} onView={onView} togglePopup={togglePopup} />}
+            {geul && <MentoList geul={geul} onView={onView} togglePopup={togglePopup} />}
 
-  
-            {kw !== null ? showPopup && (
-               <MentoApply togglePopup={togglePopup}  geul={filterTitle} current={current} />
-            ) : showPopup && (
-               <MentoApply togglePopup={togglePopup}  geul={filterTitle} current={current} />
-            ) }                      
+            { showPopup && <MentoApply togglePopup={togglePopup}  geul={geul} current={current} onClickBmk={onClickBmk} bmk={bmk} />}
 
             {showApplyPopup && (
               <MentiRecruit toggleApplyPopup={toggleApplyPopup} />

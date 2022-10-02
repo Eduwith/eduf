@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import styles from "./MenteeRecruit.module.css";
+import styles from "../Mentor/MenteeRecruit.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function MenteeRecruit() {
+function MentorRecruit() {
   const navigate = useNavigate();
 
   const role = "E";
@@ -82,9 +82,9 @@ function MenteeRecruit() {
   //const url = 'http://34.64.249.190:8080';
   const url = 'http://localhost:8080';
 
-   const handleSubmit = async () => {
+  const handleSubmit = async () => {
     try {
-      axios.post(url + '/mentoring/recruitment', {
+      const response = await axios.post(url + '/mentoring/recruitment', {
         role: role,
         title: title,
         field: field,
@@ -93,16 +93,15 @@ function MenteeRecruit() {
         m_period: mPeriod,
         keyword: keyword,
         info: info,
-      })
-        .then(function (response) {
-          if (response.data) {
+      });
+        if(response.data){
             alert('멘토 모집글이 등록되었습니다.');
-            navigate('/mentoring/mentee') // 멘티 찾기 사이트로 간다.
-          }
-          else {
+            navigate('/mentoring/mentor') // 멘토 찾기 사이트로 간다.
+        }
+        else{
             alert('멘토 모집글 등록에 실패하였습니다.');
-          }
-        })
+        }
+        
     } catch (err) {
       console.log("Mentoring Recruit Error >>", err);
     }
@@ -115,7 +114,7 @@ function MenteeRecruit() {
   return (
     <div>
       <div className={styles.title_box}>
-        <span className={styles.big_title}>멘티 모집글</span>
+        <span className={styles.big_title}>멘토 모집글</span>
       </div>
       <div className={styles.outer_box}>
         <form onSubmit={handleSubmit}>
@@ -189,7 +188,7 @@ function MenteeRecruit() {
 
           <div className={styles.inner_box}>
             <div className={styles.left}>소개글</div>
-            <input type="text" value={info} onChange={onInfoHandler} className={styles.input_desc} placeholder="멘티에게 하고 싶은 말, 자기소개 등을 적어주세요." />
+            <textarea value={info} onChange={onInfoHandler} className={styles.input_desc} placeholder="멘토에게 하고 싶은 말, 자기소개 등을 적어주세요." />
           </div>
 
           <button type="button" onClick={handleSubmit} className={styles.btn} >등록하기</button>
@@ -200,4 +199,4 @@ function MenteeRecruit() {
     </div>
   );
 }
-export default MenteeRecruit;
+export default MentorRecruit;

@@ -32,7 +32,7 @@ const Box = styled.div`
 `;
 
 
-function MyMentoJournal({ togglePopup }) {
+function MyMentoJournal({ togglePopup, menNo }) {
 
   //const idx = current - 1;
 
@@ -49,11 +49,13 @@ function MyMentoJournal({ togglePopup }) {
     
     //등록
     try {
-      axios.post(url + '/mentoring/log/apply', {
+      axios.post(`${url}/mentoring/log/save`, {
         title: title,
-        content: content
+        content: content,
+        mentoring_no: menNo
       }).then(function (response) {
-        if(response){
+        console.log("mentoring journal create log: ", response.data.result);
+        if(response.data.result === "SUCCESS"){
           alert('일지 등록이 완료되었습니다.');
           togglePopup(false);
         }

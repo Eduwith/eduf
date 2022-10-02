@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Mento.module.css";
 import pic1 from '../../images/pin.png';
+import { Link } from "react-router-dom";
 
 let category = ['진로', '교육', '문화예술스포츠', "기타"];
 let cards = ['한이음', '박서윤', '김한음'];
@@ -17,11 +18,11 @@ function Mento() {
             ))}
           </ul>
         </div>
-        <div className={styles.btn}>멘토 신청하기 {">"}</div>
+        <div className={styles.btn}><Link to="/mentoring/mentor" style={{textDecoration: "none", color: "white"}}>멘토 신청하기 {">"}</Link> </div>
       </div>
 
       <div className={styles.middle}>
-      <div className={styles.detailBtn}>자세히 보기 {">"}</div>
+      <div className={styles.detailBtn}><Link to="/mentoring/mentor" style={{textDecoration: "none", color: "#4673EA"}}>자세히 보기 {">"}</Link></div>
       {cards.map((item) => (
         <div className={styles.card} key={item}>
           <img className={styles.pic1} src={pic1} alt="프로필" />

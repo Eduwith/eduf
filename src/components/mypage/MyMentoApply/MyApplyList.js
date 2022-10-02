@@ -5,16 +5,17 @@ import styles from "./MyApplyList.module.css";
 function MyApplyList() {
 
   const [myAList, setMyAList] = useState([]);
-  const [applyMno, setApplyMno] = useState('');
+  const [applyNo, setApplyNo] = useState(0);
+  const [Mno, setMno] = useState(0);
+  const url = 'http://localhost:8080';
 
   const getApplyList = () => {
     try {
-        //axios.get('http://localhost:8080/mypage/apply')
-        axios.get('/dummyMData.json')
+        axios.get(`${url}/mypage/apply`)
         .then((res) => {
-          //역할에 맞는 글 가져오기
-          setMyAList(res.data.lists);
-
+          if(res.data){
+            setMyAList(res.data);
+          }
           console.log('myAList', myAList);
         })
     }
@@ -24,14 +25,24 @@ function MyApplyList() {
 
   }
 
+  const applyUrgeEvent = () => {
+    axios.post(`${url}/${Mno}/apply/${applyNo}/urge`, {
+      m_no: Mno,
+      apply_no: applyNo
+    })
+    .then((res) => {
+      if(res.data.result) {
+        alert('독촉 알림을 전송했습니다.')
+      }
+    })
+  }
+
   const applyCancelEvent = () => {
-    axios.delete(`http://localhost:8080/mentoring/${applyMno}`)
+    axios.delete(`${url}/mypage/apply/${applyNo}`)
           .then((res) => {
-            if(res.data) {
-              const value = window.confirm("정말로 삭제하시겠습니까?");
-              if (value) {
-                alert('취소되었습니다.');
-              }
+            if(res.data.result) {
+              alert('멘토링 신청을 취소했습니다.')
+              // window.location.reload();
             }
           })
   }
@@ -44,17 +55,17 @@ function MyApplyList() {
     <div>
        <h2 className={styles.mymenu}>나의 신청 내역 </h2>
             <div className={styles.mymenu2}>
-            {/* {
+            {
                 myAList && myAList.map((item) => (
-                  <div key={item.m_no} className={styles.applyBox} onMouseEnter={() => {setApplyMno(item.m_no)}}>
-                    [{item.field}] {item.title}
-                  
+                  <div key={item.m_no} className={styles.applyBox} onMouseEnter={() => {setApplyNo(item.apply_no); setMno(item.m_no);}}>
+                    [{item.apply_no}] {item.email}, {item.m_no}
+                    <button type="button" className={styles.urgeCbtn} onClick={applyUrgeEvent}>수락독촉</button>  
                   <button type="button" className={styles.applyCbtn} onClick={applyCancelEvent}>취소하기</button>
                   </div>
                 
                 ))
-            } */}
-            멘토링 신청 내역이 없습니다.
+            }
+            
             </div>
     </div>
   )

@@ -35,7 +35,7 @@ const Box = styled.div`
 function MyMtJournalDetail({ toggleSPopup, current }) {
 
   const idx = current - 1;
-  const { mentoring_no, title, date, content } = current;
+  const { log_no, title, date, content } = current;
 
   const url = 'http://localhost:8080';
 
@@ -56,7 +56,7 @@ function MyMtJournalDetail({ toggleSPopup, current }) {
 
   const onPatchClick = () => {
     try {
-      axios.patch(`${url}/mentoring/log/${mentoring_no}`, {
+      axios.patch(`${url}/mentoring/log/${log_no}`, {
         title: mtitle,
         content: mcontent
       }).then(function (response) {
@@ -69,13 +69,13 @@ function MyMtJournalDetail({ toggleSPopup, current }) {
       });
     }
     catch (err) {
-      console.log('mentoring journal err : ', err);
+      console.log('mentoring journal update err : ', err);
     }
   }
 
   const onDeleteClick = () => {
     try {
-      axios.delete(`${url}/mentoring/log/${mentoring_no}`)
+      axios.delete(`${url}/mentoring/log/${log_no}`)
         .then(function (response) {
           if (response.data.result === "SUCCESS") {
             alert('일지가 삭제되었습니다.');
@@ -86,7 +86,7 @@ function MyMtJournalDetail({ toggleSPopup, current }) {
         });
     }
     catch (err) {
-      console.log('mentoring journal err : ', err);
+      console.log('mentoring journal delete err : ', err);
     }
   }
 
