@@ -9,7 +9,7 @@ import msg from '../../images/msg.png';
 import { useRecoilValue } from "recoil";
 import { tokenState } from "../../recoil/GlobalToken";
 
-function Navbar({isLogin}) {
+function Navbar() {
 
   const activeStyle = {
     textDecoration: 'none',
@@ -18,6 +18,7 @@ function Navbar({isLogin}) {
     fontWeight: 600,
     color:'#4673EA',
   };
+
   const [loginOpen, setLoginOpen] = useState(false);
   const [token, setToken] = useRecoilValue(tokenState);
 
@@ -43,7 +44,7 @@ function Navbar({isLogin}) {
           </Link>
         </div>
         <ul className={styles.navLinks}>
-          { token  ? 
+          { token !== ''  ? 
           <li className={styles.navItem} style={{textDecoration: 'none', color: 'gray', fontSize: "16px"}} onClick={logoutToken} >
             로그아웃
           </li> : 

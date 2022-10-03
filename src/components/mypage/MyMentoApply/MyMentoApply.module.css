@@ -1,7 +1,10 @@
 .wrap {
-  width: 1300px;
-  height: 1500px;
-  margin: 0 auto;
+  padding: 0 15%;
+}
+
+.body {
+  padding: 0 2%;
+  margin-bottom: 50px;
 }
 
 .head {
@@ -33,12 +36,13 @@
 
 .menu {
   text-align: right;
-  margin-right: 50px;
 }
+
 
 .submenu {
   display: inline-block;
   width: 50px;
+  margin-top: 2%;
   line-height: 25px;
   text-align: center;
   cursor: pointer;
@@ -56,9 +60,7 @@
 
 
 .mymenu {
-
-  font-size: 30px;
+  margin-top: 10px;
+  font-size: 22px;
   font-family: "GangwonEduBold";
-  margin-left: 60px;
-  margin-bottom: 30px;
 }

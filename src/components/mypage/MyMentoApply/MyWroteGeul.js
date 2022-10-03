@@ -58,15 +58,25 @@ function MyWroteGeul({ item }) {
     
     window.scrollTo(0, 0);
   }
-  const onClickEvent = () => {
-    // alert(`email: ${userInfo.email} & 이름: ${userInfo.name} & 나이: ${userInfo.age}`)
+
+  const getProfile = () => {
     axios.get(`${url}/mypage/${applyNo}/profile`)
       .then((res) => {
         if(res.data){
           setUserProfile(res.data);
-          alert(`email: ${userProfile.email} & 이름: ${userProfile.name} & 나이: ${userProfile.age}`)
         }
       })
+  }
+
+  useEffect(() => {
+    getProfile();
+  },[applyNo]);
+  
+  const onClickEvent = () => {
+    // alert(`email: ${userInfo.email} & 이름: ${userInfo.name} & 나이: ${userInfo.age}`)
+
+          alert(`email: ${userProfile.email} & 이름: ${userProfile.name} & 나이: ${userProfile.age}`)
+
   }
 
   const deleteGeul = () => {

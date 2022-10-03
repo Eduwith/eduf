@@ -1,11 +1,12 @@
 import styles from "./MyMento.module.css";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { BsPlusCircle } from "react-icons/bs";
 import animal from "../../../images/animal.png"
 import axios from "axios";
 import MyMentoJournal from "./MyMentoJournal";
 import MyMtJournalDetail from "./MyMtJournalDetail";
+import MyNavbar from "../MyNavbar";
 
 function MyMento() {
   const activeStyle = {
@@ -18,8 +19,9 @@ function MyMento() {
   };
 
   //멘토, 멘티 구분
-
+  const navigate = useNavigate();
   const [role, setRole] = useState("O");
+  const [proceed, setProceed] = useState('진행 중');
 
   const onClickMentor = () => {
     setRole("O");
@@ -98,24 +100,32 @@ function MyMento() {
 
   };
 
+  const onClickProceedBar = () => {
+    if(proceed === '진행 중') {
+    const value = window.confirm("멘토링이 완료되었나요?");
+        if (value) {
+          const qst = window.confirm('파트너에 대한 후기 작성이 가능합니다. 후기 페이지로 이동하시겠습니까?');
+          if(qst) {
+            navigate('/review');
+          }
+          
+        }
+      }
+
+    
+  }
+
   return (
     <div className={styles.wrap}>
-      <div className={styles.head}>MY PAGE</div>
-      <div className={styles.body}>
-        <div className={styles.box}>
-          <div className={styles.left}>
-            <ul className={styles.nav}>
-              <li><NavLink to="/MyPage" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>프로필 수정</NavLink></li>
-              <li><NavLink to="/MyMentoApply" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>멘토링 신청</NavLink></li>
-              <li><NavLink to="/MyMento" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>멘토링 내역</NavLink></li>
-              <li><NavLink to="/MyStudy" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>스터디 관리</NavLink></li>
-              <li><NavLink to="/MyScrap" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>스크랩 내역</NavLink></li>
-              <li><NavLink to="/MyPoint" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>포인트 관리</NavLink></li>
-            </ul>
-          </div>
+        <MyNavbar />
+        <div className={styles.body}>
           <div className={styles.right}>
             <div className={styles.menu}>
               <span className={styles.submenu} onClick={onClickMentor} >멘토</span> <span className={styles.bar}> </span> <span className={styles.submenu} onClick={onClickMentee}>멘티</span>
+            </div>
+
+            <div className={styles.state_menu}>
+              <span className={styles.state_submenu} onClick={onClickProceedBar}>{proceed}</span>
             </div>
 
             <div className={styles.bigBox}>
@@ -160,9 +170,8 @@ function MyMento() {
             </div>
 
 
+            </div>
 
-          </div>
-        </div>
 
       </div>
     </div>

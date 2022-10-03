@@ -1,7 +1,10 @@
 .wrap {
-  width: 1300px;
-  height: 1000px;
-  margin: 0 auto;
+  padding: 0 15%;
+}
+
+.body {
+  padding: 0 2%;
+  margin-bottom: 50px;
 }
 
 .head {
@@ -14,7 +17,6 @@
 .nav {
 
   text-align: center;
-  width: 1300px;
   height: 50px;
   line-height: 44px;
   list-style: none;
@@ -33,12 +35,13 @@
 
 .menu {
   text-align: right;
-  margin-right: 50px;
+  margin-right: 1%;
 }
 
 .submenu {
   display: inline-block;
   width: 50px;
+  margin-top: 2%;
   line-height: 25px;
   text-align: center;
   cursor: pointer;
@@ -46,6 +49,24 @@
 
 .submenu:hover {
   color: #4673EA;
+}
+
+.state_menu {
+  text-align: right;
+  margin-right: 3%;
+}
+
+.state_submenu {
+  border-radius: 10px;
+  border: 2px solid #859fe5;
+  background-color: #859fe5;
+  color: white;
+  display: inline-block;
+  font-size: 20px;
+  padding: 5px;
+  width: 80px;
+  margin-top: 2%;
+  text-align: center;
 }
 
 .bar {
@@ -93,15 +114,13 @@
 .desc {
   margin-top: 5px;
   font-size: 20px;
-  width: 200px;
-  padding-left: 10px;
+  width: 250px;
 }
 
 .desc1 {
-  margin-top: 17px;
+  margin-top: 10px;
   font-size: 20px;
-  width: 200px;
-  padding-left: 10px;
+  width: 250px;
 }
 
 .desc2 {
@@ -114,7 +133,7 @@
 }
 
 .MemoBox {
-  width: 100%;
+  width: 1015px;
   height: 500px;
   border: 2px solid #859fe5;
   border-radius: 20px;
@@ -140,7 +159,7 @@
 .subBox {
   border-radius: 20px;
   padding: 15px;
-  width: 500px;
+  width: 300px;
   height: 180px;
   border: 2px solid #F1F5FA;
   float: left;
@@ -149,7 +168,6 @@
 }
 
 .minBox {
-  width: 1050px;
   margin: 20px auto;
   font-weight: 600;
 }

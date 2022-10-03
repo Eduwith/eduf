@@ -4,6 +4,7 @@ import stampT from "../../images/stampT.png"
 import stampF from "../../images/stampF.png"
 import axios from "axios";
 import { useEffect, useState } from "react";
+import MyNavbar from "./MyNavbar";
 
 function MyPoint() {
 
@@ -23,29 +24,29 @@ function MyPoint() {
   const url = "http://localhost:8080";
 
   const getStampPoint = () => {
-    // axios.get(url+ '/user/attendance')
-    // .then((res) => {
-    //   setStamp(res.data.stamp);
-    //   setPoint(res.data.point);
-    //      setStampDay(res.data.day);
-    //      setUserPointList(res.data.useAttendance);
-    // })
-    // .catch((err) => {
-    //   console.log('get stamp error :', err);
-    // })
+    axios.get(`${url}/user/attendance`)
+    .then((res) => {
+      setStamp(res.data.stamp);
+      setPoint(res.data.point);
+         setStampDay(res.data.day);
+         setUserPointList(res.data.useAttendance);
+    })
+    .catch((err) => {
+      console.log('get stamp error :', err);
+    })
   }
 
   const patchStampEvent = () => {
-    // axios.patch(url + '/user/attendance')
-    // .then((res) => {
-    //   setStamp(res.data.stamp);
-    //   setPoint(res.data.point);
-    // })
-    // .catch((err) => {
-    //   console.log('patch stamp error :', err);
-    // })
-    setStamp(1);
-    setStampDay(1);
+    axios.patch(`${url}/user/attendance`)
+    .then((res) => {
+      setStamp(res.data.stamp);
+      setPoint(res.data.point);
+    })
+    .catch((err) => {
+      console.log('patch stamp error :', err);
+    })
+    // setStamp(1);
+    // setStampDay(1);
   }
 
   const getPoint = () => {
@@ -58,19 +59,8 @@ function MyPoint() {
 
   return (
     <div className={styles.wrap}>
-      <div className={styles.head}>MY PAGE</div>
+      <MyNavbar />
       <div className={styles.body}>
-        <div className={styles.box}>
-          <div className={styles.left}>
-            <ul className={styles.nav}>
-              <li><NavLink to="/MyPage" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>프로필 수정</NavLink></li>
-              <li><NavLink to="/MyMentoApply" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>멘토링 신청</NavLink></li>
-              <li><NavLink to="/MyMento" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>멘토링 내역</NavLink></li>
-              <li><NavLink to="/MyStudy" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>스터디 관리</NavLink></li>
-              <li><NavLink to="/MyScrap" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>스크랩 내역</NavLink></li>
-              <li><NavLink to="/MyPoint" style={({ isActive }) => (isActive ? activeStyle : unactiveStyle)}>포인트 관리</NavLink></li>
-            </ul>
-          </div>
           <div className={styles.right}>
             <span className={styles.mymenu}>출석체크</span>
             <button className={styles.stampBtn} onClick={patchStampEvent}>스탬프 받기</button>
@@ -97,7 +87,7 @@ function MyPoint() {
           <div className={styles.pointBorder}>
             <div  className={styles.right}>
               <span className={styles.mymenu}>포인트 내역</span>
-              <span className={styles.totalPoint}> {point === 0 ? `${point}` : `+${point}`} point</span>
+              <span className={styles.totalPoint}> <b>{point === 0 ? `${point}` : `+${point}`}</b> point</span>
             </div>
               
               {
@@ -123,12 +113,8 @@ function MyPoint() {
             </div> */}
 
 
-
-          </div>
-        </div>
-
-
       </div>
+    </div>
     </div>
   );
 }

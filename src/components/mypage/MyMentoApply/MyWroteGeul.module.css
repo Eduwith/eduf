@@ -26,14 +26,13 @@
 }
 
 .content {
-  margin: 0 auto;
+  margin: 20px auto;
   width: 1000px;
-  height: 300px;
+  height: 280px;
   font-weight: 550;
   background-color: #F1F5FA;
   border-radius: 30px;
   padding: 20px;
-  padding-left: 30px;
   position: relative;
   
 }
