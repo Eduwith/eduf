@@ -21,10 +21,10 @@ function Notice() {
     const onClickNotice = (field, notice_no) => {
         patchNotice(notice_no);
         if(field == "Mentoring"){
-            navigate("/mentoring/mentor");
+            navigate("/mymentoapply");
         }
         else if(field == "Study"){
-            navigate("/studies");
+            navigate("/mystudy");
         }
         else if(field == "Volunteer"){
             navigate("/volunteers");
@@ -37,9 +37,9 @@ function Notice() {
     };
 
     const baseUrl = "http://localhost:8080";
-    //const [notice, setNotice] = useState(notices);
+    const [notice, setNotice] = useState(notices);
     //알림 조회
-    const [notice, setNotice] = useState([]);
+    //const [notice, setNotice] = useState([]);
     const getNotice = async () => {
         try {
             const response = await axios.get(baseUrl+"/notice");
