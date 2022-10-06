@@ -15,7 +15,7 @@ function StudyRegister() {
     const [total_people, setTPeople] = useState("");
     const [r_end_date, setEDate] = useState("");
     const [contents, setContents] = useState("");
-    const [s_period, setSperiod] = useState("");
+    const [s_period, setSperiod] = useState("1");
   
   
     const onTitleHandler = (event) => {
@@ -53,7 +53,7 @@ function StudyRegister() {
   const postStudyRegister = async () => {
       console.log("스터디 등록 버튼 클릭됨");
       try {
-        const response = await axios.post(baseUrl + '/mentoring/recruitment', {
+        const response = await axios.post(baseUrl + '/api/studies/register', {
           title: title,
           contents: contents,
           tag: tag,
@@ -61,13 +61,9 @@ function StudyRegister() {
           r_end_date: r_end_date,
           s_period: s_period
         });
-          if(response.data){
-              alert('스터디 모집글이 등록되었습니다.');
-              navigate('/studies')
-          }
-          else{
-              alert('스터디 모집글 등록에 실패하였습니다.');
-          }
+        alert('스터디 모집글이 등록되었습니다.');
+        console.log(response.data);
+        navigate('/studies');
       } catch (err) {
         console.log("Error >>", err);
       }
@@ -118,7 +114,7 @@ function StudyRegister() {
           </div>
           <div className={styles.inner_box}>
             <div className={styles.boxtop}>스터디기간</div>
-            <select name="period" onChange={onSperiodHandler}  className={styles.input_select}>
+            <select name="periodtest" onChange={onSperiodHandler}  className={styles.input_select}>
               <option value="1">1개월 미만</option>
               <option value="3">3개월 미만</option>
               <option value="6">6개월 미만</option>
