@@ -27,7 +27,7 @@ function MyStudy() {
     };
     //스터디 상세페이지로 이동
     const onStudyDetail = (s_no) => {
-        //<Link to={`/studies/${s_no}`} state={{ data: item}} style={{ textDecoration: "none", color: "#333333" }}></Link>
+        <Link to={`/studies/${s_no}`} style={{ textDecoration: "none"}}></Link>
         console.log(mySrecruitNo);
     };
 
@@ -59,19 +59,18 @@ function MyStudy() {
 
     const [studylist, setStudylist] = useState(slists);
     // const [studylist, setStudylist] = useState([]);
-    // const baseUrl =  "http://localhost:8080";
-    // const getStudylist = async () => {
-    //     try {
-    //         const response = await axios.get(baseUrl+ "/api/volunteers");
-    //         setStudylist(response.data); 
-    //         console.log(response.data);
-    //     } catch (e) {
-    //         console.log(e);
-    //     }
-    // };
-    // useEffect(() => {
-    //     getStudylist();
-    // }, []);
+    const getStudylist = async () => {
+        try {
+            const response = await axios.get(baseUrl+ "/api/volunteers");
+            setStudylist(response.data); 
+            console.log(response.data);
+        } catch (e) {
+            console.log(e);
+        }
+    };
+    useEffect(() => {
+        getStudylist();
+    }, []);
 
     return (
         <div className={styles.wrap}>
