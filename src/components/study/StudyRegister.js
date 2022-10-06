@@ -114,12 +114,12 @@ function StudyRegister() {
           </div>
           <div className={styles.inner_box}>
             <div className={styles.boxtop}>스터디기간</div>
-            <select name="periodtest" onChange={onSperiodHandler}  className={styles.input_select}>
+            {/* <select name="periodtest" onChange={onSperiodHandler}  className={styles.input_select}>
               <option value="1">1개월 미만</option>
               <option value="3">3개월 미만</option>
               <option value="6">6개월 미만</option>
               <option value="12">1년 미만</option>
-            </select>
+            </select> */}
           </div>
           <div className={styles.inner_box}>
             <div className={styles.boxtop}>내용</div>
