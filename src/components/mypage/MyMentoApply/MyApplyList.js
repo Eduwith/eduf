@@ -42,7 +42,7 @@ function MyApplyList() {
           .then((res) => {
             if(res.data.result) {
               alert('멘토링 신청을 취소했습니다.')
-              // window.location.reload();
+              window.location.reload();
             }
           })
   }
@@ -57,8 +57,8 @@ function MyApplyList() {
             <div className={styles.mymenu2}>
             {
                 myAList && myAList.map((item) => (
-                  <div key={item.m_no} className={styles.applyBox} onMouseEnter={() => {setApplyNo(item.apply_no); setMno(item.m_no);}}>
-                    [{item.apply_no}] {item.email}, {item.m_no}
+                  <div key={item.m_no} className={styles.applyBox} onMouseEnter={() => {setApplyNo(item.apply_no); setMno(item.m_no.m_no);}}>
+                    [{item.m_no.field}] {item.m_no.title}
                     <button type="button" className={styles.urgeCbtn} onClick={applyUrgeEvent}>수락독촉</button>  
                   <button type="button" className={styles.applyCbtn} onClick={applyCancelEvent}>취소하기</button>
                   </div>

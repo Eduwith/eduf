@@ -29,6 +29,7 @@ import MenteeRecruit from './components/mentoring/Mentor/MenteeRecruit';
 import MenteeMentoring from './routes/MenteeMentoring';
 import FindPw from './components/user/FindPw';
 import MentorRecruit from './components/mentoring/Mentee/MentorRecruit';
+import MentoringReview from './components/mypage/MyMento/MentoringReview';
 
 function App() {
 
@@ -53,6 +54,7 @@ function App() {
             <Route path="/mystudy" element={<MyStudy/>}></Route>
             <Route path="/myscrap" element={<MyScrap/>}></Route>
             <Route path="/mypoint" element={<MyPoint/>}></Route>
+            <Route path="/review" element={<MentoringReview />}></Route>
 
 
             <Route path="/mentoring" element={<Mentoring />}></Route>

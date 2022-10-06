@@ -67,6 +67,7 @@ function MyPage() {
     //회원정보 조회
     const baseUrl = "http://localhost:8080";
     //const [user, setUser] = useState(userdata);
+
     const [user, setUser] = useState([]);
     const getUser = async () => {
         try {

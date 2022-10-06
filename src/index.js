@@ -8,7 +8,7 @@ import setAuthorizationToken from './components/user/setAuthorizationToken';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-setAuthorizationToken(localStorage.token);
+setAuthorizationToken(localStorage.jwtToken);
 
 root.render(
   

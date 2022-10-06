@@ -1,13 +1,14 @@
 
+
 .applyBox {
   width: 1000px;
   height: 70px;
-  margin: 0 auto;
   border-radius: 5px;
   border: 2px solid #4673EA;
   font-size: 24px;
   line-height: 62px;
-  padding-left: 60px;
+  padding-left: 20px;
+  margin: 20px 10px;
   position: relative;
   margin-bottom: 20px;
 }
@@ -37,22 +38,13 @@
 
 
 .mymenu {
-
-  font-size: 30px;
+  margin-top: 50px;
+  font-size: 22px;
   font-family: "GangwonEduBold";
-  margin-top: 30px;
-  margin-left: 60px;
-  margin-bottom: 30px;  
-  width: 250px;
 }
 
-
 .mymenu2 {
-  width: 1000px;
   font-size: 22px;
   font-family: "GangwonEduLight";
   color: #666;
-  width: 250px;
-  text-align: center;
-  margin-bottom: 30px;
 }
