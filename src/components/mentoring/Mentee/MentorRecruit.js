@@ -76,7 +76,7 @@ function MentorRecruit() {
     console.log(e.target.value)
   }
 
-  const region = regionB + regionS;
+  const region = regionB + " " +regionS;
 
 
   //const url = 'http://34.64.249.190:8080';

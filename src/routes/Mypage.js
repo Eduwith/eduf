@@ -31,20 +31,20 @@ function MyPage() {
     }
 
     const baseUrl = "http://localhost:8080";
-    const [user, setuser] = useState(userdata);
-    // const [user, setUser] = useState([]);
-    // const getUser = async () => {
-    //     try {
-    //         const response = await axios.get(baseUrl+ "/user/mypage");
-    //         setUser(response.data);
-    //         console.log(response.data);
-    //     } catch (e) {
-    //         console.log(e);
-    //     }
-    // };
-    // useEffect(() => {
-    //     getUser();
-    // }, []);
+    // const [user, setuser] = useState(userdata);
+    const [user, setUser] = useState([]);
+    const getUser = async () => {
+        try {
+            const response = await axios.get(baseUrl+ "/user/mypage");
+            setUser(response.data);
+            console.log(response.data);
+        } catch (e) {
+            console.log(e);
+        }
+    };
+    useEffect(() => {
+        getUser();
+    }, []);
 
     //회원정보 수정
     const patchUser = async () => {
@@ -59,7 +59,7 @@ function MyPage() {
                 console.log('수정완료');
                 if (window.confirm("프로필 수정을 위해 다시 로그인해주세요")) {
                     localStorage.removeItem("user");
-                    navigate("/login");
+                    navigate("/main");
                 } else {
                     alert("프로필 수정을 취소하였습니다.")
                 }

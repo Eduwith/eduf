@@ -20,11 +20,12 @@ function Navbar() {
   };
 
   const [loginOpen, setLoginOpen] = useState(false);
-  const [token, setToken] = useRecoilValue(tokenState);
+  const token = localStorage.getItem('jwtToken');
 
   const logoutToken = () => {
     localStorage.removeItem('jwtToken');
-    setToken('');
+    // setToken('');
+    window.location.replace(`/main`);
   }
   
   const openLogin = () => {
@@ -44,7 +45,7 @@ function Navbar() {
           </Link>
         </div>
         <ul className={styles.navLinks}>
-          { token !== ''  ? 
+          { token ? 
           <li className={styles.navItem} style={{textDecoration: 'none', color: 'gray', fontSize: "16px"}} onClick={logoutToken} >
             로그아웃
           </li> : 

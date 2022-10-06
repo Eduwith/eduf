@@ -34,7 +34,6 @@ const Box = styled.div`
 
 function MyMtJournalDetail({ toggleSPopup, current }) {
 
-  const idx = current - 1;
   const { log_no, title, date, content } = current;
 
   const url = 'http://localhost:8080';
@@ -63,6 +62,7 @@ function MyMtJournalDetail({ toggleSPopup, current }) {
         if (response.data.result === "SUCCESS") {
           alert('일지 수정이 완료되었습니다.');
           toggleSPopup(false);
+          window.location.reload();
         }
         else
           alert('일지 수정에 실패하였습니다.');
@@ -80,6 +80,7 @@ function MyMtJournalDetail({ toggleSPopup, current }) {
           if (response.data.result === "SUCCESS") {
             alert('일지가 삭제되었습니다.');
             toggleSPopup(false);
+            window.location.reload();
           }
           else
             alert('일지 삭제에 실패하였습니다.');

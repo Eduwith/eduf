@@ -31,7 +31,7 @@ function MyWroteGeul({ item }) {
       }).then((res) => {
         if (res.data.result === "SUCCESS") {
         alert('멘티 신청을 수락했습니다.');
-        //window.location.reload();
+        window.location.reload();
         //window.scrollTo(0, 0);
         }
       }).catch(err => {

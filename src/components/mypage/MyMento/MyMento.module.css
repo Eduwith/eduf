@@ -114,21 +114,25 @@
 .desc {
   margin-top: 5px;
   font-size: 20px;
-  width: 250px;
+  color: #6f88cb;
+  padding-left: 10px;
 }
 
 .desc1 {
-  margin-top: 10px;
+  margin-top: 5px;
   font-size: 20px;
-  width: 250px;
+  
+  padding-left: 10px;
 }
 
 .desc2 {
   font-size: 20px;
-  width: 200px;
-  margin-top: 5px;
+  margin-top: 10px;
   padding-left: 10px;
   padding-top: 10px;
+  width: 400px;
+  height: 80px;
+  overflow: hidden;
   border-top: 2px solid #eee;
 }
 
@@ -139,6 +143,7 @@
   border-radius: 20px;
   padding: 15px 20px;
   margin-bottom: 30px;
+  overflow: auto;
   position: relative;
 }
 
@@ -159,12 +164,11 @@
 .subBox {
   border-radius: 20px;
   padding: 15px;
-  width: 300px;
+  width: 460px;
   height: 180px;
   border: 2px solid #F1F5FA;
   float: left;
-  margin-bottom: 30px;
-  margin-right: 25px;
+  margin: 0 8px 20px 8px
 }
 
 .minBox {

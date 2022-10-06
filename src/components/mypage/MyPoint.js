@@ -41,6 +41,7 @@ function MyPoint() {
     .then((res) => {
       setStamp(res.data.stamp);
       setPoint(res.data.point);
+      window.location.reload();
     })
     .catch((err) => {
       console.log('patch stamp error :', err);
@@ -86,8 +87,8 @@ function MyPoint() {
 
           <div className={styles.pointBorder}>
             <div  className={styles.right}>
-              <span className={styles.mymenu}>포인트 내역</span>
-              <span className={styles.totalPoint}> <b>{point === 0 ? `${point}` : `+${point}`}</b> point</span>
+              <span className={styles.mymenu}>내 포인트</span>
+              <span className={styles.totalPoint}> <b>{point}</b> point</span>
             </div>
               
               {

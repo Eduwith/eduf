@@ -45,6 +45,7 @@ function Mentoring() {
 
   useEffect(() => {
     fetchGeul();
+    window.scrollTo(0, 0);
   }, []);
 
   //검색 - kw / 
@@ -120,7 +121,7 @@ function Mentoring() {
     setRegionS(e.target.value)
   }
 
-  const region = regionB + regionS;
+  const region = regionB +regionS;
 
   //강의 방식
   const [way, setWay] = useState();

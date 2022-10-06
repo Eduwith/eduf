@@ -7,6 +7,8 @@ import axios from "axios";
 import MyMentoJournal from "./MyMentoJournal";
 import MyMtJournalDetail from "./MyMtJournalDetail";
 import MyNavbar from "../MyNavbar";
+import { useRecoilValue } from "recoil";
+import { ProceedeState, ProceedState, ProceedtState, ProNumState } from "../../../recoil/ProceedState";
 
 function MyMento() {
   const activeStyle = {
@@ -21,49 +23,36 @@ function MyMento() {
   //멘토, 멘티 구분
   const navigate = useNavigate();
   const [role, setRole] = useState("O");
-  const [proceed, setProceed] = useState('진행 중');
 
   const onClickMentor = () => {
     setRole("O");
+    console.log('지금 역할은?', role);
   }
 
   const onClickMentee = () => {
     setRole("E");
+    console.log('지금 역할은!! 멘티여야함!', role);
   }
 
   const url = 'http://localhost:8080';
-  const [geul, setGeul] = useState([]);
-  const [user, setUser] = useState([]);
-  // const [logList, setLogList] = useState([]);  
+  const [geul, setGeul] = useState(null);
   const [menNo, setMenNo] = useState(0);
 
-  // useState([{
-  //   "mentoring_no": 1,
-  //   "title": "멘토링 일지",
-  //   "content": "멘토링 일지 샘플입니다.",
-  //   "date": "2022-08-01"
-  // }]);
+  
+  const proceedt = useRecoilValue(ProceedtState);
+  const proceede = useRecoilValue(ProceedeState); 
+
   const [mtitle, setMtitle] = useState('');
   const [current, setCurrent] = useState(null);
 
 
   //멘토링 일지 조회
-
   const getList = () => {
     try {
-       axios.get(`${url}/mentoring/log/list`)
-      // axios.get('/dummyMyMento.json')
+       axios.get(`${url}/mentoring/log`)
+       //axios.get('/dummyMyMento.json')
         .then((res) => {
-          if (res.data) {           
-            res.data.map((item) => setGeul(item))
-            console.log(geul);
-          }
-            console.log(res.data.mentoring_no);
-            console.log(res.data.logList);
-            
-            // setUser(res.data.user);
-            // setLogList(res.data.logList);
-            // setMtitle(res.data.m_title);
+            role === "O" ? setGeul(res.data.mentor) : setGeul(res.data.mentee)        
           })
     }
     catch (err) {
@@ -72,21 +61,22 @@ function MyMento() {
   }
 
   const clickBtn = () => {
-    setShowPopup(true);
+    // if((role === "O" && proceedt === "진행 중") || (role === "E" && proceede === "진행 중"))
+      setShowPopup(true);
   }
 
   useEffect(() => {
     getList();
-  }, [])
-
+  }, [role])
 
   //팝업
   const [showPopup, setShowPopup] = useState(false);
   const [showSPopup, setShowSPopup] = useState(false);
 
   const onView = (id) => {
-    setCurrent(geul && geul.logList.find(item => item.log_no === id));
-    console.log(current, 'current');
+    setCurrent(geul && geul.map(({logList}) => logList.find(({log_no}) => log_no === id))[0])
+    console.log('current is.. ', current );
+
   }
 
   const togglePopup = () => {
@@ -101,12 +91,14 @@ function MyMento() {
   };
 
   const onClickProceedBar = () => {
-    if(proceed === '진행 중') {
+    if(proceedt === "진행 중" || proceede === "진행 중") {
     const value = window.confirm("멘토링이 완료되었나요?");
         if (value) {
           const qst = window.confirm('파트너에 대한 후기 작성이 가능합니다. 후기 페이지로 이동하시겠습니까?');
           if(qst) {
-            navigate('/review');
+            navigate('/review',{
+              state: {menNo: menNo, role: role}
+            });
           }
           
         }
@@ -118,28 +110,32 @@ function MyMento() {
   return (
     <div className={styles.wrap}>
         <MyNavbar />
+
+        
         <div className={styles.body}>
           <div className={styles.right}>
             <div className={styles.menu}>
               <span className={styles.submenu} onClick={onClickMentor} >멘토</span> <span className={styles.bar}> </span> <span className={styles.submenu} onClick={onClickMentee}>멘티</span>
             </div>
-
+            { geul && geul.map((item) => (
+            <div key={item.mentoring_no} onMouseEnter={() => setMenNo(item.mentoring_no)} >
+              
             <div className={styles.state_menu}>
-              <span className={styles.state_submenu} onClick={onClickProceedBar}>{proceed}</span>
+              <span className={styles.state_submenu} onClick={onClickProceedBar}>{role === "O" ? proceedt : proceede}</span>
             </div>
 
             <div className={styles.bigBox}>
-              <h2 className={styles.mymenu}>{mtitle}</h2>
+              <h2 className={styles.mymenu}>{item.m_title}</h2>
               <div className={styles.profileBox}>
                 <div className={styles.ptitle}>{role === "O" ? '멘티' : '멘토'} 상세 정보</div>
                 <div className={styles.pinBox}>
                   <img src={animal} className={styles.img} />
                       
-                      { geul.user &&
+                      { item.applicant &&
                       <div>                        
-                        <div className={styles.desc1}>이름: {geul.user.name}</div>
-                        <div className={styles.desc}>나이: {geul.user.age} 세</div>
-                        <div className={styles.desc}>이메일:{geul.user.email}</div> 
+                        <div className={styles.desc1}>이름: {item.applicant.name}</div>
+                        <div className={styles.desc1}>나이: {item.applicant.age} 세</div>
+                        <div className={styles.desc1}>이메일:{item.applicant.email}</div> 
                       </div>
 } 
                 </div>
@@ -151,11 +147,11 @@ function MyMento() {
                 <div className={styles.minBox}>
 
                   {
-                    geul.logList && geul.logList.map((item) => (
-                    <div className={styles.subBox} key={item.log_no} onClick={toggleSPopup} onMouseOver={() => {onView(item.log_no);}}>
-                      <div className={styles.desc}>{item.date}</div>
-                      <div className={styles.desc}>{item.title}</div>
-                      <div className={styles.desc2}>{item.content}</div>
+                    item.logList && item.logList.map((d) => (
+                    <div className={styles.subBox} key={d.log_no} onClick={toggleSPopup} onMouseOver={() => {onView(d.log_no);}}>
+                      <div className={styles.desc}>{d.date}</div>
+                      <div className={styles.desc1}>{d.title}</div>
+                      <div className={styles.desc2}>{d.content}</div>
                     </div>
                   ))
 
@@ -163,17 +159,21 @@ function MyMento() {
                 </div>
                 <BsPlusCircle size="32" color="#4673EA" onClick={clickBtn} className={styles.btn} />
 
-                {showPopup && <MyMentoJournal togglePopup={togglePopup} menNo={menNo} />}
-                {showSPopup && <MyMtJournalDetail toggleSPopup={toggleSPopup} current={current} />}
+              
               </div>
 
             </div>
-
+            </div>
+            ))}
+          {showPopup && <MyMentoJournal togglePopup={togglePopup} menNo={menNo} />}
+          {showSPopup && <MyMtJournalDetail toggleSPopup={toggleSPopup} current={current} />}
 
             </div>
 
 
       </div>
+
+        
     </div>
   );
 }

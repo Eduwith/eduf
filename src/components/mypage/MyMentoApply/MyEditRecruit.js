@@ -27,6 +27,8 @@ function MyEditRecruit() {
   const [keyword, setKeyword] = useState(mkeyword);
   const [info, setInfo] = useState(minfo);
 
+  const regionArray = mregion.split(" ");
+
 
   const onTitleHandler = (event) => {
     setTitle(event.currentTarget.value);
@@ -89,7 +91,7 @@ function MyEditRecruit() {
     console.log(e.target.value)
   }
 
-  const region = regionB + regionS;
+  const region = regionB + " " + regionS;
 
 
   //const url = 'http://34.64.249.190:8080';
@@ -126,7 +128,7 @@ function MyEditRecruit() {
   return (
     <div>
       <div className={styles.title_box}>
-        <span className={styles.big_title}>멘티 모집글</span>
+        <span className={styles.big_title}>{role === "O" ? '멘티' : '멘토'} 모집글</span>
       </div>
       <div className={styles.outer_box}>
         <form onSubmit={handleSubmit}>
@@ -160,14 +162,14 @@ function MyEditRecruit() {
           <div className={styles.outside}>
           <div className={styles.inner_box}>
             <div className={styles.left}>지역</div>
-            <select name="region" defaultValue={regionB} onChange={handleClickBRegion} className={styles.region}>
+            <select name="region" defaultValue={regionArray[0]} onChange={handleClickBRegion} className={styles.region}>
               {region_big.map((item) => (
                 <option value={item} key={item}>
                   {item}
                 </option>
               ))}
             </select>
-            <select name="region_sub" defaultValue={regionS} onChange={handleClickSRegion} className={styles.region}>
+            <select name="region_sub" defaultValue={regionArray[1]} onChange={handleClickSRegion} className={styles.region}>
 
               {region_big.map((big, idex) => (
                 regionB === big ? area[idex].map((item) => (
