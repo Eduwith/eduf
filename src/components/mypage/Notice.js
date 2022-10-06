@@ -7,7 +7,6 @@ import axios from "axios";
 import {MdDelete ,MdArrowBackIos, MdArrowForwardIos} from "react-icons/md";
 import notices from "../../data_study.js";
 
-//let notice = [["2022/02/24", "확률과 통계 멘토링 - 방금 새로운 멘티가 지원했어요."],["2022/02/24", "확률과 통계 멘토링 - 방금 새로운 멘티가 지원했어요."], ["2022/02/24", "확률과 통계 멘토링 - 방금 새로운 멘티가 지원했어요."], ["2022/02/24", "확률과 통계 멘토링 - 방금 새로운 멘티가 지원했어요."],["2022/02/24", "확률과 통계 멘토링 - 방금 새로운 멘티가 지원했어요."]];
 
 function Notice() {
     const navigate = useNavigate();
@@ -22,10 +21,10 @@ function Notice() {
     const onClickNotice = (field, notice_no) => {
         patchNotice(notice_no);
         if(field == "Mentoring"){
-            navigate("/mentoring/mentor");
+            navigate("/mymentoapply");
         }
         else if(field == "Study"){
-            navigate("/studies");
+            navigate("/mystudy");
         }
         else if(field == "Volunteer"){
             navigate("/volunteers");
@@ -59,12 +58,13 @@ function Notice() {
         try {
             const response = await axios.delete(baseUrl + `/notice/${notice_no}`);
             console.log(response.data);
+            window.location.reload();
         } catch (e) {
             console.log(e);
         }
     };
 
-    //알림 수정
+    //알림 확인
     const patchNotice = async (notice_no) => {
         try {
             const response = await axios.patch(baseUrl + `/notice/${notice_no}`, {

@@ -3,48 +3,34 @@
     margin-bottom: 50px;
 }
 
-.head {
-  height: 90px;
-  padding-top: 20px;
-  font-weight: 600;
-  font-size: 36px;
-}
-.nav {
-  text-align: center;
-  height: 50px;
-  line-height: 44px;
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  border-top: 2px solid #eee;
-  border-bottom: 2px solid #eee;
-}
-.nav li>* {
-  width: 180px;
-  font-size: 24px;
-}
-
 .body{
-    padding: 0 10%;
+    padding: 0 2%;
 }
 .top{
     margin-top: 47px;
     font-size: 22px;
     font-weight: 500;
 }
-
+.topcontent{
+    display: flex;
+    margin-top: 5px;
+}
+.nextbtn{
+    height: 90px;
+    width: 50px;
+    margin-top: 80px;
+}
 .topbox{
-    margin-top: 22px;
-    margin-bottom: 28px;
+    width: 100%;
     padding: 30px;
+    margin: 22px 80px 28px 80px;
     border: 2px solid #c4c4c4;
     border-radius: 10px;
 
     display: flex;
 }
 .title{
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 600;
     margin-bottom: 10px;
 }
@@ -64,13 +50,15 @@
     font-weight: 600;
     font-size: 20px;
     /* margin-left: 800px; */
-    margin-left: 42%;
+    margin-left: 41%;
     margin-top: 110px;
 }
-
+.boxlist{
+    margin: 0 110px;
+}
 .toplist{
     display: flex;
-    padding: 18px 1% 0px 3%;
+    padding: 18px 0% 0px 1%;
 }
 .detail{
     margin-left: 22px;
@@ -83,16 +71,16 @@
     background-color: white;
     border: none;
     font-size: 22px;
-
-    margin-left: 45%;
+    position: absolute;
+    margin-left: 46%;
 }
 .refusebtn{
     background-color: white;
     border: none;
     font-size: 22px;
     color: #FF0000;
-
-    margin-left: 35px;
+    position: absolute;
+    margin-left: 50%;
 }
 .bottom{
     margin-top: 73px;
