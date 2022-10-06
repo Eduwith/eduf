@@ -45,6 +45,7 @@ function MenteeMentoring() {
   };
   useEffect(() => {
     fetchGeul();
+    window.scrollTo(0, 0);
   }, []);
 
   //검색 - kw / 

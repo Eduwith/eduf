@@ -58,6 +58,7 @@ function MyMentoJournal({ togglePopup, menNo }) {
         if(response.data.result === "SUCCESS"){
           alert('일지 등록이 완료되었습니다.');
           togglePopup(false);
+          window.location.reload();
         }
         else
           alert('일지 등록에 실패하였습니다.');

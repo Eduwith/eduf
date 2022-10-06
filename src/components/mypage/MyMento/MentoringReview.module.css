@@ -1,0 +1,83 @@
+.wrap {
+  padding: 0 15%;
+}
+
+.body {
+  padding: 0 2%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+.title {
+  font-size: 22px;
+  margin: 2% 0;
+}
+
+.subtitle {
+  font-size: 24px;
+  margin: 1% 0;
+}
+
+.starbox {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 18px;
+  width: 37%;
+  padding-left: 1%;
+  border-radius: 5px;
+  height: 70px;
+  line-height: 80px;
+  border: 1px solid #859fe5;
+  
+}
+
+.score {
+  width: 40%;
+  font-size: 22px;
+  margin: 5px 0;
+}
+
+.reviewbox {
+  border: 1px solid #859fe5;
+  width: 100%;
+  resize: none;
+  height: 250px;
+  font-size: 17px;  
+  border-radius: 5px;
+  line-height: 28px;
+  padding: 1.1%;
+  margin-bottom: 2%;
+}
+
+
+.btn {
+  width: 120px;
+  height: 50px;
+  background-color: #4673EA;
+  box-shadow: none;  
+  border: 2px solid #4673EA;
+  border-radius: 30px;
+  font-size: 18px;
+  color: white;
+  font-weight: 550;
+  cursor: pointer;
+  margin: 0 15px;
+}
+
+.cbtn {
+  width: 120px;
+  height: 50px;
+  background-color: white;
+  border: 2px solid #4673EA;
+  box-shadow: none;
+  border-radius: 30px;
+  font-size: 18px;
+  color: #4673EA;
+  font-weight: 550;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.btnbox {
+  margin: 0 auto;
+  width: 285px;
+}
