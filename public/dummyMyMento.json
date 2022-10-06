@@ -1,0 +1,55 @@
+{
+  "mentor": [
+    {
+      "mentoring_no": 1,
+      "m_title": "멘토의 글",
+      "writer": {
+        "email": "shin@naver.com",
+        "name": "동동이가 멘토",
+        "age": 13
+      },
+      "applicant": {
+        "email": "dong2@gmail.com",
+        "name": "짱구가멘티",
+        "age": 23
+      },
+      "logList": [
+        {
+          "log_no": 5,
+          "title":"멘토 일지 1 : 부제부제22",
+          "date": "2022-10-04",
+          "content": "내용내용"
+        },
+        {
+          "log_no": 6,
+          "title":"멘토 일지 2 : 부제부제22",
+          "date": "2022-10-04",
+          "content": "내용내용"
+        }
+      ]
+    }
+  ],
+  "mentee": [
+    {
+      "mentoring_no": 2,
+      "m_title": "멘티의 글",
+      "writer": {
+        "email": "dong2@gmail.com",
+        "name": "김동동이 멘티",
+        "age": 23
+      },
+      "applicant": {
+        "email": "shin@naver.com",
+        "name": "멘토짱구",
+        "age": 13
+      },
+      "logList": [{
+        "log_no": 1,
+        "title":"멘티 일지 1 : 부제부제22",
+        "date": "2022-10-04",
+        "content": "내용내용"
+      }]
+    }
+  ]
+
+}
