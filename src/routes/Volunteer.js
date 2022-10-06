@@ -39,7 +39,6 @@ function Volunteer() {
     // }
 
     //const [vlist, setVlist] = useState(vlists);
-    
     const [vlist, setVlist] = useState([]);
     const apiVolunteer = "http://localhost:8080/api/volunteers";
     const baseUrl =  "http://localhost:8080";

@@ -42,7 +42,7 @@ function MyPage() {
     }
     const changeGender = (gender) =>{
         if(gender == "M"){return "남자"}
-        else if(gender == "W"){return "여자"}
+        else if(gender == "F"){return "여자"}
     }
 
     const [name, setName] = useState("");
@@ -68,8 +68,8 @@ function MyPage() {
 
     //회원정보 조회
     const baseUrl = "http://localhost:8080";
-    const [user, setUser] = useState(userdata);
-    //const [user, setUser] = useState([]);
+    //const [user, setUser] = useState(userdata);
+    const [user, setUser] = useState([]);
     const getUser = async () => {
         try {
             const response = await axios.get(baseUrl+ "/user/mypage");
