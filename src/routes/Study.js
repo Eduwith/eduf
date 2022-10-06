@@ -93,7 +93,7 @@ function Study(){
     useEffect(() => {
         getSlist();
     }, []);
-
+    //키워드 검색
     const onSearch = async () => {
         try {
             console.log(searchTag + "검색");
