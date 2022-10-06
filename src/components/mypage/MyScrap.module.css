@@ -1,8 +1,5 @@
 .wrap {
   padding: 0 15%;
-  /* width: 1300px;
-  height: 1000px;
-  margin: 0 auto; */
 }
 
 .body {
@@ -44,11 +41,11 @@
 .title{
   padding-top: 24px;
   padding-left: 20px;
-  font-size: 22px;
+  font-size: 24px;
 }
 .btndetail{
   position: absolute;
-  left: 70%;
+  left: 75%;
   padding-top: 24px;
   font-size: 22px;
   font-weight: 500;
