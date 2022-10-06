@@ -21,8 +21,6 @@ function MyPage() {
     const navigate = useNavigate();
 
     const onEditImg = () => {
-        //patchUser();
-        //getUser();
     };
     const onEdit = () => {
         if (window.confirm("프로필을 수정하시겠습니까? 프로필 수정을 위해 다시 로그인해주세요")) {
@@ -41,6 +39,10 @@ function MyPage() {
         } else {
             alert("회원 탈퇴를 취소하였습니다.")
         }
+    }
+    const changeGender = (gender) =>{
+        if(gender == "M"){return "남자"}
+        else if(gender == "W"){return "여자"}
     }
 
     const [name, setName] = useState("");
@@ -67,8 +69,8 @@ function MyPage() {
     //회원정보 조회
     const baseUrl = "http://localhost:8080";
     //const [user, setUser] = useState(userdata);
-
     const [user, setUser] = useState([]);
+
     const getUser = async () => {
         try {
             const response = await axios.get(baseUrl+ "/user/mypage");
@@ -138,7 +140,8 @@ function MyPage() {
                     <div><input name="name" type="text" placeholder={user.name} value={name} onChange={onNameHandler} className={styles.inputtext}/></div>
                     <div><input name="age" type="number" placeholder={user.age} value={age} onChange={onAgeHandler}className={styles.inputtext} /></div>
                     <div className={styles.text}>
-                        {user.gender == "M" ? "남자": "여자"}
+                        {changeGender(user.gender)}
+                        {/* {user.gender == "M" ? "남자": "여자"} */}
                     </div>
                     <div><input name="address" type="text" placeholder={user.address} value={address} onChange={onAddressHandler} className={styles.inputtext} /></div>
                 </div>
