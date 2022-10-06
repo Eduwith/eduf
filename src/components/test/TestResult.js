@@ -64,6 +64,7 @@ function TestResult() {
 
   useEffect(() => {
     sendMbti();
+    console.log(result[0]);
   }, []);
 
 
@@ -84,8 +85,21 @@ function TestResult() {
           );
         })}
       </ul>
+      <div>
+      { result[0] === "E" ?
+      <div>
+        <div className={styles.rectitle}>여러 사람들과 즐겁게 스터디 해볼까요?😄</div>
+        <Link to="/studies" className={styles.recbtn}>스터디 신청하기</Link>
+      </div>
       
-      <Link to="/main" className={styles.homebtn}>홈 화면으로 이동</Link>
+      :
+      <div>
+        <div className={styles.rectitle}>나와 잘 맞는 멘토/멘티와 함께 공부해 볼까요?😄</div>
+        <Link to="/mentoring/mentor" className={styles.recbtn}>멘토링 신청하기</Link>
+      </div>
+      }
+      </div>
+      <Link to="/main" className={styles.homebtn}>메인 화면으로 가기</Link>
     </div>
     </div>
   )

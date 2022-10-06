@@ -72,7 +72,7 @@ function MenteeRecruit() {
     console.log(e.target.value)
   }
 
-  const [regionS, setRegionS] = useState("");
+  const [regionS, setRegionS] = useState("강남구");
   const handleClickSRegion = (e) => {
     setRegionS(e.target.value)
     console.log(e.target.value)

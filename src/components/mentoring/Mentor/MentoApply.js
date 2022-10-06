@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import styles from "./MentoApply.module.css";
 import pin from "../../../images/animal.png";
@@ -44,8 +44,22 @@ function MentoApply({ togglePopup, current, bmk, onClickBmk}) {
   //   setBmk(current => !current);
   //   console.log(m_no);
   // }
+
+  const [scrap, setScrap] = useState("N");
+
   const url = 'http://localhost:8080';
 
+  const getList = async () => {
+    const response = await axios.get(`${url}/mentoring/${m_no}`);
+    if(response.data) {
+      setScrap(response.data.scrap);
+    }
+  }
+
+  useEffect(() => {
+    getList();
+  },[]);
+  
   const PlusBMK = async (e) => {
     try {
         
@@ -112,7 +126,7 @@ function MentoApply({ togglePopup, current, bmk, onClickBmk}) {
             
             <div>
               <div className={styles.bin}>
-               { bmk ? <BsBookmarkStarFill size="30" className={styles.book} onClick={DeleteBMK} /> : <BsBookmarkStar size="30" className={styles.book} onClick={PlusBMK} /> }
+               { scrap === "Y" ? <BsBookmarkStarFill size="30" className={styles.book} onClick={DeleteBMK} /> : <BsBookmarkStar size="30" className={styles.book} onClick={PlusBMK} /> }
                 <div className={styles.title}>{title}</div>
                 <span className={styles.star}>★ {star}</span>
                 <ImCross size="20" className={styles.x} onClick={togglePopup} />

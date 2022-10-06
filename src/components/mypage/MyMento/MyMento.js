@@ -133,9 +133,9 @@ function MyMento() {
                       
                       { item.applicant &&
                       <div>                        
-                        <div className={styles.desc1}>이름: {item.applicant.name}</div>
-                        <div className={styles.desc1}>나이: {item.applicant.age} 세</div>
-                        <div className={styles.desc1}>이메일:{item.applicant.email}</div> 
+                        <div className={styles.desc1}>이름: {role === "O" ? item.applicant.name : item.writer.name }</div>
+                        <div className={styles.desc1}>나이: {role === "O" ? item.applicant.age : item.writer.age } 세</div>
+                        <div className={styles.desc1}>이메일:{role === "O" ? item.applicant.email : item.writer.email}</div> 
                       </div>
 } 
                 </div>

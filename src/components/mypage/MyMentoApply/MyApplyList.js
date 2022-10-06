@@ -26,7 +26,7 @@ function MyApplyList() {
   }
 
   const applyUrgeEvent = () => {
-    axios.post(`${url}/${Mno}/apply/${applyNo}/urge`, {
+    axios.post(`${url}/mentoring/${Mno}/apply/${applyNo}/urge`, {
       m_no: Mno,
       apply_no: applyNo
     })

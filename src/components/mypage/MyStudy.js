@@ -27,7 +27,7 @@ function MyStudy() {
     };
     //스터디 상세페이지로 이동
     const onStudyDetail = (s_no) => {
-        <Link to={`/studies/${s_no}`} state={{ data: item}} style={{ textDecoration: "none", color: "#333333" }}></Link>
+        //<Link to={`/studies/${s_no}`} state={{ data: item}} style={{ textDecoration: "none", color: "#333333" }}></Link>
         console.log(mySrecruitNo);
     };
 
