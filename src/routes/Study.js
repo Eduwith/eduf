@@ -27,21 +27,21 @@ function Study(){
         background-color : #c4c4c4;
       }
     `;
-    const baseUrl = "http://localhost:8080";
-    const [page, setPage] = useState(1); // 현재 페이지
-    const onClickTwo = () =>{
-        setPage(2);
-        console.log("2page")
-    }
-    const onClickone= () =>{
-        setPage(1);
-    }
+
+    //페이징 처리
+     const [page, setPage] = useState(1); // 현재 페이지
+    // const onClickTwo = () =>{
+    //     setPage(2);
+    //     console.log("2page")
+    // }
+    // const onClickone= () =>{
+    //     setPage(1);
+    // }
     // const [currentPosts, setCurrentPosts] = useState([]); // 보여줄 포스트
     // const [postPerPage] = useState(7); //페이지당 포스트 개수
     // const indexOfLastPost = page * postPerPage;
     // const indexOfFirstPost = indexOfLastPost - postPerPage;
     // const handlePageChange = (page) => {setPage(page);}
-
     // useEffect(()=>{
     //     setCurrentPosts(slist.slice(indexOfFirstPost, indexOfLastPost));
     // }, [indexOfFirstPost, indexOfLastPost, page]);
@@ -54,56 +54,38 @@ function Study(){
 
     //스크랩
     const [scrap, setScrap] = useState(false);
-    const onClickScrap = () => {
-        setScrap(current => !current);
+    const getScrap = (scrapYn, s_no) => {
+        if (scrapYn == "Y")
+        return <img src={scrapicon} className={styles.scrap} onClick={()=>onClickScrap(s_no)} />
+        if (scrapYn == "N") return <img src={scrappedicon} className={styles.scrap} onClick={()=>onClickScrap(s_no)} />
     }
-    const getScrap = (scrapYn) => {
-        if(scrapYn == "Y") return (scrap == true)
-        if(scrapYn == "N") return (scrap == false)
+    const onClickScrap = (stdNo) => {
+        postScrap(stdNo)
     }
-    // const postScrap = async () => {
-    //     axios.post(baseUrl+"/studies/scrap", {
-    //       s_no: s_no,
-    //       scrapYN: scrap
-    //     }).then(function (response) {
-          
-    //     }).catch(function(error) {
-    //       console.log(error);
-    //       alert('실패');
-    //     });
-    // };
-
+    // const getScrap = (scrapYn, s_no) => {
+    //     if (scrapYn == "Y")
+    //     return setScrap(current => !current); (<img src={scrapicon} className={styles.scrap} onClick={()=>onClickScrap(s_no)} />);
+    //     if (scrapYn == "N") return <img src={scrappedicon} className={styles.scrap} onClick={()=>onClickScrap(s_no)} />
+    // }
+    // const onClickScrap = (stdNo) => {
+    //     scrap ? <img src={scrappedicon} className={styles.scrap} onClick={()=>onClickScrap(stdNo)} /> : <img src={scrapicon} className={styles.scrap} onClick={()=>onClickScrap(stdNo)} />
+    //     postScrap(stdNo);
+    // }
     //검색창
     const [searchTag, setSearchTag] = useState("");
     const handleSearchInput = (e) => {
         setSearchTag(e.target.value);
     }
-    const onSearch = async () => {
-        try {
-            console.log(searchTag + "검색");
-            const response = await axios.get(`http://localhost:8080/study/keyword=${searchTag}`, {
-                keyword : searchTag
-            });
-            if (response.data) {
-                setSlist(response.data);
-                console.log(response.data);
-            }
-        } catch (err) {
-            console.log("search Error >>", err);
-        }
-    };
 
-
+    const baseUrl =  "http://localhost:8080";
     //const [slist, setSlist] = useState(slists);
-    const apiStudy = "http://localhost:8080/api/studies";
     const [slist, setSlist] = useState([]);
     const getSlist = async () => {
         try {
-            const response = await axios.get(apiStudy,
-                {params : { page: page}
-            });
-            setSlist(response.data); // 데이터는 response.data 안에
+            const response = await axios.get(baseUrl+ `/api/studies?page=0`);
+            setSlist(response.data.content); // 데이터는 response.data 안에
             console.log(response.data);
+            console.log(response.data.content);
         } catch (e) {
             console.log(e);
         }
@@ -111,6 +93,47 @@ function Study(){
     useEffect(() => {
         getSlist();
     }, []);
+
+    const onSearch = async () => {
+        try {
+            console.log(searchTag + "검색");
+            const response = await axios.get(baseUrl + `/studies/search?keyword=${searchTag}`, {
+                keyword : searchTag
+            });
+            setSlist(response.data);
+            console.log(response.data);
+        } catch (er) {
+            console.log("search Error >>", er);
+        }
+    };
+
+    //스크랩 신청
+    const postScrap = async (stdNo) => {
+        try {
+            const response = await axios.post(baseUrl+ `/api/studies/${stdNo}/scrap/save`);
+            console.log(response.data);
+        } catch (e) {
+            console.log(e);
+    }
+        // axios.post(baseUrl+"/studies/scrap", {
+        //   s_no: s_no,
+        //   scrapYN: scrap
+        // }).then(function (response) {
+          
+        // }).catch(function(error) {
+        //   console.log(error);
+        //   alert('실패');
+        // });
+    };
+     //스크랩 취소
+     const deleteScrap = async (stdNo) => {
+        try {
+            const response = await axios.post(baseUrl+ `/api/studies/${stdNo}/scrap/delete`);
+            console.log(response.data);
+        } catch (e) {
+            console.log(e);
+        }
+    };
 
     return(
         <div className={styles.wrap}>
@@ -133,9 +156,9 @@ function Study(){
                             <Link to={`/studies/${item.s_no}`} state={{ data: item, scrap: scrap}} style={{ textDecoration: "none", color: "#333333" }}>
                                 <div className={styles.boxtitle} onClick={toggleStudyDetailPopup}>{item.title}</div>
                             </Link>
-                            {/* {getScrap(item.scrapYN)}
-                            {console.log(scrap)} */}
-                            {scrap ? <img src={scrappedicon} className={styles.scrap} onClick={onClickScrap} /> : <img src={scrapicon} className={styles.scrap} onClick={onClickScrap} />}
+                            {getScrap(item.scrapYN, item.s_no)}
+                            
+                            {/* {scrap ? <img src={scrappedicon} className={styles.scrap} onClick={()=>onClickScrap(item.s_no)} /> : <img src={scrapicon} className={styles.scrap} onClick={()=>onClickScrap(item.s_no)} />} */}
                         </div>
                         <Link to={`/studies/${item.s_no}`} state={{ data: item, scrap : scrap, }} style={{textDecoration : "none", color: "#333333"}}>
                         <div className={styles.people}>
@@ -148,14 +171,7 @@ function Study(){
                             [모집마감기한] {item.r_end_date}
                             <hr />
                         </div>
-
-                        <div className={styles.boxtag} onClick={toggleStudyDetailPopup}>
-                            {
-                                item.tag.map((tag, idex) => (
-                                    <div className={styles.tag} key={tag}>#{tag}</div>
-                                ))
-                            }
-                        </div>
+                        <div className={styles.boxtag} onClick={toggleStudyDetailPopup}>{item.tag}</div>
                         </Link>
                         {/* {studyDetailPopup && (
                                 <StudyDetail slist={item} toggleStudyDetailPopup={toggleStudyDetailPopup} scrap={scrap} onClickScrap={onClickScrap}/>
@@ -197,3 +213,11 @@ export default Study;
     </div>
 </Link>
 </div> */}
+
+{/* <div className={styles.boxtag} onClick={toggleStudyDetailPopup}>
+                            {
+                                item.tag.map((tag, idex) => (
+                                    <div className={styles.tag} key={tag}>#{tag}</div>
+                                ))
+                            }
+                        </div> */}

@@ -94,7 +94,8 @@ function Notice() {
                         ))}
                     </div>
                 </div>
-                <div className={styles.nbottom}><MdArrowBackIos size={25}/> 1 2 3 <MdArrowForwardIos size={25}/></div>
+                {/* <div className={styles.nbottom}><MdArrowBackIos size={25}/> 1 2 3 <MdArrowForwardIos size={25}/></div> */}
+                <div className={styles.nbottom}></div>
         </div>
     );
 }

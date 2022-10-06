@@ -42,7 +42,7 @@ function MyPage() {
     }
     const changeGender = (gender) =>{
         if(gender == "M"){return "남자"}
-        else if(gender == "W"){return "여자"}
+        else if(gender == "F"){return "여자"}
     }
 
     const [name, setName] = useState("");
