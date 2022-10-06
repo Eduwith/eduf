@@ -31,9 +31,9 @@ function MyScrap() {
     
 
     //스크랩 리스트 조회
-    const [scraplist, setScraplist] = useState(slists);
+    //const [scraplist, setScraplist] = useState(slists);
     const baseUrl =  "http://localhost:8080";
-    // const [scraplist, setScraplist] = useState([]);
+    const [scraplist, setScraplist] = useState([]);
     const getScrapMlist = async () => {
         try {
             const response = await axios.get(baseUrl+ "/user/scrap/mentoring");
