@@ -8,8 +8,8 @@ import axios from "axios";
 function StudyRegister() {
     const navigate = useNavigate();
 
-    const email = "email.com";
-    const current_people = "0";
+    //const email = "email.com";
+    //const current_people = "0";
     const [title, setTitle] = useState("");
     const [tag, setTag] = useState("");
     const [total_people, setTPeople] = useState("");
@@ -48,33 +48,52 @@ function StudyRegister() {
       console.log(event.currentTarget.value);
     }
 
-  const apiStudyRegister = "http://localhost:8080/api/studies/register";
+  const baseUrl =  "http://localhost:8080";
+  //const apiStudyRegister = "http://localhost:8080/api/studies/register";
   const postStudyRegister = async () => {
       console.log("스터디 등록 버튼 클릭됨");
-      axios.post(apiStudyRegister, {
-        email: email,
-        title: title,
-        contents: contents,
-        tag: tag,
-        total_people: total_people,
-        current_people: current_people,
-        r_end_date: r_end_date,
-        current_people:current_people
-      }).then(function (response) {
-        console.log('스터디 등록 완료');
-        navigate("/studies");
-        // if (response.data) {
-        //   console.log('스터디 등록 완료');
-        //   navigate("/study");
-        // }
-        // else {
-        //   alert('등록 실패');
-        // }
-      }).catch(function(error) {
-        console.log(error);
-        alert('등록 실패');
-      });
-
+      try {
+        const response = await axios.post(baseUrl + '/mentoring/recruitment', {
+          title: title,
+          contents: contents,
+          tag: tag,
+          total_people: total_people,
+          r_end_date: r_end_date,
+          s_period: s_period
+        });
+          if(response.data){
+              alert('스터디 모집글이 등록되었습니다.');
+              navigate('/studies')
+          }
+          else{
+              alert('스터디 모집글 등록에 실패하였습니다.');
+          }
+      } catch (err) {
+        console.log("Error >>", err);
+      }
+      // axios.post(apiStudyRegister, {
+      //   email: email,
+      //   title: title,
+      //   contents: contents,
+      //   tag: tag,
+      //   total_people: total_people,
+      //   current_people: current_people,
+      //   r_end_date: r_end_date,
+      //   current_people:current_people
+      // }).then(function (response) {
+      //   console.log('스터디 등록 완료');
+      //   navigate("/studies");
+      //   // if (response.data) {
+      //   //   console.log('스터디 등록 완료');
+      //   //   navigate("/study");
+      //   // }
+      //   // else {
+      //   //   alert('등록 실패');
+      //   // }
+      // }).catch(function(error) {
+      //   console.log(error);
+      //   alert('등록 실패');
+      // });
   };
 
   return (

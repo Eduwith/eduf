@@ -34,41 +34,84 @@ function StudyDetail() {
 
     console.log(slist);
     console.log(location.state.scrap);
-
-    const baseUrl = "http://localhost:8080";
-    const apiStudyDetail = "http://localhost:8080/api/studies"+slist.s_no
-    const postStudy = async () => {
-        try {
-            axios.post(apiStudyDetail, {
-                s_no: slist.s_no,
-                scrapYN: scrap
-            }).then(function(response) {
-                if(response.data){
-                    console.log('스터디 신청 완료');
-                  }
-                  else{
-                    alert('신청 실패');
-                  }
-            });
-        } catch (e) {
-            console.log(e);
-        }
-    };
     
     const [scrap, setScrap] = useState(scrapYN);
-    const onClickScrap = () => {
-        setScrap(current => !current);
+    const getScrap = (scrapYn, s_no) => {
+        if (scrapYn == "Y")
+        return <img src={scrapicon} className={styles.scrap} onClick={()=>onClickScrap(s_no, scrapYn)} />
+        if (scrapYn == "N") return <img src={scrappedicon} className={styles.scrap} onClick={()=>onClickScrap(s_no, scrapYN)} />
+    }
+    const onClickScrap = (stdNo, scrapYN) => {
+        if(scrapYN == "Y"){deleteScrap(stdNo);}
+        if(scrapYN == "N"){postScrap(stdNo);}
     }
 
-    const onClickApply = () => {
-        alert('신청되었습니다.');
+    const onClickApply = (stdNo) => {
         //toggleStudyDetailPopup(false);
-        postStudy();
+        postStudy(stdNo);
     }
     const onClickClose = () => {
         //toggleStudyDetailPopup(false);
         navigate('/studies');
     }
+
+    const baseUrl = "http://localhost:8080";
+    //스터디 신청
+    const postStudy = async (stdNo) => {
+        try {
+            const response = await axios.post(baseUrl+ `/api/studies/${stdNo}`);
+            alert("스터디가 신청되었습니다")
+            console.log(response.data);
+        } catch (e) {
+            console.log(e);
+        }
+        // try {
+        //     axios.post(baseUrl + `/api/studies/${sNo}`, {
+        //         s_no: slist.s_no,
+        //         scrapYN: scrap
+        //     }).then(function(response) {
+        //         if(response.data){
+        //             console.log('스터디 신청 완료');
+        //           }
+        //           else{
+        //             alert('신청 실패');
+        //           }
+        //     });
+        // } catch (e) {
+        //     console.log(e);
+        // }
+    };
+    //스크랩 신청
+    const postScrap = async (stdNo) => {
+        try {
+            const response = await axios.post(baseUrl+ `/api/studies/${stdNo}/scrap/save`, {
+                stdNo : stdNo
+            });
+            console.log(response.data);
+        } catch (e) {
+            console.log(e);
+    }
+        // axios.post(baseUrl+"/studies/scrap", {
+        //   s_no: s_no,
+        //   scrapYN: scrap
+        // }).then(function (response) {
+          
+        // }).catch(function(error) {
+        //   console.log(error);
+        //   alert('실패');
+        // });
+    };
+     //스크랩 취소
+     const deleteScrap = async (stdNo) => {
+        try {
+            const response = await axios.post(baseUrl+ `/api/studies/${stdNo}/scrap/delete`, {
+                stdNo : stdNo
+            });
+            console.log(response.data);
+        } catch (e) {
+            console.log(e);
+        }
+    };
 
     return(
         <div>
@@ -77,7 +120,7 @@ function StudyDetail() {
                 <div className={styles.boxtop}>
                     {console.log(slist.title)}
                     <div className={styles.boxtitle}>{slist.title}</div>
-                    { scrap ? <img src={scrappedicon} className={styles.scrap} onClick={onClickScrap}/> : <img src={scrapicon} className={styles.scrap} onClick={onClickScrap} /> } 
+                    {getScrap(slist.scrapYN, slist.s_no)} 
                     <img className={styles.close} src={closeicon} onClick={onClickClose}/>
                 </div>
                 <div className={styles.people}>
@@ -85,9 +128,10 @@ function StudyDetail() {
                     {slist.current_people} / {slist.total_people}
                 </div>
                 <div className={styles.boxtag}>
-                    <div className={styles.tag}>#한글</div>
+                    {slist.tag}
+                    {/* <div className={styles.tag}>#한글</div>
                     <div className={styles.tag}>#다문화</div>
-                    <div className={styles.tag}>#문법</div>
+                    <div className={styles.tag}>#문법</div> */}
                 </div>
                 <hr />
                 <div className={styles.boxdetail}>
@@ -96,7 +140,7 @@ function StudyDetail() {
                     모집마감기한 &nbsp;&nbsp;&nbsp;&nbsp; {slist.r_end_date}
                 </div>
                 <hr />
-                <button className={styles.btn_apply} onClick={onClickApply}>신청하기</button>   
+                <button className={styles.btn_apply} onClick={()=>onClickApply(slist.s_no)}>신청하기</button>   
             </div>
         </div>
     );
