@@ -40,6 +40,10 @@ function MyPage() {
             alert("회원 탈퇴를 취소하였습니다.")
         }
     }
+    const changeGender = (gender) =>{
+        if(gender == "M"){return "남자"}
+        else if(gender == "W"){return "여자"}
+    }
 
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
@@ -64,8 +68,8 @@ function MyPage() {
 
     //회원정보 조회
     const baseUrl = "http://localhost:8080";
-    //const [user, setUser] = useState(userdata);
-    const [user, setUser] = useState([]);
+    const [user, setUser] = useState(userdata);
+    //const [user, setUser] = useState([]);
     const getUser = async () => {
         try {
             const response = await axios.get(baseUrl+ "/user/mypage");
@@ -135,7 +139,8 @@ function MyPage() {
                     <div><input name="name" type="text" placeholder={user.name} value={name} onChange={onNameHandler} className={styles.inputtext}/></div>
                     <div><input name="age" type="number" placeholder={user.age} value={age} onChange={onAgeHandler}className={styles.inputtext} /></div>
                     <div className={styles.text}>
-                        {user.gender == "M" ? "남자": "여자"}
+                        {changeGender(user.gender)}
+                        {/* {user.gender == "M" ? "남자": "여자"} */}
                     </div>
                     <div><input name="address" type="text" placeholder={user.address} value={address} onChange={onAddressHandler} className={styles.inputtext} /></div>
                 </div>
