@@ -50,6 +50,7 @@
     background-color: white;
     border-radius: 5px;
     border: 1px solid #5D6466;
+    cursor: pointer;
 }
 .input{
     width: 120%;
@@ -82,7 +83,6 @@
 
 .editbtn {
     color: white;
-
     background-color: #4673EA;
     width: 130px;
     height: 50px;
@@ -90,6 +90,7 @@
     border-radius: 30px;
     font-weight: 600;
     font-size: 22px;
+    cursor: pointer;
 
 }
 .quitbtn {
@@ -102,4 +103,5 @@
     border-radius: 30px;
     font-weight: 600;
     font-size: 22px;
+    cursor: pointer;
 }

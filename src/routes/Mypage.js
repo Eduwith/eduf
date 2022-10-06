@@ -6,19 +6,18 @@ import myimg from "../images/myimg.png"
 import MyNavbar from "../components/mypage/MyNavbar";
 
 function MyPage() {
-
     const userdata = {
         
             email: "kim@gmail.com",
             name: "김수정",
-
             pwd : "123",
             age : "23",
-            gender : "여자",      
+            gender : "W",      
             address : "서울특별시성북구",
             profile_img : ""
         
     }
+
     const navigate = useNavigate();
 
     const onEditImg = () => {
@@ -67,7 +66,7 @@ function MyPage() {
 
     //회원정보 조회
     const baseUrl = "http://localhost:8080";
-    //const [user, setuser] = useState(userdata);
+    //const [user, setUser] = useState(userdata);
     const [user, setUser] = useState([]);
     const getUser = async () => {
         try {
@@ -95,7 +94,6 @@ function MyPage() {
                 changePwd: changePassword,
                 address: address
             });
-            
             console.log(response.data);
         } catch (e) {
             console.log(e);
@@ -138,7 +136,9 @@ function MyPage() {
                     <div><input name="changePassword" type="password" placeholder="변경할 비밀번호를 입력하세요" value={changePassword} onChange={onChangePasswordHandler} className={styles.input}/></div>
                     <div><input name="name" type="text" placeholder={user.name} value={name} onChange={onNameHandler} className={styles.inputtext}/></div>
                     <div><input name="age" type="number" placeholder={user.age} value={age} onChange={onAgeHandler}className={styles.inputtext} /></div>
-                    <div className={styles.text}>{user.gender}</div>
+                    <div className={styles.text}>
+                        {user.gender == "M" ? "남자": "여자"}
+                    </div>
                     <div><input name="address" type="text" placeholder={user.address} value={address} onChange={onAddressHandler} className={styles.inputtext} /></div>
                 </div>
             </div>
