@@ -21,8 +21,6 @@ function MyPage() {
     const navigate = useNavigate();
 
     const onEditImg = () => {
-        //patchUser();
-        //getUser();
     };
     const onEdit = () => {
         if (window.confirm("프로필을 수정하시겠습니까? 프로필 수정을 위해 다시 로그인해주세요")) {
