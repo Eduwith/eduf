@@ -10,6 +10,7 @@ function TestResult() {
 
   const params = searchParams.get("res");
   const username = searchParams.get("name");
+  const url = "http://localhost:8080";
 
   let e = 0, s = 0, t = 0, j = 0;
 
@@ -41,20 +42,29 @@ function TestResult() {
     }
   }
 
-  const sendMbti = () => {
-    axios.post('http://localhost:8080/api/userTest',{
+  const sendMbti = async () => {
+  try {
+    console.log(mbti[count].id,'and ', mbti[count].nickname);
+    const response = await axios.post(`${url}/api/userTest`,{
       mbti: mbti[count].id,
       animal: mbti[count].nickname
-    })
-    .then((res) => {
-      if(res.data){
-        console.log('mbti 결과 전송 완료 ', res.data)
-      }
     });
+    if(response) {
+      if(response.data){
+        console.log('mbti 결과 전송 완료 ', response.data)
+      }
+    };
+
+  } catch (err) {
+    console.log("Box search Error >>", err);
+  }
+
+
   }
 
   useEffect(() => {
     sendMbti();
+    console.log(result[0]);
   }, []);
 
 
@@ -75,8 +85,21 @@ function TestResult() {
           );
         })}
       </ul>
+      <div>
+      { result[0] === "E" ?
+      <div>
+        <div className={styles.rectitle}>여러 사람들과 즐겁게 스터디 해볼까요?😄</div>
+        <Link to="/studies" className={styles.recbtn}>스터디 신청하기</Link>
+      </div>
       
-      <Link to="/main" className={styles.homebtn}>홈 화면으로 이동</Link>
+      :
+      <div>
+        <div className={styles.rectitle}>나와 잘 맞는 멘토/멘티와 함께 공부해 볼까요?😄</div>
+        <Link to="/mentoring/mentor" className={styles.recbtn}>멘토링 신청하기</Link>
+      </div>
+      }
+      </div>
+      <Link to="/main" className={styles.homebtn}>메인 화면으로 가기</Link>
     </div>
     </div>
   )

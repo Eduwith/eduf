@@ -79,13 +79,13 @@ function MyEditRecruit() {
   const area16 = ["서귀포시", "제주시", "남제주군", "북제주군"];
   const area =
     [area1, area2, area3, area4, area5, area6, area7, area8, area9, area10, area11, area12, area13, area14, area15, area16];
-  const [regionB, setRegionB] = useState("서울특별시");
+  const [regionB, setRegionB] = useState(regionArray[0]);
   const handleClickBRegion = (e) => {
     setRegionB(e.target.value)
     console.log(e.target.value)
   }
 
-  const [regionS, setRegionS] = useState("");
+  const [regionS, setRegionS] = useState(regionArray[1]);
   const handleClickSRegion = (e) => {
     setRegionS(e.target.value)
     console.log(e.target.value)
