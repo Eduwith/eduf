@@ -40,19 +40,19 @@ const Login = (props) => {
         email: email,
         pwd: pw
       })
-        .then((res) => {
-          if(res.data){
-            const token = res.data.accessToken;
+        .then((response) => {
+          if(response.data.accessToken){
+            const token = response.data.accessToken;
             localStorage.setItem('jwtToken', token);
             setTokenData(localStorage.getItem('jwtToken'));
             setAuthorizationToken(token);
-            setUsername(res.data.name);
-            setUserId(res.data.email);
+            setUsername(response.data.name);
+            setUserId(response.data.email);
             props.close(); 
-            navigate('/main');
+            window.location.replace(`/main`);
           }
           else {
-            alert('로그인 실패: ID 또는 PW를 잘못 입력하셨습니다.');
+            alert('일치하는 회원 정보가 없습니다.');
           }
         });
     } catch (err) {

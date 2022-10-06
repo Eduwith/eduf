@@ -1,7 +1,7 @@
 .bdbox {
   width: 100%;
   background-color: #F1F5FA;
-  height: 670px;
+  height: 800px;
 }
 
 .qbox {
@@ -50,9 +50,30 @@
   padding-left: 30px;
 }
 
-.homebtn {
+.rectitle {
+  font-size: 22px;
+  font-family: "GangwonEduBold";
+}
+
+.recbtn {
+  font-size: 20px;  
+  font-family: "GangwonEduBold";
+  margin: 20px;
   text-decoration: none;
-  color: #4673EA;
+  display: inline-block;
+  border: 2px solid #7594e8;
+  width: 200px;
+  height: 50px;
+  color:#4673EA;
+  line-height: 45px;
+  border-radius: 10px;
+}
+
+.homebtn {
+  margin-top: 10px;
+  display: inline-block;
+  text-decoration: none;
+  color: #666;
   font-weight: 700;
   
 }
