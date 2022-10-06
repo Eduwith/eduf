@@ -15,7 +15,7 @@ function StudyRegister() {
     const [total_people, setTPeople] = useState("");
     const [r_end_date, setEDate] = useState("");
     const [contents, setContents] = useState("");
-    const [s_period, setSperiod] = useState("1");
+    const [s_period, setSperiod] = useState(1);
   
   
     const onTitleHandler = (event) => {
@@ -59,33 +59,38 @@ function StudyRegister() {
           tag: tag,
           total_people: total_people,
           r_end_date: r_end_date,
-          s_period: s_period
+          s_period: 1
         });
+      if(response.data){
         alert('스터디 모집글이 등록되었습니다.');
         console.log(response.data);
-        navigate('/studies');
+        navigate("/mypage")
+        //window.location.replace(`/mypage`);
+      }
+      else{
+          alert('스터디 모집글 등록에 실패하였습니다.');
+      }
+    
       } catch (err) {
         console.log("Error >>", err);
       }
-      // axios.post(apiStudyRegister, {
-      //   email: email,
-      //   title: title,
-      //   contents: contents,
-      //   tag: tag,
-      //   total_people: total_people,
-      //   current_people: current_people,
-      //   r_end_date: r_end_date,
-      //   current_people:current_people
-      // }).then(function (response) {
+      // axios.post(apiStudyRegister, baseUrl + '/api/studies/register', {
+      //     title: title,
+      //     contents: contents,
+      //     tag: tag,
+      //     total_people: total_people,
+      //     r_end_date: r_end_date,
+      //     s_period: "1"
+      //   }).then(function (response) {
       //   console.log('스터디 등록 완료');
-      //   navigate("/studies");
-      //   // if (response.data) {
-      //   //   console.log('스터디 등록 완료');
-      //   //   navigate("/study");
-      //   // }
-      //   // else {
-      //   //   alert('등록 실패');
-      //   // }
+      //   navigate("/main");
+        // if (response.data) {
+        //   console.log('스터디 등록 완료');
+        //   navigate("/study");
+        // }
+        // else {
+        //   alert('등록 실패');
+        // }
       // }).catch(function(error) {
       //   console.log(error);
       //   alert('등록 실패');
@@ -114,7 +119,7 @@ function StudyRegister() {
           </div>
           <div className={styles.inner_box}>
             <div className={styles.boxtop}>스터디기간</div>
-            {/* <select name="periodtest" onChange={onSperiodHandler}  className={styles.input_select}>
+            {/* <select name="period" onChange={onSperiodHandler}  className={styles.input_select}>
               <option value="1">1개월 미만</option>
               <option value="3">3개월 미만</option>
               <option value="6">6개월 미만</option>
@@ -130,10 +135,9 @@ function StudyRegister() {
             <input type="text" value={tag} onChange={onTagHandler} className={styles.input_title} placeholder="#태그를 입력하세요" />
           </div>
 
-
           <div className={styles.btnblock}>
-          <button type="submit" className={styles.btn_apply} onClick={postStudyRegister}>등록하기</button>
-          <button type="submit" className={styles.btn_back} onClick={ () => navigate('/studies')}>취소하기</button>
+          <button type="submit" className={styles.btn_apply}>등록하기</button>
+          <button type="button" className={styles.btn_back} onClick={ () => navigate('/studies')}>취소하기</button>
           </div>
           
         </form>
@@ -145,9 +149,3 @@ function StudyRegister() {
 }
 
 export default StudyRegister;
-
-// regin_big.map((item, idex ){regionB === region_big[idex] ? area[idex].map((item) => (
-//   <option value={item} key={item}>
-//     {item}
-//   </option>
-// )) : null}
