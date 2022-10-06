@@ -48,7 +48,8 @@ function Mento() {
           <div>{item.title}</div>
           <div>분야: &nbsp;&nbsp;{item.field}</div>
           <div>이름: &nbsp;&nbsp;{item.name}</div>
-          <button type="button" className={styles.detailbtn} >상세보기</button>
+          <div>{item.region}</div>
+          {/* <button type="button" className={styles.detailbtn} >상세보기</button> */}
         </div>
       ))}
       
