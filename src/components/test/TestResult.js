@@ -10,6 +10,7 @@ function TestResult() {
 
   const params = searchParams.get("res");
   const username = searchParams.get("name");
+  const url = "http://localhost:8080";
 
   let e = 0, s = 0, t = 0, j = 0;
 
@@ -41,16 +42,24 @@ function TestResult() {
     }
   }
 
-  const sendMbti = () => {
-    axios.post('http://localhost:8080/api/userTest',{
+  const sendMbti = async () => {
+  try {
+    console.log(mbti[count].id,'and ', mbti[count].nickname);
+    const response = await axios.post(`${url}/api/userTest`,{
       mbti: mbti[count].id,
       animal: mbti[count].nickname
-    })
-    .then((res) => {
-      if(res.data){
-        console.log('mbti 결과 전송 완료 ', res.data)
-      }
     });
+    if(response) {
+      if(response.data){
+        console.log('mbti 결과 전송 완료 ', response.data)
+      }
+    };
+
+  } catch (err) {
+    console.log("Box search Error >>", err);
+  }
+
+
   }
 
   useEffect(() => {
